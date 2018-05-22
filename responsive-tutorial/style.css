@@ -1,0 +1,165 @@
+/*RESETS*/
+* {
+  box-sizing:border-box;
+  padding:0;
+  margin:0;
+}
+ul, ol {
+    padding: initial;
+}
+.clearFix:before, .clearFix:after {
+    content: " ";
+    display: table;
+}
+.clearFix:after {
+    clear: both;
+}
+main, section, article, nav, header, footer, aside{
+  display:block;
+}
+img, svg{
+  width:100%;
+  max-width: 100%;
+}
+/*MAIN BLOCKS*/
+html {
+    background: #333;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background: #fff;
+    color: #333;
+}
+.wrapperTop, .wrapperBottom {
+    background: #333;
+    color: #fff;
+}
+.wrapperTop {
+    box-shadow: 0 1px 25px #333;
+}
+.pageHeader, .pageNavigation, .wrapperMain, .pageFooter {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Grid*/
+.oneThird {
+    padding: 1rem;
+}
+.twoThirds {
+    padding: 1rem;
+}
+.oneHalf {
+    padding: 1rem;
+}
+.fullWidth {
+    padding: 1rem;
+}
+/*NAVIGATION*/
+.pageNavigation {
+    padding: 1rem 1rem 0 1rem;
+}
+.menuItems {
+    list-style: none;
+}
+.menuItems li {
+    line-height: 1.8rem;
+    border-bottom: 2px solid #464646;
+    text-transform: uppercase;
+}
+.menuItems li a {
+    color: #fff;
+    text-decoration: none;
+}
+/*TOPOGRAPHY BLOCKS*/
+h1 {
+    font-family: Georgia, serif;
+    padding: 1rem 0;
+    font-weight: normal;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+}
+h2, h3 {
+    padding: 0.6rem 0;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    
+}
+/*INPUTS & BUTTONS */
+.searchForm {
+    text-align: center;
+}
+.searchForm input {
+    height: 30px;
+    vertical-align: top;
+    border: none;
+}
+.toggleMenu {
+    position: absolute;
+    width: 30px;
+    height:  30px;
+    cursor: pointer;
+    margin-top:  -63px;
+}
+
+/*DISPLAY CLASSES*/
+.hiddenOnMobile {
+    display: none;
+}
+.visibleOnMobile {
+    display: block;
+}
+
+/*UNIQUE ELEMENTS*/
+.logo {
+    max-width: 200px;
+}
+/*MEDIA QUERIES*/
+
+@media screen and (min-width: 720px){
+    /*Only when browser window is wider than 720px*/
+    html {        
+    }
+    .oneThird {
+        width: 33%;
+        float:left;
+    }
+    .twoThirds {
+        width: 66%;
+        float:left;
+    }
+    .oneHalf {
+        width: 50%;
+        float:left;
+    }
+    .fullWidth {
+        width: 100%;
+        float:left;
+    }
+        .searchForm {
+        text-align: right;
+    }
+    .menuItems li {
+        display: inline-block;
+        margin-right:  1.5rem;
+    }
+    .toggleMenu {
+        display: none;
+    }
+    .hiddenOnMobile {
+        display: block;
+    }
+}
+@media screen and (min-width: 1100px) {
+    /*Only when browser window is wider than 1100px*/
+    html {
+        font-size: 17px;
+        line-height: 1.3rem;
+    }
+    .wrapperMain {
+    box-shadow: 0 3px 3px #777;
+    }
+}

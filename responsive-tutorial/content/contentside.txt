@@ -1,0 +1,12 @@
+<section>
+<h2>Sidebar Content</h2>
+<p>
+Vestibulum interdum quis purus in placerat. 
+Suspendisse vulputate quam erat, nec placerat risus aliquet vitae. 
+Aenean blandit venenatis nisi, ac eleifend mi finibus id. 
+Vestibulum quis sem imperdiet, consequat mauris eu, suscipit ipsum. 
+Praesent cursus tortor et nisi euismod aliquet ac eget erat. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+Nam in turpis in tortor gravida condimentum. 
+</p>
+</section>

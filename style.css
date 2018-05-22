@@ -1,0 +1,439 @@
+/*Notes*/
+/* Using responsive min-widths requires default/full-screen params to be set in media queries while mobile view params and others are set outside
+However, this proves better in reducing duplicate declarations (mobile is already set) and ensuring "snap down"
+although it is less intuitive.
+
+Setting fl_half, fl_oneThird, etc in min-width media queries ensures page is split for full-screen and snaps
+down when under the min-width - not as effective the other way around likely due to html and body params,etc not being set explicitly
+
+When using the inline attrib, space between elements in markup will produce space between elements on page (e.g. <button>  <button> will space these out in display)
+
+Gradient bg w dotted lines (animation), height of banner, sizze of logo, version ctl
+
+https://www.google.com/search?as_st=y&tbm=isch&hl=en&as_q=sedona+mountains+stars&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:xga
+
+/*-----PRESETS------*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+    box-sizing: border-box; /*ensures that borders will not be added to any elements*/
+    padding: 0; /*ensures that padding will not be added to any elements*/
+    margin: 0; /*ensures margins will not be added to any elements*/
+    
+}
+
+ul, ol {
+    padding: initial; /*overrides indentation presets for lists and sets to default*/
+}
+
+/*clearfix hack to solve issue of parent element not expanding to fit child elements that are floated (from nicholas gallagher: http://nicolasgallagher.com/micro-clearfix-hack/)*/
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+} 
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
+
+main, section, article, nav, header, footer, aside {
+    display: block; /*ensures html5 elements are rendered as block elements (unknown elements will be rendered as in-line in most browsers, (IE does not recog main)*/
+}
+
+img, svg {
+    width: 100%; /*ensures images will fit parent element and scale accordingly*/
+    max-width: 100%;
+}
+/*-----MAIN BLOCKS------*/
+html {
+    background: #333;
+    font-size: 16px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+body { /*rather than targetting main element directly, we let it inherit from body*/
+    /*background: #fff;*/
+    
+    background: #efefef;
+    background-image: url('img/textures/white-leather.png');
+    
+    color: #333;
+    /*
+    background: url('img/sedona_mtns6.jpg'); /*transparent; /*#000000;
+    background-position: 0px 0px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    */
+}
+
+.wrapperTop {
+    background: #461d4f; /*rgb(70,70,70);*/
+    color: #fff;
+    min-width: 350px;
+    box-shadow: 0px 1px 25px #333;
+}
+
+.wrapperBottom {
+    background: #461d4f;/*#333;*/
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 1px 25px #333;
+}
+
+.wrapperMain {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.pageHeader, .pageNav, .wrapperMain, .pageFooter { /*needed to limit width/spacing on larger screens*/
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Grid*/
+
+.fl_fullwidth {
+     padding: 1rem;  /*rem=root element, sizes using percentage of base font size (usually base=10px so 2rem = 20px, etc)*/
+}
+
+.fl_half {
+    padding: 1rem;
+}
+
+.fl_oneThird {
+    padding: 1rem;
+}
+
+.fl_twoThirds {
+    padding: 1rem;
+}
+
+
+/*-----NAVIGATION------*/
+.pageNav {
+    padding: 0rem 1rem 0 1rem;
+}
+
+.menuItems {
+    list-style: none; 
+}
+
+.menuItems li {
+    line-height: 1.8rem;
+    border-bottom: 1px solid #76767676;
+    text-transform: uppercase; /*never type words in upper case bc screen readers will read as chars*/
+}
+
+.menuItems li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.toggleMenu {
+    border: none;
+    position: absolute; /*so it adds no height to content*/
+    height: 50px;
+    width: 50px;
+    background-color: #461d4f;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: -60px 0px 0px 0px;
+    border-radius: 10px;    
+ }
+
+.toggle_menu_img:hover {
+    filter: drop-shadow(0px 0px 0px rgba(0,0,0,1));
+}
+
+.toggle_menu_img {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,1)); /*x-offset, y-offset, blur*/
+}
+/*-----TOPOGRAPHY------*/
+h1 {
+    font-family: Georgia, serif;
+    padding: 1rem 0;
+    font-weight: normal;
+    font-size: 2.2rem;
+    line-height: 2.2rem; /*add line-height with font-szie in case some headings span over multipl lines*/
+}
+
+h2, h3 {
+    font-family: Georgia, serif;
+    padding: 0.6rem 0;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+/*-----INPUTS------*/
+form input {
+    text-indent: 10px;
+}
+
+.searchForm {
+    position: relative;
+    /* width: 200px; */
+    text-align: center;
+}
+
+.searchForm input {
+    height: 30px;
+    vertical-align: top;
+    border: none;
+}
+
+.searchForm input {
+    border: none;
+}
+
+/*-----DISPLAY------*/
+.hidden_on_mobile {
+    display: none;
+}
+
+.visible_on_mobile {
+    display: block;
+}
+
+/*-----UNIQUE------*/
+.banner {
+    height: 250px;
+    width: 100%;
+    background: url('img/sterile_tech_small.jpg');
+    background-position: -200px -120px;
+    background-size: 1300px 881px;
+    background-repeat: none;
+}
+/*
+.banner {
+    height: 200px;
+    width: 100%;
+    background: url('img/hosp_room.jpg');
+    background-repeat: none;
+}
+*/
+.banner_text {
+    line-height: 45px;
+    padding-top: 60px;
+    text-align: center;
+    font-family: Arial, Sans-serif;
+    color: #fff;
+}
+
+.banner_text2 {
+    line-height: 20px;
+    margin-top: -35px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: Arial, Sans-serif;
+    color: #fff;
+}
+.banner_bg {
+    padding: 0px 2px 0px 2px;
+    background: rgba(0,0,0,0.4);
+}
+
+.core_table /*, table.core_table th , table.core_table td */ {
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    z-index: 2
+}
+.layer2 { /* contents layer */
+    padding-right: 23px;
+    box-shadow: 0px 0px 0px 0.5px #000000;
+    position: absolute;
+     text-align: center;
+     font-weight: normal;
+    height: 96.5%; /* height & width needed */
+    width: 96.8%;
+    left: 12px;
+     background-size: 100% 100%;
+     /*background-color: rgba(203, 206, 211, 0.70);*/
+     /*background-color: rgba(255, 255, 211, 0.70);*/
+     background-color: rgba(255, 255, 255, 0.78);
+     /*background: transparent;*/
+     /*background-color: rgba(255, 255, 255, 0.30);*/
+     /* color: rgba(223, 108, 73, 0.3); #df6c49*/
+     /*filter: alpha(opacity=65);*/
+     /*progid:DXImageTransform.Microsoft.gradient(startColorstr=#9ADF6C49,endColorstr=#9ADF6C49); */
+     filter: progid: DXImageTransform.Microsoft.Alpha(opacity=78);
+    -moz-opacity: 0.78;
+     opacity: 0.78;
+     zoom: 1;
+     z-index: 0;
+     top: 15px;
+     margin: 5px 0px 0px 0px; /* t b r l */
+     border-radius: 2px;
+}
+
+.logo {
+    max-width: 50px;
+    max-height: 80px;
+    background: #efefef;/*#cfcfef; /*rgb(217, 195, 245); /*rgb(174, 212, 200)*/
+}
+
+.logo_top {
+    padding-bottom: 0px;
+}
+
+.logo_text {
+    /* width: 200px; */
+    margin: 15px 0px 0px 15px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 2px 2px #000000;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+#map {
+    height: 200px;
+    width: 100%;
+}
+
+table.core_table th {
+    background-color: #683b72; /*#df6c49;*/
+    position: relative;
+    color: #fff;
+    z-index: 2;
+}
+
+table.core_table th:first-child {
+    border-radius: 7px 0px 0px 0px;
+}
+
+table.core_table th:last-child {
+    border-radius: 0px 7px 0px 0px;
+}
+
+table.core_table td {
+    background-color: #b78bc1; /*#f4a992;*/
+    position: relative;
+    z-index: 2
+}
+
+table.core_table td:first-child {
+    border-radius: 0px 0px 0px 7px;
+}
+
+table.core_table td:last-child {
+    border-radius: 0px 0px 7px 0px;
+}
+
+/*-----QUERIES------*/
+
+@media screen and (max-width: 480px){
+    /*when browser window is narrower than max-width*/
+        
+    /*
+    .searchField {
+        float: left;
+    }
+    */
+}
+
+@media screen and (min-width: 550px) {
+    .banner_text {
+        line-height: 40px;
+        padding-top: 90px;
+        text-align: center;
+        color: #fff;
+    }
+    
+    .banner_text2 {
+        line-height: 20px;
+        margin-top: -33px;
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
+    .logo_text {
+        /* width: 200px; */
+        /* padding-right: 50px; */
+        font-size: 2rem;
+        overflow: visible;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 772px){
+    /*when browser window is wider than mim-width*/
+    .fl_fullwidth {
+        width: 100%;
+        float: left;
+        padding: 1rem;
+    }
+    
+    .fl_half {
+        width: 50%;
+        float: left;
+        padding: 1rem 1rem 0rem 1rem;
+    }
+    
+    .fl_oneThird {
+        width: 33%;
+        float: left;
+        padding: 1rem;
+    }
+    
+    .fl_twoThirds {
+        width: 66%;
+        float: left;
+        padding: 1rem;
+    }
+    
+    .searchForm {
+        text-align: right;
+        margin-top: 25px;
+    }
+    
+    .menuItems li {
+        display: inline-block;
+        margin-right: 1.5rem;
+    }
+    
+    .menuItems {
+        display: block;
+    }
+    
+    .toggleMenu {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1100px){
+    /*when browser window is wider than mim-width*/
+    .html {
+        font-size: 17px;
+        line-height: 1.3rem;
+    }
+    
+    .wrapperMain {
+        box-shadow: 0 3px 3px #777; /*adds popout shadow effect for body text*/
+    }
+}
+
+
+
+

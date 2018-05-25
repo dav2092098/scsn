@@ -64,7 +64,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     
     background: #efefef;
     background-image: url('img/textures/white-leather.png');
-    
+    background-attachment: fixed;
     color: #333;
     /*
     background: url('img/sedona_mtns6.jpg'); /*transparent; /*#000000;
@@ -79,21 +79,29 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 }
 
 .wrapperTop {
-    background: #461d4f; /*rgb(70,70,70);*/
+    background: rgba(70, 29, 79, 0.5); /*rgb(70,70,70);*/
     color: #fff;
     min-width: 350px;
-    box-shadow: 0px 1px 25px #333;
+    z-index: 2;
+    /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
+    box-shadow: 1px 3px 40px #777;
+    position: relative;
 }
 
 .wrapperBottom {
-    background: #461d4f;/*#333;*/
+    background: rgba(70, 29, 79, 0.5);/*#333;*/
     color: #fff;
     text-align: center;
-    box-shadow: 0px 1px 25px #333;
+    box-shadow: 3px 3px 20px #333;
+    z-index: 2;
+    position: relative;
 }
 
 .wrapperMain {
     background: rgba(255, 255, 255, 0.85);
+    height: 100%;
+    z-index: 0;    
+    position: relative;
 }
 
 .pageHeader, .pageNav, .wrapperMain, .pageFooter { /*needed to limit width/spacing on larger screens*/
@@ -146,7 +154,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     position: absolute; /*so it adds no height to content*/
     height: 50px;
     width: 50px;
-    background-color: #461d4f;
+    background-color: rgba(70, 29, 79, 0);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -182,6 +190,7 @@ h2, h3 {
 
 h2 {
     font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 /*-----INPUTS------*/
@@ -258,7 +267,22 @@ form input {
     position: relative;
     z-index: 2
 }
-.layer2 { /* contents layer */
+
+.fb_img {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+
+.mail_img {
+    color: #fff;
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+layer2 { /* contents layer */
     padding-right: 23px;
     box-shadow: 0px 0px 0px 0.5px #000000;
     position: absolute;
@@ -383,6 +407,8 @@ table.core_table td:last-child {
         width: 100%;
         float: left;
         padding: 1rem;
+        /*! box-shadow: 0 3px 3px #777; */
+        /*! position: absolute; */
     }
     
     .fl_half {
@@ -415,10 +441,15 @@ table.core_table td:last-child {
     
     .menuItems {
         display: block;
+        /*! box-shadow: 0 3px 3px #777; */
     }
     
     .toggleMenu {
         display: none;
+    }
+    
+    .wrapperTop {
+        box-shadow: 3px 5px 20px #777;
     }
 }
 
@@ -427,10 +458,6 @@ table.core_table td:last-child {
     .html {
         font-size: 17px;
         line-height: 1.3rem;
-    }
-    
-    .wrapperMain {
-        box-shadow: 0 3px 3px #777; /*adds popout shadow effect for body text*/
     }
 }
 

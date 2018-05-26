@@ -13,6 +13,10 @@ By: David Ayodele
     </title>        
     <link rel="stylesheet" href="style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" media="all">
     <!-- Custom fonts for this template -->
+    <!-- jQuery load -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <!-- end jQuery load -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href= 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -84,9 +88,9 @@ By: David Ayodele
         <br>
         We offer:
         <br>
-        • Day clases: Monday - Thrusday, 8AM - 1PM 
+        • Day clases: Monday - Thrusday, 8AM-1PM 
         <br>
-        • Evening classes: Monday - Thursday, 5PM - 9PM
+        • Evening classes: Monday - Thursday, 5PM-9PM
         <br>
         • Weekend only clinical rotations
         <br>
@@ -486,8 +490,29 @@ By: David Ayodele
         window.onload = menuToggle;
     }
     </script>
+    
+    <!-- Begin floating header Script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfHjaHcyb_H21BLeYTrMopUq79g0rJYa0&callback=initMap" type="text/javascript">
     </script>
+    <!-- End floating header Script -->
+    
+    <!-- Begin floating header Script -->
+    <script>
+    /* ========================================== 
+    scrollTop() >= 80
+    Should be equal the the height of the header
+    ========================================== */
+    $(window).scroll(function(){
+        if ($(window).scrollTop() >= 80) {
+            $('nav').addClass('fixed-header');
+        }
+        else {
+            $('nav').removeClass('fixed-header');
+        }
+    });
+    </script>
+    <!-- End floating header Script -->
+    
 </body>
 </html>
 

@@ -446,6 +446,19 @@ table.core_table td:last-child {
 
 @media screen and (min-width: 772px){
     /*when browser window is wider than mim-width*/
+    
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        background: rgba(70, 29, 79, 0.5); /*rgb(70,70,70);*/
+        color: #fff;
+        z-index: 2;
+        width: 100%;
+        margin-left: 37px;
+        margin-right: auto;
+        /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
+    }
+    
     .fl_fullwidth {
         width: 100%;
         float: left;

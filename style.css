@@ -66,8 +66,9 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     background-image: url('img/textures/white-leather.png');
     background-attachment: fixed;
     color: #333;
+    
     /*
-    background: url('img/sedona_mtns6.jpg'); /*transparent; /*#000000;
+    background: url('img/sedona_park_bw.jpg'); /*transparent; /*#000000;
     background-position: 0px 0px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -147,6 +148,13 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 .menuItems li a {
     color: #fff;
     text-decoration: none;
+}
+
+.menuItems li:hover {
+    transform: scale(1.13, 1.13);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
 }
 
 .toggleMenu {
@@ -280,6 +288,20 @@ form input {
     margin-top: 10px;
     height: 50px;
     width: 50px;
+}
+
+.mail_img:hover {
+    transform: scale(1.2, 1.2);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+}
+
+.fb_img:hover {
+    transform: scale(1.2, 1.2);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
 }
 
 layer2 { /* contents layer */
@@ -449,7 +471,7 @@ table.core_table td:last-child {
     }
     
     .wrapperTop {
-        box-shadow: 3px 5px 20px #777;
+        box-shadow: 1px 2px 10px #777;
     }
 }
 
@@ -462,5 +484,264 @@ table.core_table td:last-child {
 }
 
 
+/* ========= Contact Form ===============*/
+.status_msg {
+	color: red;
+	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+.successMessage {
+	color: green;
+	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+.submit_btn{
+	display:block;
+	border:none;
+	background: #e74c3c; /*#ffc20c;/*#f8ae45;*/
+	color:#FFFFFF;
+	padding:12px 25px;
+	cursor:pointer;
+	text-decoration:none;
+	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+	font-weight:bold;
+}
+.submit_btn:hover{
+	background: #8e2f25; /*#bc8f09;/*#d8850e;*/
+
+}
+#contact-form {
+  overflow: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#contact-form #form {
+  width: 100%; /*410px;*/
+  /*float:left;*/
+}
+#contact-form #form h2 {
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form span {
+  display:block;
+  /*float:left;*/
+  width: 70%; /*100px;*/
+  padding-top:5px;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form input {
+  /*float:left;*/
+  width: 100%; /*255px;*/
+  border:0px;
+  color: #ffffff; /*#F1F1F1;*/
+  padding:10px 10px 10px 30px;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  margin-bottom:10px;
+}
+#contact-form #form textarea {
+  /*float:left;*/
+  border:0px;
+  width: 100%; /*255px;*/
+  height:140px;
+  padding:10px 10px 10px 30px;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  color: #ffffff; /*#F1F1F1;*/
+  resize: none;
+  margin: auto 0px 0px 2px;
+}
+
+#contact-form #form input.name {
+  background: #828da0 /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+#contact-form #form input.phone {
+  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 8px;
+  /*background-size: 0.75em 0.75em;*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+#contact-form #form input.email {
+  background: #828da0 /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form input.captcha {
+  background: #828da0 /*#222222*/ url(refresh_icon_wht.png) no-repeat 10px 9px;  /*http://img3.uploadhouse.com/fileuploads/17737/17737011310213e71805ecf2292144cbbecf42ad.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form textarea.message {
+  background: #828da0 /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form button {
+
+  /*
+  cursor: pointer;
+  width:85px;
+  height:30px;
+  /*float:right;
+  padding:0px 0px 5px 0px;
+  margin:10px 16px 0px 0px;
+  background:#222222;
+  color:#F1F1F1;
+  */
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  width: 55%;
+  /*border-radius: 20px;*/
+}
+#contact-form #captcha span{
+    width: 44px;
+}
+#contact-form #captcha input{
+  background: url(refresh_icon.png) no-repeat scroll 0 0 transparent;
+  margin: 5px 0 0;
+  padding: 0;
+  border: medium none;
+  cursor: pointer;
+  width: 15px;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff;
+    opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+@media (max-width: 400px) { /*execute until 400*/
+	.g-recaptcha {
+	    transform:scale(0.77);
+	    transform:scale(50vw);
+	    transform-origin:50% 50%;
+	}
+	
+	img {
+	    max-width: 80%;
+	    height: auto;
+	}
+	
+	.inner-header {
+	    position: relative;
+	    z-index: 1;
+	    float: left;
+	    width: 80%;
+	} 
+	
+	#contact-form #form {
+      width: 90%; 
+  }
+  
+  #contact-form #form span {
+      width: 90%; 
+  }
+  
+  #contact-form #form input {
+      width: 90%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 90%; 
+  }
+  
+  #contact-form #form button {
+      width: 90%;
+  }
+}
+
+@media (max-width: 300px) { /*execute until 300*/
+	.g-recaptcha {
+	    transform:scale(0.50);
+	    transform:scale(50vw);
+	    transform-origin:50% 50%;
+	}
+	
+	img {
+	    max-width: 90%;
+	    height: auto;
+	}
+	
+	.inner-header {
+	    position: relative;
+	    z-index: 1;
+	    float: left;
+	    width: 90%;
+	}
+	
+	#contact-form #form {
+      width: 90%; 
+  }
+  
+  #contact-form #form span {
+      width: 90%; 
+  }
+  
+  #contact-form #form input {
+      width: 90%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 90%; 
+  }
+  
+  #contact-form #form button {
+      width: 90%;
+  }
+}
+
+@media (max-width: 991px) { /*execute until 991*/
+  
+	#contact_form #form {
+	  width: 80%; /*410px;*/
+	  /*float:left;*/
+	}
+	
+	#contact_form #form span {
+  	  display:block;
+	  /*float:left;*/
+	  width: 80%; /*100px;*/
+	  padding-top:5px;
+	  font: 14px/16px'Open Sans', Georgia, serif;
+	}
+	#contact_form #form input {
+	  /*float:left;*/
+	  width: 80%; /*255px;*/
+	  border:0px;
+	  color: #ffffff; /*#F1F1F1;*/
+	  padding:10px 10px 10px 30px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  margin-bottom:10px;
+	}
+	#contact_form #form textarea {
+	  /*float:left;*/
+	  border:0px;
+	  width: 80%; /*255px;*/
+	  height:140px;
+	  padding:10px 10px 10px 32px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  color: #ffffff; /*#F1F1F1;*/
+	  resize: none;
+	  margin: 0px 0px 0px 3px;
+	}
+	
+	#contact_form #form button {
+	  font: 12px 'Open Sans', Georgia, serif;
+  	  width: 55%;
+	  /*border-radius: 20px;*/
+	}
+	#contact_form #captcha span{
+	    width: 50%;
+	}
+}
+
+/* ========= End Contact Form ===========*/
 
 

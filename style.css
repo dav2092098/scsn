@@ -19,7 +19,6 @@ https://www.google.com/search?as_st=y&tbm=isch&hl=en&as_q=sedona+mountains+stars
     box-sizing: border-box; /*ensures that borders will not be added to any elements*/
     padding: 0; /*ensures that padding will not be added to any elements*/
     margin: 0; /*ensures margins will not be added to any elements*/
-    
 }
 
 ul, ol {
@@ -82,7 +81,6 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 .wrapperTop {
     background: rgba(70, 29, 79, 0.5); /*rgb(70,70,70);*/
     color: #fff;
-    min-width: 350px;
     z-index: 2;
     /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
     box-shadow: 1px 3px 40px #777;
@@ -210,11 +208,13 @@ form input {
     position: relative;
     /* width: 200px; */
     text-align: center;
+    margin-left: 50px;
 }
 
 .searchForm input {
     height: 30px;
     vertical-align: top;
+    left: -20px;
     border: none;
 }
 
@@ -350,6 +350,7 @@ layer2 { /* contents layer */
     text-shadow: 2px 2px #000000;
     font-size: 1.2rem;
     color: #fff;
+    max-width: 180px
 }
 
 #map {
@@ -362,6 +363,7 @@ table.core_table th {
     position: relative;
     color: #fff;
     z-index: 2;
+    font-size: 9px;
 }
 
 table.core_table th:first-child {
@@ -375,7 +377,9 @@ table.core_table th:last-child {
 table.core_table td {
     background-color: #b78bc1; /*#f4a992;*/
     position: relative;
-    z-index: 2
+    z-index: 2;
+    padding: 2px;
+    font-size: 9px;
 }
 
 table.core_table td:first-child {
@@ -398,7 +402,14 @@ table.core_table td:last-child {
     */
 }
 
+@media screen and (min-width: 400px) {
+    .logo_text {
+        max-width: 400px;
+    }
+}
+
 @media screen and (min-width: 550px) {
+    
     .banner_text {
         line-height: 40px;
         padding-top: 90px;
@@ -421,6 +432,16 @@ table.core_table td:last-child {
         overflow: visible;
         white-space: nowrap;
     }
+}
+
+@media screen and (min-width: 600px){
+	table.core_table td {
+		font-size: 14px;
+	}
+
+	table.core_table th {
+		font-size: 14px;
+	}
 }
 
 @media screen and (min-width: 772px){
@@ -465,7 +486,15 @@ table.core_table td:last-child {
         display: block;
         /*! box-shadow: 0 3px 3px #777; */
     }
-    
+ 	
+ 	table.core_table td {
+		font-size: 16px;
+	}
+
+	table.core_table th {
+		font-size: 16px;
+	}  
+	 
     .toggleMenu {
         display: none;
     }
@@ -498,7 +527,7 @@ table.core_table td:last-child {
 .submit_btn{
 	display:block;
 	border:none;
-	background: #e74c3c; /*#ffc20c;/*#f8ae45;*/
+	background: #ea4335; /*#ffc20c;/*#f8ae45;*/
 	color:#FFFFFF;
 	padding:12px 25px;
 	cursor:pointer;
@@ -551,18 +580,18 @@ table.core_table td:last-child {
 }
 
 #contact-form #form input.name {
-  background: #828da0 /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #79627d /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 
 #contact-form #form input.phone {
-  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 8px;
+  background: #79627d /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 8px;
   /*background-size: 0.75em 0.75em;*/
   font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 
 #contact-form #form input.email {
-  background: #828da0 /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
+  background: #79627d /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
   font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 #contact-form #form input.captcha {
@@ -570,7 +599,7 @@ table.core_table td:last-child {
   font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 #contact-form #form textarea.message {
-  background: #828da0 /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+  background: #79627d /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
   font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 #contact-form #form button {
@@ -711,6 +740,7 @@ table.core_table td:last-child {
 	  padding-top:5px;
 	  font: 14px/16px'Open Sans', Georgia, serif;
 	}
+	
 	#contact_form #form input {
 	  /*float:left;*/
 	  width: 80%; /*255px;*/
@@ -720,6 +750,7 @@ table.core_table td:last-child {
 	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
 	  margin-bottom:10px;
 	}
+	
 	#contact_form #form textarea {
 	  /*float:left;*/
 	  border:0px;
@@ -737,6 +768,7 @@ table.core_table td:last-child {
   	  width: 55%;
 	  /*border-radius: 20px;*/
 	}
+	
 	#contact_form #captcha span{
 	    width: 50%;
 	}

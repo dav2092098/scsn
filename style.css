@@ -83,7 +83,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     color: #fff;
     z-index: 2;
     /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
-    box-shadow: 1px 3px 40px #777;
+    box-shadow: 1px 3px 10px #777;
     position: relative;
 }
 
@@ -91,7 +91,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     background: rgba(70, 29, 79, 0.5);/*#333;*/
     color: #fff;
     text-align: center;
-    box-shadow: 3px 3px 20px #333;
+    box-shadow: 1px 3px 15px #777;
     z-index: 2;
     position: relative;
 }
@@ -103,7 +103,12 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     position: relative;
 }
 
-.pageHeader, .pageNav, .wrapperMain, .pageFooter { /*needed to limit width/spacing on larger screens*/
+.pageHeader, .pageNav {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.wrapperMain, .pageFooter { /*needed to limit width/spacing on larger screens*/
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -235,9 +240,9 @@ form input {
 .banner {
     height: 250px;
     width: 100%;
-    background: url('img/sterile_tech_small.jpg');
-    background-position: -200px -120px;
-    background-size: 1300px 881px;
+    background: url('img/nurses_general_med.jpg');
+    background-position: -100px -100px;
+    background-size: 1100px 733px;
     background-repeat: none;
 }
 /*
@@ -266,7 +271,7 @@ form input {
 }
 .banner_bg {
     padding: 0px 2px 0px 2px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.3);
 }
 
 .core_table /*, table.core_table th , table.core_table td */ {
@@ -454,8 +459,9 @@ table.core_table td:last-child {
         color: #fff;
         z-index: 2;
         width: 100%;
-        margin-left: 37px;
-        margin-right: auto;
+        padding-left: 16px;
+        margin-left: 0px;
+        margin-right: 0px;
         /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
     }
     
@@ -789,4 +795,172 @@ table.core_table td:last-child {
 
 /* ========= End Contact Form ===========*/
 
+/* ========= Begin Clock ================*/
+.dial {
+   position: relative;
+   width: 350px;
+   height: 350px;
+   background: #ececec;
+   border: 12px solid #5c5c5c;
+   border-radius: 50%;
+   margin: 8% auto 0;
+    /*box-shadow: 1px 14px 21px 0 rgba(0,0,0,.2);*/
+}
 
+.dot {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+   width: 16px;
+   height: 16px;
+   border-radius: 50%;
+   border-width: 100px;
+   border-color: red;
+   background: white;
+   z-index: 10;
+}
+
+.sec-hand {
+   position: absolute;
+   top: 39px;
+   left: 50%;
+   margin-left: -7px;
+   width: 14px;
+   height: 162px;
+   background: url('https://themegion.github.com/AnalogClock/sec.svg') 50% 50% no-repeat;
+   z-index: 9;
+   transform-origin: 50% 136px;
+}
+
+.sec-hand.shadow {
+   top: 46px;
+   margin-left: -4px;
+   background-image: url('https://themegion.github.com/AnalogClock/sec-shdw.svg');
+   opacity: .1;
+   z-index: 8;
+   filter: blur(2px);
+}
+
+.min-hand {
+   position: absolute;
+   top: 51px;  
+   left: 50%;
+   margin-left: -8px;
+   width: 16px;
+   height: 144px;
+   background: url('https://themegion.github.com/AnalogClock/min.svg') 50% 50% no-repeat;
+   z-index: 7;
+   transform-origin: 50% 124px;
+}
+
+.min-hand.shadow {
+   top: 58px;
+   margin-left: -5px;
+   background-image: url('https://themegion.github.com/AnalogClock/min-shdw.svg');
+   opacity: .1;
+   z-index: 6;
+   filter: blur(2px);
+}
+
+.hour-hand {
+   position: absolute;
+   top: 85px;
+   left: 50%;
+   margin-left: -7px;
+   width: 14px;
+   height: 110px;
+   background: url('https://themegion.github.com/AnalogClock/hour.svg') 50% 50% no-repeat;
+   z-index: 5;
+   transform-origin: 50% 90px;
+}
+
+.hour-hand.shadow {
+   top: 92px;
+   margin-left: -4px;
+   background-image: url('https://themegion.github.com/AnalogClock/hour-shdw.svg');
+   opacity: .1;
+   z-index: 4;
+   filter: blur(2px);
+}
+
+.twelve,
+.three,
+.six,
+.nine {
+   position: absolute;
+   font-family: Lato, sans-serif;
+   font-size: 32px;
+   color: #777;
+}
+
+.twelve {
+   top: 35px;
+   left: 155px;
+}
+
+.three {
+   top: 156px;
+   right: 39px;
+}
+
+.six {
+   left: 165px;
+   bottom: 35px;
+}
+
+.nine {
+   top: 156px;
+   left: 39px;
+}
+
+.diallines {
+   position: absolute;
+   top: 15px;
+   left: 50%;
+   margin-left: -1px;
+   width: 2px;
+   height: 10px;
+   background: #b3b3b0;
+   z-index: 1;
+   transform-origin: 50% 160px;
+}
+
+.diallines:nth-of-type(5n) {
+   position: absolute;
+   top: 10px;
+   left: 50%;
+   margin-left: -2px;
+   width: 4px;
+   height: 25px;
+   background: #b3b3b0;
+   z-index: 1;
+   transform-origin: 50% 165px;
+}
+
+.date {
+   position: absolute;
+   top: 242px;
+   left: 30%;
+   margin-left: -18px;
+   width: 180px;
+   height: 30px;
+   font-family: 'Fjalla One', sans-serif;
+   font-size: 16px;
+   line-height: 30px;
+   text-align: center;
+}
+
+.dial {
+   position: relative;
+   width: 350px;
+   height: 350px;
+   background: #ececec;
+   border: 12px solid #5c5c5c;
+   border-radius: 50%;
+   margin: 8% auto 0;
+}
+
+/* ========= End Clock ============ */

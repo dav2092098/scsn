@@ -271,6 +271,16 @@ form input {
     background-size: 1000px 667px;
     background-repeat: no-repeat;
 }
+
+.banner_faq {
+    height: 250px;
+    width: 100%;
+    background: url('img/keybrd_steth.jpg');
+    background-position: 0px 0px;
+    background-size: 1000px 667px;
+    background-repeat: no-repeat;
+}
+
 /*
 .banner {
     height: 200px;
@@ -389,6 +399,11 @@ layer2 { /* contents layer */
     width: 100%;
 }
 
+#map2 {
+    height: 400px;
+    width: 100%;
+}
+
 .scrubs_link:hover {
     text-shadow: 1px 1px 1px rgba(24, 12, 76, 0.5);
 }
@@ -425,7 +440,15 @@ table.core_table td:last-child {
     border-radius: 0px 0px 7px 0px;
 }
 
-/*----- TEXTBOOK ---*/
+.textbook_link {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  max-width: 280px;
+  width: 100%;
+}
+
+/*----- TEXTBOOK ---/
 .textbook_link {
   height: 250px;
   position: relative;
@@ -500,7 +523,7 @@ table.core_table td:last-child {
 .textbook_link {
   transition: all 0.2s;
 }
-/*-----END TEXTBOOK ---*/
+/-----END TEXTBOOK ---*/
 /*-----QUERIES------*/
 
 @media screen and (max-width: 480px){

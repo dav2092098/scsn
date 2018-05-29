@@ -381,9 +381,9 @@ By: David Ayodele
 		        return true;
 	  		    break;
 	  		    
-	  		  case (reason.length <= 0 && n <= 0):
+	  		  case (reason.length <= 0 && n < 0):
 	  			i.className += "status_msg";
-	  	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
+	  	    	_("status_msg").innerHTML = "Error code: " + reason.length + " " + n + ' Please click the "captcha" box';
 	  	    	_("ss-submit").disabled = true;
 	  	    	return false;
 	  		    break;

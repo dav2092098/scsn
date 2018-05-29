@@ -305,8 +305,8 @@ By: David Ayodele
 	  			type: "POST",
 	  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
 	  			success: function(data) {
-		  			str = data;
-		  			console.log(data);
+		  			str = grecaptcha.getResponse();
+		  			console.log(grecaptcha.getResponse());
 		  			//document.getElementById("status_msg").innerHTML = n;
 		  			n = str.indexOf("03ACgFB");
 		  			if (n >= 0) {
@@ -360,8 +360,8 @@ By: David Ayodele
 	  			type: "POST",
 	  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
 	  			success: function(data) {
-	  				str = data;
-	  				console.log(data);
+	  				str = grecaptcha.getResponse();
+	  				console.log(grecaptcha.getResponse());
 	  				n = str.indexOf("03ACgFB");
 	  				//document.getElementById("status_msg").innerHTML = n;
 	  			}

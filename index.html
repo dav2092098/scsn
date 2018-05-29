@@ -370,7 +370,7 @@ By: David Ayodele
 	  	    console.log(reason);
 	  	    switch (true) {
 	  		
-	  		  case (reason.length <= 0 && n > 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
+	  		  case (reason.length <= 0 && n >= 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
 			  	_("status_msg").innerHTML = "";
 			  	$('#form form').attr('action', 'https://docs.google.com/forms/d/e/1FAIpQLSeNpbktBUb5jlWAY9ExUZxVv1xdEC5AKU9SkU1Hd3M3ZQ6Mmg/formResponse');
 			  	j .className += "successMessage";

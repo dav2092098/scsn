@@ -1,4 +1,4 @@
-// rename server.gs
+// install google apps script > goto new google script > copy/paste into script editor > save as "server.gs" > open new file > paste html > save as "form.html" > deploy as webapp
 // Google apps script to allow anonymous users to upload to a google drive folder with basic email notification upon upload
 // Updated: 5/29/18 
 // Updated by: David Ayodele

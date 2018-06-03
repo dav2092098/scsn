@@ -169,8 +169,9 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     background-size: 100% 100%;
     background-repeat: no-repeat;
     cursor: pointer;
-    margin: -60px 0px 0px 0px;
-    border-radius: 10px;    
+    margin: -65px 0px 0px 0px;
+    border-radius: 10px;
+    right: 15px;
  }
 
 .toggle_menu_img:hover {
@@ -385,7 +386,7 @@ layer2 { /* contents layer */
 
 .logo_text {
     /* width: 200px; */
-    margin: 15px 0px 0px 15px;
+    margin: 0px 0px 0px 15px;
     position: absolute;
     text-align: center;
     text-shadow: 2px 2px #000000;
@@ -539,6 +540,7 @@ table.core_table td:last-child {
 @media screen and (min-width: 400px) {
     .logo_text {
         max-width: 400px;
+        margin: 0px 0px 0px 15px;
     }
 }
 
@@ -562,9 +564,10 @@ table.core_table td:last-child {
     .logo_text {
         /* width: 200px; */
         /* padding-right: 50px; */
-        font-size: 2rem;
+        font-size: 1.6rem;
         overflow: visible;
         white-space: nowrap;
+        margin: 0px 0px 0px 15px;
     }
 }
 
@@ -620,9 +623,9 @@ table.core_table td:last-child {
         padding: 1rem;
     }
     
-    .searchForm {
-        text-align: right;
-        margin-top: 25px;
+    .logo_text {
+        font-size: 2rem;
+        margin: 7px 0px 0px 15px;
     }
     
     .menuItems li {
@@ -631,8 +634,13 @@ table.core_table td:last-child {
     }
     
     .menuItems {
-        display: block;
+        /*display: block;*/
         /*! box-shadow: 0 3px 3px #777; */
+    }
+ 	
+ 	.searchForm {
+        text-align: right;
+        margin-top: 25px;
     }
  	
  	table.core_table td {
@@ -644,7 +652,7 @@ table.core_table td:last-child {
 	}  
 	 
     .toggleMenu {
-        display: none;
+        /*display: none;*/
     }
     
     .wrapperTop {

@@ -294,8 +294,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     /* margin: -52px 0px 0px 300px; */
     border-radius: 10px;
     /* float: right; */
-    margin-top: -82px;
-    margin-left: 75%;
+    margin: -65px 0px 0px 80%;
  }
 
 .toggle_menu_img:hover {
@@ -611,9 +610,10 @@ table.core_table td:last-child {
     .logo_text {
         /* width: 200px; */
         /* padding-right: 50px; */
-        font-size: 2rem;
+        font-size: 1.6rem;
         overflow: visible;
         white-space: nowrap;
+        margin: 0px 0px 0px 15px;
     }
 }
 

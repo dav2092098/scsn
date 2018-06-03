@@ -12,7 +12,7 @@ By: David Ayodele
     Star Canyon School of Nursing
     </title>        
     <!--Begin Priority scripts -->
-    <link rel="stylesheet" href="style.css" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
+    <link rel="stylesheet" href="style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
     <!--<link rel="stylesheet" href="clock.css" media="all">-->
     
     
@@ -44,12 +44,14 @@ By: David Ayodele
         <span class="logo_text">Star Canyon School of Nursing
         </span>
         </div>
+        <!--
         <div class="fl_half">
         <form class="searchForm" method="get">
         <input class="searchField" type="text" name="search" placeholder="" tabindex=2>
         <input type="image" src="img/search_icon_wht.png" alt="Search icon" style="color: #ffffff;">
         </form>
         </div>
+        -->
         </header>
         
         <nav class="pageNav clearfix"> <!-- used to control width/spacing of page elements on larger screens-->
@@ -394,6 +396,7 @@ By: David Ayodele
         </div>
         </footer>
     </div>
+    <!-- Google Maps marker and Toggle Menu script (edited 5/28/18)-->
     <script type="text/javascript">
     function initMap() {
         var loc = {lat: 33.565630, lng: -112.074325};
@@ -409,7 +412,7 @@ By: David Ayodele
                 menu.className = "menuItems visible_on_mobile";
             }
             else {
-                menu.className = "menuItems hidden_on_mobile";
+                menu.className = "menuItems hidden_on_mobile"; 
             }
         }
         btn.addEventListener("click", menuHandler, false);
@@ -421,8 +424,9 @@ By: David Ayodele
         window.onload = menuToggle;
     }
     </script>
+    <!-- End script-->
     
-    <!-- Begin google maps script -->
+    <!-- Begin google maps init script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfHjaHcyb_H21BLeYTrMopUq79g0rJYa0&callback=initMap" type="text/javascript">
     </script>
     <!-- End google maps script -->

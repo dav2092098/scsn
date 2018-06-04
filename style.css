@@ -171,7 +171,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     cursor: pointer;
     margin: -65px 0px 0px 0px;
     border-radius: 10px;
-    right: 15px;
+    right: 10px;
  }
 
 .toggle_menu_img:hover {
@@ -652,7 +652,7 @@ table.core_table td:last-child {
 	}  
 	 
     .toggleMenu {
-        /*display: none;*/
+        display: block;
     }
     
     .wrapperTop {

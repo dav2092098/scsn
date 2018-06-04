@@ -12,7 +12,7 @@ By: David Ayodele
     Star Canyon School of Nursing
     </title>        
     <!--Begin Priority scripts -->
-    <link rel="stylesheet" href="style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
+    <link rel="stylesheet" href="style.css" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
     <!--<link rel="stylesheet" href="clock.css" media="all">-->
     
     
@@ -58,7 +58,7 @@ By: David Ayodele
         <button class="toggleMenu" id="toggleMenu">
         <img src="img/mobile_menu_wht.png" alt="&#926;" class="toggle_menu_img">
         </button>
-        <ul class="menuItems hidden_on_mobile" id="menuItems">
+        <ul class="menuItems visible_on_mobile" id="menuItems">
         <li>
         <a href="index.html">Home</a>
         </li>
@@ -408,11 +408,11 @@ By: David Ayodele
         var btn = document.getElementById("toggleMenu"); /*id for button*/
         var menu = document.getElementById("menuItems"); /*id for <ul>*/
         var menuHandler = function menuHandler() {
-            if(menu.className == "menuItems hidden_on_mobile") {
-                menu.className = "menuItems visible_on_mobile";
+            if(menu.className == "menuItems visible_on_mobile") {
+                menu.className = "menuItems hidden_on_mobile";
             }
             else {
-                menu.className = "menuItems hidden_on_mobile"; 
+                menu.className = "menuItems visible_on_mobile"; 
             }
         }
         btn.addEventListener("click", menuHandler, false);

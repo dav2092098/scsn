@@ -57,7 +57,7 @@ By: David Ayodele
         <button class="toggleMenu" id="toggleMenu">
         <img src="img/mobile_menu_wht.png" alt="&#926;" class="toggle_menu_img">
         </button>
-        <ul class="menuItems hidden_on_mobile" id="menuItems">
+        <ul class="menuItems visible_on_mobile" id="menuItems">
         <li>
         <a href="index.html">Home</a>
         </li>
@@ -252,6 +252,7 @@ By: David Ayodele
         </div>
         </footer>
     </div>
+    <!-- Google Maps marker and Toggle Menu script (edited 5/28/18)-->
     <script type="text/javascript">
     function initMap() {
         var loc = {lat: 33.565630, lng: -112.074325};
@@ -263,11 +264,11 @@ By: David Ayodele
         var btn = document.getElementById("toggleMenu"); /*id for button*/
         var menu = document.getElementById("menuItems"); /*id for <ul>*/
         var menuHandler = function menuHandler() {
-            if(menu.className == "menuItems hidden_on_mobile") {
-                menu.className = "menuItems visible_on_mobile";
+            if(menu.className == "menuItems visible_on_mobile") {
+                menu.className = "menuItems hidden_on_mobile";
             }
             else {
-                menu.className = "menuItems hidden_on_mobile";
+                menu.className = "menuItems visible_on_mobile"; 
             }
         }
         btn.addEventListener("click", menuHandler, false);
@@ -279,6 +280,7 @@ By: David Ayodele
         window.onload = menuToggle;
     }
     </script>
+    <!-- End script-->
     
     <!-- Begin google maps script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfHjaHcyb_H21BLeYTrMopUq79g0rJYa0&callback=initMap" type="text/javascript">

@@ -259,7 +259,7 @@ form input {
     height: 250px;
     width: 100%;
     background: url('img/glasses_desk.jpg');
-    background-position: 0px -210px;
+    background-position: -390px -210px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
 }
@@ -546,6 +546,10 @@ table.core_table td:last-child {
 
 @media screen and (min-width: 550px) {
     
+    .banner_about {
+        background-position: -100px -210px;
+    }
+    
     .banner_text {
         line-height: 40px;
         padding-top: 90px;
@@ -583,6 +587,10 @@ table.core_table td:last-child {
 
 @media screen and (min-width: 772px){
     /*when browser window is wider than mim-width*/
+    
+    .banner_about {
+        background-position: 0px -210px;
+    }
     
     .fixed-header {
         position: fixed;

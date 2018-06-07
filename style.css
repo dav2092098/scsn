@@ -862,6 +862,20 @@ button:disabled{
 	color: green;
 }
 
+.upload_btn {
+    border-radius: 1px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+/*
+.upload_btn:hover {
+    border-style: inset;
+    transition: border-style 0.1s;
+	text-align: center;
+}
+*/
+
 @media (max-width: 400px) { /*execute until 400*/
 	.g-recaptcha {
 	    transform:scale(0.77);

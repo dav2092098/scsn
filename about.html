@@ -200,15 +200,32 @@ By: David Ayodele
 	    		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
     				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
     				<!-- <span>Name</span> -->
-	    			<input type="text" name="entry.626042275" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
+	    			<input type="text" name="entry.1072099089" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
 	    			<!--<span>Email</span>-->
-	    			<input type="email" name="entry.1523775799" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
+	    			<input type="email" name="entry.1370375900" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
 	    			<!--<span>Phone</span>-->
-	    			<input type="tel" name="entry.1978637238" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
-	    		
+	    			<input type="tel" name="entry.1454483309" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
+	    		    <br>
+	    		    <br>
+	    		    <label class="preferred_contact" for="entry_187878632">Preferred Contact</label>
+                    <select name="entry.187878632" id="entry_187878632" class="preferred_contact_select">
+                    <option value=""></option>
+                    <option value="Email">Email</option> 
+                    <option value="Phone call">Phone call</option> 
+                    <option value="Text message">Text message</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label class="preferred_class" for="entry_898269100">Class Time</label>
+                    <select name="entry.898269100" id="entry_898269100" class="preferred_class_select">
+                    <option value=""></option>
+                    <option value="Day (9am-1pm)">Day (9am-1pm)</option> 
+                    <option value="Evening (5pm-9pm)">Evening (5pm-9pm)</option>
+                    </select>
 	    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
 	    			<!--<span>Message</span>-->
-	    			<textarea class="message" name="entry.1217744564" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
+	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
+                    
 	    			<br>
 	    			<br>
 	    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>

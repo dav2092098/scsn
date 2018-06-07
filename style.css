@@ -803,6 +803,34 @@ button:disabled{
     opacity: 0.7;
 }
 
+.preferred_contact {
+    background-color: #8a768f;
+    color: #ffffff;
+    font: 12px 'Open Sans', Verdana, Helvetica, sans-serif;
+    float: left;
+    margin: 0px 5px 5px 0px;
+    padding: 0px 5px 0px 5px;
+}
+
+.preferred_contact_select {
+    margin: 0px 0px 5px 0px;
+    float: left;
+}
+
+.preferred_class {
+    background-color: #8a768f;
+    color: #ffffff;
+    font: 12px 'Open Sans', Verdana, Helvetica, sans-serif;
+    float: left;
+    margin: 0px 5px 20px 0px;
+    padding: 0px 5px 0px 5px;
+}
+
+.preferred_class_select {
+    float: left;
+    margin: 0px 0px 20px 0px;
+}
+
 .status_msg {
 	color:red; 
 }
@@ -810,7 +838,7 @@ button:disabled{
 .submit_btn{
 	display:block;
 	border:none;
-	background: #7C359C; /*#ffc20c; /*#f8ae45;*/
+	background: #683b72; /*#7C359C; /*#ffc20c; /*#f8ae45;*/
 	color:#FFFFFF;
 	padding:12px 25px;
 	cursor:pointer;

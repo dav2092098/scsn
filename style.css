@@ -813,7 +813,7 @@ button:disabled{
 }
 
 .preferred_contact_select {
-    margin: 0px 0px 5px 0px;
+    margin: 0px 0px 0px 0px;
     float: left;
 }
 
@@ -822,13 +822,17 @@ button:disabled{
     color: #ffffff;
     font: 12px 'Open Sans', Verdana, Helvetica, sans-serif;
     float: left;
-    margin: 0px 5px 20px 0px;
+    margin: 5px 5px 20px 0px;
     padding: 0px 5px 0px 5px;
 }
 
 .preferred_class_select {
     float: left;
-    margin: 0px 0px 20px 0px;
+    margin: 5px 0px 20px 0px;
+}
+
+.status_msg {
+	color:red; 
 }
 
 .status_msg {

@@ -1,0 +1,9 @@
+versions,3.6,3.61,3.62
+en_US,English (United States),https://sites.google.com/site/formemailer/translate/en_US.UTF-8.js?attredirects=0&d=1
+pt_BR,Português (Brasil),https://sites.google.com/site/formemailer/translate/pt_BR.UTF-8.js?attredirects=0&d=1
+nl_NL,Dutch (Netherlands),https://sites.google.com/site/formemailer/translate/nl_NL.UTF-8.js?attredirects=0&d=1
+fr_FR,Français (France),https://sites.google.com/site/formemailer/translate/fr_FR.UTF-8.js?attredirects=0&d=1
+it_IT,Italiano (Italia),https://sites.google.com/site/formemailer/translate/It_IT.UTF-8.js?attredirects=0&d=1
+en_ES,Español (España),https://sites.google.com/site/formemailer/translate/es_ES.UTF-8.js?attredirects=0&d=1
+es_MX,Español (México),https://sites.google.com/site/formemailer/translate/es_MX.UTF-8.js?attredirects=0&d=1
+sv_SE,Svensk (Sverige),https://sites.google.com/site/formemailer/translate/sv_SE.UTF-8.js?attredirects=0&d=1

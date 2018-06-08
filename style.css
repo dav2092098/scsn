@@ -449,6 +449,15 @@ table.core_table td:last-child {
   width: 100%;
 }
 
+.upload_here {
+    color: #e94335;
+    text-decoration: none;
+}
+
+.upload_here:hover {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
 /*----- TEXTBOOK ---/
 .textbook_link {
   height: 250px;

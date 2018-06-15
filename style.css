@@ -814,7 +814,7 @@ button:disabled{
 .fa-phone:before {content: "\f095";}
 
 .g-recaptcha {
-    margin: 0px 0px 0px 10px;
+    margin: 10px;
     transform:scale(0.90);
     transform:scale(60vw);
     transform-origin:0 0;
@@ -910,7 +910,7 @@ button:disabled{
 
 @media (max-width: 400px) { /*execute until 400*/
 	.g-recaptcha {
-	    margin: 0px 0px 0px 70px;
+	    margin: 20px;
 	    transform:scale(0.77);
 	    transform:scale(50vw);
 	    transform-origin:0 0;
@@ -919,7 +919,7 @@ button:disabled{
 
 @media (max-width: 300px) { /*execute until 300*/
 	.g-recaptcha {
-	    margin: 0px 0px 0px 70px;
+	    margin: 20px;
 	    transform:scale(0.50);
 	    transform:scale(50vw);
 	    transform-origin:0 0;

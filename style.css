@@ -311,11 +311,32 @@ form input {
     background: rgba(0,0,0,0.3);
 }
 
+.classes_media {
+    max-width: 400px;
+    height: 225px;
+    background: url('img/lab_prac_kat_lete_britt2.jpg');
+    background-position: 0px 0px;
+    background-size: 400px 225px;
+    display: table-cell;
+    vertical-align: bottom;
+    font-size: 10px;
+    color:#fff;
+    margin: 10px;
+    /*border: 2px #731e9a;
+    border-style: outset;
+    border-image-slice: 19;
+    */
+}
+
+.classes_media span {
+    background-color: rgba(0,0,0, 0.3);
+}
+
 .core_table /*, table.core_table th , table.core_table td */ {
     /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
     font-family: 'Open Sans', sans-serif;
     position: relative;
-    z-index: 2
+    z-index: 2;
 }
 
 .fb_img {

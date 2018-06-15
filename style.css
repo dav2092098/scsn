@@ -787,8 +787,9 @@ button:disabled{
   background:#222222;
   color:#F1F1F1;
   */
+  margin-top: 20px;
   font: 12px 'Open Sans', Arial, sans-serif;
-  width: 75%;
+  width: 100px;
   /*border-radius: 20px;*/
 }
 
@@ -813,7 +814,8 @@ button:disabled{
 .fa-phone:before {content: "\f095";}
 
 .g-recaptcha {
-    transform:scale(0.97);
+    margin: 0px 0px 0px 10px;
+    transform:scale(0.90);
     transform:scale(60vw);
     transform-origin:0 0;
 }
@@ -908,6 +910,7 @@ button:disabled{
 
 @media (max-width: 400px) { /*execute until 400*/
 	.g-recaptcha {
+	    margin: 0px 0px 0px 70px;
 	    transform:scale(0.77);
 	    transform:scale(50vw);
 	    transform-origin:0 0;
@@ -916,6 +919,7 @@ button:disabled{
 
 @media (max-width: 300px) { /*execute until 300*/
 	.g-recaptcha {
+	    margin: 0px 0px 0px 70px;
 	    transform:scale(0.50);
 	    transform:scale(50vw);
 	    transform-origin:0 0;
@@ -957,8 +961,9 @@ button:disabled{
 	}
 	
 	#contact_form #form button {
+	  margin-top: 20px;
 	  font: 12px 'Open Sans', Georgia, serif;
-  	  width: 55%;
+	  width: 100px;
 	  /*border-radius: 20px;*/
 	}
 	#contact_form #captcha span{

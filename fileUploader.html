@@ -66,6 +66,7 @@ body {
   <br>
   <br>
   <span class="glass"> - SCSN File Uploader -
+  </span>
   <br>
   <br>
   <p class="span_caption">(Size limit = 5GB, if unsuccessful, email to regina.ayodele@gmail.com)
@@ -77,7 +78,6 @@ body {
   <p class="span_caption"> (Size limit = 5GB, if unsuccessful, please send to pac@aznow.org) 
   </p>
   -->
-  </span>
   <br>
   <table class="file-table" border="0">
   <tbody>
@@ -87,7 +87,7 @@ body {
   <hr>
   </div>
   <form id="myForm" align="center">
-  <input type="text" name="myName" placeholder="Your name...">
+  <input type="text" name="myName" placeholder="Your name..." value="Enter Your Name">
   <input class="upload_button" type="file" name="myFile">
   <input type="submit" value="Upload File" onclick="this.value='Uploading..'; google.script.run.withSuccessHandler(fileUploaded).uploadFiles(this.parentNode);
   return false;">

@@ -867,8 +867,8 @@ button:disabled{
 	color:red; 
 }
 
-.status_msg {
-	color:red; 
+#status_msg {
+	color:#187320; 
 }
 
 .submit_btn{
@@ -891,7 +891,7 @@ button:disabled{
 	height: 20px;
 	width: auto;
 	font-size: 0.8em;
-	color: green;
+	color: #187320;
 }
 
 .upload_btn {

@@ -399,6 +399,7 @@ layer2 { /* contents layer */
     max-width: 50px;
     max-height: 80px;
     background: #efefef;/*#cfcfef; /*rgb(217, 195, 245); /*rgb(174, 212, 200)*/
+    margin-bottom: 10px;
 }
 
 .logo_top {

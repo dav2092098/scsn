@@ -720,9 +720,9 @@ button:disabled{
 }
 
 #contact_form {
-  overflow: auto;
-  overflow-y: auto;
-  padding-top: 0px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-top: 0px;
 }
 #contact_form #form {
   width: 100%; /*410px;*/
@@ -958,7 +958,7 @@ button:disabled{
 	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
 	  color: #ffffff; /*#F1F1F1;*/
 	  resize: none;
-	  margin: 0px 0px 0px 3px;
+	  margin: 0px 0px 0px 0px;
 	}
 	
 	#contact_form #form button {

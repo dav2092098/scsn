@@ -249,7 +249,7 @@ form input {
 .banner {
     height: 250px;
     width: 100%;
-    background: url('img/nurses_general_med.jpg');
+    background: url('img/nurses_general_med_1100x733.jpg');
     background-position: -100px -100px;
     background-size: 1100px 733px;
     background-repeat: no-repeat;
@@ -258,7 +258,7 @@ form input {
 .banner_about {
     height: 250px;
     width: 100%;
-    background: url('img/glasses_desk.jpg');
+    background: url('img/glasses_desk_1100x733.jpg');
     background-position: -390px -210px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
@@ -267,7 +267,7 @@ form input {
 .banner_classes {
     height: 250px;
     width: 100%;
-    background: url('img/classroom_chairs.png');
+    background: url('img/classroom_chairs_1100x618.jpg');
     background-position: 0px -100px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
@@ -276,7 +276,7 @@ form input {
 .banner_faq {
     height: 250px;
     width: 100%;
-    background: url('img/keybrd_steth.jpg');
+    background: url('img/keybrd_steth_1100x731.jpg');
     background-position: 0px 0px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
@@ -328,7 +328,25 @@ form input {
     */
 }
 
-.classes_media span {
+.classes_media2 {
+    max-width: 400px;
+    height: 225px;
+    background: url('img/lab_prac_latoya_7-11-18_ed.jpg');
+    background-position: 0px 0px;
+    background-size: 400px 225px;
+    display: table-cell;
+    vertical-align: bottom;
+    font-size: 10px;
+    color:#fff;
+    margin: 10px;
+    /*border: 2px #731e9a;
+    border-style: outset;
+    border-image-slice: 19;
+    */
+}
+
+
+.classes_media span, .classes_media2 span {
     background-color: rgba(0,0,0, 0.3);
 }
 
@@ -816,8 +834,8 @@ button:disabled{
 
 .g-recaptcha {
     margin: 10px;
-    transform:scale(0.68);
-    transform:scale(68vw);
+    transform:scale(0.70);
+    transform:scale(70vw);
     transform-origin:0 0;
 }
 

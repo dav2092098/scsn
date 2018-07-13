@@ -311,6 +311,23 @@ form input {
     background: rgba(0,0,0,0.3);
 }
 
+.about_me_media {
+    width: 400px;
+    height: 315px;
+    background: url('img/mommys_photo_ed2.jpg');
+    background-position: 0px 0px;
+    background-size: 400px 315px;
+    display: table-cell;
+    vertical-align: bottom;
+    font-size: 10px;
+    color:#fff;
+    margin: 10px;
+    /*border: 2px #731e9a;
+    border-style: outset;
+    border-image-slice: 19;
+    */
+}
+
 .classes_media {
     max-width: 400px;
     height: 225px;

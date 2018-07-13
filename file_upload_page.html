@@ -14,7 +14,7 @@ Updated by: David Ayodele
 <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
 
 <!-- Custom styles -->
-<link rel="stylesheet" href="https://raw.githubusercontent.com/dav2092098/scsn/master/style_upload.css?&lt;?php echo date('l jS \of F Y h:i:s A'); ?&gt;" media="all">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/dav2092098/scsn/master/style_upload.css" media="all">
 
 <style type="text/css">
 body {
@@ -46,16 +46,16 @@ body {
         </button>
         <ul class="menuItems hidden_on_mobile" id="menuItems">
         <li>
-        <a href="index.html">Home</a>
+        <a href="http://starcanyonschoolofnursing.com/index.html" target="_blank">Home</a>
         </li>
         <li>
-        <a href="about.html">About Us</a>
+        <a href="http://starcanyonschoolofnursing.com/about.html" target="_blank">About Us</a>
         </li>
         <li>
-        <a href="classes.html">Classes</a>
+        <a href="http://starcanyonschoolofnursing.com/classes.html" target="_blank">Classes</a>
         </li>
         <li>
-        <a href="faq.html">Questons/Info</a>
+        <a href="http://starcanyonschoolofnursing.com/faq.html" target="_blank">Questons/Info</a>
         </li>
         </ul>
         </nav>
@@ -66,6 +66,7 @@ body {
   <br>
   <br>
   <span class="glass"> - SCSN File Uploader -
+  </span>
   <br>
   <br>
   <p class="span_caption">(Size limit = 5GB, if unsuccessful, email to regina.ayodele@gmail.com)
@@ -77,7 +78,6 @@ body {
   <p class="span_caption"> (Size limit = 5GB, if unsuccessful, please send to pac@aznow.org) 
   </p>
   -->
-  </span>
   <br>
   <table class="file-table" border="0">
   <tbody>
@@ -87,7 +87,7 @@ body {
   <hr>
   </div>
   <form id="myForm" align="center">
-  <input type="text" name="myName" placeholder="Your name...">
+  <input type="text" name="myName" placeholder="Your name..." value="Enter Your Name">
   <input class="upload_button" type="file" name="myFile">
   <input type="submit" value="Upload File" onclick="this.value='Uploading..'; google.script.run.withSuccessHandler(fileUploaded).uploadFiles(this.parentNode);
   return false;">
@@ -132,13 +132,941 @@ input {
         Ph: 602.943.1337
         </div>
         <div class="fl_oneThird">
-        <a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(From%20Website)%20">
+        <a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(from%20website)%20">
         <img class="mail_img" src="https://raw.githubusercontent.com/dav2092098/scsn/master/img/mail_img.png">
         </a> 
         </div>
         </footer>
     </div>
 </body>
+<style type="text/css">
+/*Notes*/
+/* Using responsive min-widths requires default/full-screen params to be set in media queries while mobile view params and others are set outside
+However, this proves better in reducing duplicate declarations (mobile is already set) and ensuring "snap down"
+although it is less intuitive.
+
+Setting fl_half, fl_oneThird, etc in min-width media queries ensures page is split for full-screen and snaps
+down when under the min-width - not as effective the other way around likely due to html and body params,etc not being set explicitly
+
+When using the inline attrib, space between elements in markup will produce space between elements on page (e.g. <button>  <button> will space these out in display)
+
+Gradient bg w dotted lines (animation), height of banner, sizze of logo, version ctl
+
+https://www.google.com/search?as_st=y&tbm=isch&hl=en&as_q=sedona+mountains+stars&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:xga
+
+/*-----PRESETS------*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+    box-sizing: border-box; /*ensures that borders will not be added to any elements*/
+    padding: 0; /*ensures that padding will not be added to any elements*/
+    margin: 0; /*ensures margins will not be added to any elements*/
+}
+
+ul, ol {
+    padding: initial; /*overrides indentation presets for lists and sets to default*/
+}
+
+/*----- Original Styles ----- */
+.bg-wrap {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    z-index: -1;
+    /* background-color: #fff; */
+    background: #efefef;
+    background-image: url('https://raw.githubusercontent.com/dav2092098/scsn/master/img/textures/leather.png');
+    background-attachment: fixed;
+}
+
+.background-img img {
+  position: fixed;
+  background: #efefef;
+  background-image: url('https://raw.githubusercontent.com/dav2092098/scsn/master/img/textures/leather.png');
+  background-attachment: fixed;
+  margin: 0px 0px auto 0px; 
+  /*position: absolute;*/
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /*box-sizing: border-box;*/
+  transform: translateZ(0);
+}
+
+body {
+  background-color: #FFFFFF;
+}
+
+.container {
+  overflow: auto;
+  height: 500px;
+}
+
+.glass {
+	/*margin-left: -20px;*/
+	margin-top: -50px;
+	height: 200px;
+	width: 500px;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 0;
+	-webkit-box-shadow:rgba(0,0,0,0.8) 0px 1px 3px; /*right offset, top offset, blur amt*/
+	-moz-box-shadow:rgba(0,0,0,0.8) 0px 1px 3px;
+	box-shadow:rgba(0,0,0,0.8) 0px 1px 3px;
+}
+
+.file-table {
+  width: 450px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  -webkit-box-shadow:rgba(0,0,0,0.8) 0px 2px 3px; /*right offset, top offset, blur amt*/
+	-moz-box-shadow:rgba(0,0,0,0.8) 0px 2px 3px;
+	box-shadow:rgba(0,0,0,0.8) 0px 2px 3px;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  span {
+    font-size: 12px;
+  }
+
+  .span_caption {
+    font-size: 8px;
+  }
+  
+  .file-table {
+    width: 300px;
+  }
+}
+
+input {
+  display: block;
+  margin: 20px;
+  color: #000;
+}
+
+p img { 
+  margin: 10px auto auto auto;
+  width: 187px; /*250px;*/
+  height: 187px; /*300px;*/
+  /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+  /* border-radius */
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+  -moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+  box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+}
+
+span {
+  font-family: Arial, sans-serif, Open Sans;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.span_caption {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: Arial, sans-serif, Open Sans;
+  font-size: 12px;
+  color: #ffffff;
+  -webkit-box-shadow:rgba(0,0,0,01) 0px 1px 3px; /*right offset, top offset, blur amt*/
+  -moz-box-shadow:rgba(0,0,0,0.8) 0px 1px 3px;
+  box-shadow:rgba(0,0,0,0.8) 0px 1px 3px;
+}
+
+.upload_button {
+  color: #ffffff;
+  margin-left: 20px;
+  text-align: right;
+}
+/*------End original styles ---*/
+
+/*clearfix hack to solve issue of parent element not expanding to fit child elements that are floated (from nicholas gallagher: http://nicolasgallagher.com/micro-clearfix-hack/)*/
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+} 
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
+
+main, section, article, nav, header, footer, aside {
+    display: block; /*ensures html5 elements are rendered as block elements (unknown elements will be rendered as in-line in most browsers, (IE does not recog main)*/
+}
+
+img, svg {
+    width: 100%; /*ensures images will fit parent element and scale accordingly*/
+    max-width: 100%;
+}
+/*-----MAIN BLOCKS------*/
+html {
+    background: #333;
+    font-size: 16px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+body { /*rather than targetting main element directly, we let it inherit from body*/
+    /*background: #fff;*/
+    
+    background: #efefef;
+    background-image: url('https://raw.githubusercontent.com/dav2092098/scsn/master/img/textures/leather.png');
+    background-attachment: fixed;
+    color: #333;
+    
+    /*
+    background: url('img/sedona_park_bw.jpg'); /*transparent; /*#000000;
+    background-position: 0px 0px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    */
+}
+
+.wrapperTop {
+    background: rgba(70, 29, 79, 0.5); /*rgb(70,70,70);*/
+    color: #fff;
+    /* height: 400px; */
+    z-index: 2;
+    /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
+    box-shadow: 1px 3px 10px #777;
+    position: relative;
+}
+
+.wrapperBottom {
+    background: rgba(70, 29, 79, 0.5);/*#333;*/
+    color: #fff;
+    text-align: center;
+    box-shadow: 1px 3px 15px #777;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0px;
+    /* bottom: -65px; */
+}
+
+.wrapperMain {
+    background: rgba(255, 255, 255, 0.85);
+    height: 100%;
+    z-index: 0;    
+    position: relative;
+}
+
+.pageHeader, .pageNav {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.wrapperMain, .pageFooter { /*needed to limit width/spacing on larger screens*/
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0px;
+}
+
+/*Grid*/
+
+.fl_fullwidth {
+     padding: 1rem;  /*rem=root element, sizes using percentage of base font size (usually base=10px so 2rem = 20px, etc)*/
+}
+
+.fl_half {
+    padding: 1rem;
+}
+
+.fl_oneThird {
+    padding: 1rem;
+}
+
+.fl_twoThirds {
+    padding: 1rem;
+}
+
+
+/*-----NAVIGATION------*/
+.pageNav {
+    padding: 0rem 1rem 0 1rem;
+}
+
+.menuItems {
+    list-style: none; 
+}
+
+.menuItems li {
+    line-height: 1.8rem;
+    border-bottom: 1px solid #76767676;
+    text-transform: uppercase; /*never type words in upper case bc screen readers will read as chars*/
+}
+
+.menuItems li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menuItems li:hover {
+    transform: scale(1.13, 1.13);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+}
+
+.toggleMenu {
+    border: none;
+    position: absolute; /*so it adds no height to content*/
+    height: auto;
+    width: 50px;
+    background-color: rgba(70, 29, 79, 0);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    /* margin: -52px 0px 0px 300px; */
+    border-radius: 10px;
+    /* float: right; */
+    margin-top: -90px;
+    margin-left: 75%;
+ }
+
+.toggle_menu_img:hover {
+    filter: drop-shadow(0px 0px 0px rgba(0,0,0,1));
+}
+
+.toggle_menu_img {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,1)); /*x-offset, y-offset, blur*/
+}
+/*-----TOPOGRAPHY------*/
+h1 {
+    font-family: Georgia, serif;
+    padding: 1rem 0;
+    font-weight: normal;
+    font-size: 2.2rem;
+    line-height: 2.2rem; /*add line-height with font-szie in case some headings span over multipl lines*/
+}
+
+h2, h3 {
+    font-family: Georgia, serif;
+    padding: 0.6rem 0;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+
+h2 {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+/*-----INPUTS------*/
+form input {
+    text-indent: 0px;
+}
+
+.searchForm {
+    position: relative;
+    /* width: 200px; */
+    text-align: center;
+    margin-left: 50px;
+}
+
+.searchForm input {
+    height: 30px;
+    vertical-align: top;
+    left: -20px;
+    border: none;
+}
+
+.searchForm input {
+    border: none;
+}
+
+/*-----DISPLAY------*/
+.hidden_on_mobile {
+    display: none;
+}
+
+.visible_on_mobile {
+    display: block;
+}
+
+/*-----UNIQUE------*/
+#admin {
+    height: 200px;
+    width: 200px;
+    background: url('img/admin-1.jpg');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+
+.banner {
+    height: 250px;
+    width: 100%;
+    background: url('img/nurses_general_med.jpg');
+    background-position: -100px -100px;
+    background-size: 1100px 733px;
+    background-repeat: no-repeat;
+}
+
+.banner_about {
+    height: 250px;
+    width: 100%;
+    background: url('img/glasses_desk.jpg');
+    background-position: 0px -210px;
+    background-size: 1000px 667px;
+    background-repeat: no-repeat;
+}
+
+.banner_classes {
+    height: 250px;
+    width: 100%;
+    background: url('img/classroom_chairs.png');
+    background-position: 0px -100px;
+    background-size: 1000px 667px;
+    background-repeat: no-repeat;
+}
+
+.banner_faq {
+    height: 250px;
+    width: 100%;
+    background: url('img/keybrd_steth.jpg');
+    background-position: 0px 0px;
+    background-size: 1000px 667px;
+    background-repeat: no-repeat;
+}
+
+/*
+.banner {
+    height: 200px;
+    width: 100%;
+    background: url('img/hosp_room.jpg');
+    background-repeat: none;
+}
+*/
+.banner_text {
+    line-height: 45px;
+    padding-top: 60px;
+    text-align: center;
+    font-family: Arial, Sans-serif;
+    color: #fff;
+}
+
+.banner_text2 {
+    line-height: 20px;
+    margin-top: -35px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: Arial, Sans-serif;
+    color: #fff;
+}
+.banner_bg {
+    padding: 0px 2px 0px 2px;
+    background: rgba(0,0,0,0.3);
+}
+
+.core_table /*, table.core_table th , table.core_table td */ {
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    z-index: 2
+}
+
+.fb_img {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+
+.mail_img {
+    color: #fff;
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.mail_img:hover {
+    transform: scale(1.2, 1.2);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+}
+
+.fb_img:hover {
+    transform: scale(1.2, 1.2);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+}
+
+layer2 { /* contents layer */
+    padding-right: 23px;
+    box-shadow: 0px 0px 0px 0.5px #000000;
+    position: absolute;
+     text-align: center;
+     font-weight: normal;
+    height: 96.5%; /* height & width needed */
+    width: 96.8%;
+    left: 12px;
+     background-size: 100% 100%;
+     /*background-color: rgba(203, 206, 211, 0.70);*/
+     /*background-color: rgba(255, 255, 211, 0.70);*/
+     background-color: rgba(255, 255, 255, 0.78);
+     /*background: transparent;*/
+     /*background-color: rgba(255, 255, 255, 0.30);*/
+     /* color: rgba(223, 108, 73, 0.3); #df6c49*/
+     /*filter: alpha(opacity=65);*/
+     /*progid:DXImageTransform.Microsoft.gradient(startColorstr=#9ADF6C49,endColorstr=#9ADF6C49); */
+     filter: progid: DXImageTransform.Microsoft.Alpha(opacity=78);
+    -moz-opacity: 0.78;
+     opacity: 0.78;
+     zoom: 1;
+     z-index: 0;
+     top: 15px;
+     margin: 5px 0px 0px 0px; /* t b r l */
+     border-radius: 2px;
+}
+
+.logo {
+    max-width: 50px;
+    max-height: 80px;
+    background: #efefef;/*#cfcfef; /*rgb(217, 195, 245); /*rgb(174, 212, 200)*/
+}
+
+.logo_top {
+    padding-bottom: 0px;
+}
+
+.logo_text {
+    /* width: 200px; */
+    margin: 15px 0px 0px 15px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 2px 2px #000000;
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 180px
+}
+
+#map {
+    height: 200px;
+    width: 100%;
+}
+
+#map2 {
+    height: 400px;
+    width: 100%;
+}
+
+.scrubs_link:hover {
+    text-shadow: 1px 1px 1px rgba(24, 12, 76, 0.5);
+}
+
+table.core_table th {
+    background-color: #683b72; /*#df6c49;*/
+    position: relative;
+    color: #fff;
+    z-index: 2;
+    font-size: 9px;
+}
+
+table.core_table th:first-child {
+    border-radius: 7px 0px 0px 0px;
+}
+
+table.core_table th:last-child {
+    border-radius: 0px 7px 0px 0px;
+}
+
+table.core_table td {
+    background-color: #b78bc1; /*#f4a992;*/
+    position: relative;
+    z-index: 2;
+    padding: 2px;
+    font-size: 9px;
+}
+
+table.core_table td:first-child {
+    border-radius: 0px 0px 0px 7px;
+}
+
+table.core_table td:last-child {
+    border-radius: 0px 0px 7px 0px;
+}
+
+.textbook_link {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  max-width: 280px;
+  width: 100%;
+}
+
+/*-----QUERIES------*/
+
+@media screen and (max-width: 480px){
+    /*when browser window is narrower than max-width*/
+        
+    /*
+    .searchField {
+        float: left;
+    }
+    */
+}
+
+@media screen and (min-width: 490px) {
+    .logo_text {
+        max-width: 400px;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    
+    .banner_text {
+        line-height: 40px;
+        padding-top: 90px;
+        text-align: center;
+        color: #fff;
+    }
+    
+    .banner_text2 {
+        line-height: 20px;
+        margin-top: -33px;
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media screen and (min-width: 600px){
+	table.core_table td {
+		font-size: 14px;
+	}
+
+	table.core_table th {
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 750px){
+    /*when browser window is wider than mim-width*/
+    
+    .logo_text {
+      max-width: 800px;
+      font-size: 2rem;
+    }
+    
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        background: rgba(70, 29, 79, 0.5); /*rgb(70,70,70);*/
+        color: #fff;
+        z-index: 2;
+        width: 100%;
+        padding-left: 16px;
+        margin-left: 0px;
+        margin-right: 0px;
+        /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
+    }
+    
+    .fl_fullwidth {
+        width: 100%;
+        float: left;
+        padding: 1rem;
+        /*! box-shadow: 0 3px 3px #777; */
+        /*! position: absolute; */
+    }
+    
+    .fl_half {
+        width: 50%;
+        float: left;
+        padding: 1rem 1rem 0rem 1rem;
+    }
+    
+    .fl_oneThird {
+        width: 33%;
+        float: left;
+        padding: 1rem;
+    }
+    
+    .fl_twoThirds {
+        width: 66%;
+        float: left;
+        padding: 1rem;
+    }
+    
+    .searchForm {
+        text-align: right;
+        margin-top: 25px;
+    }
+    
+    .menuItems li {
+        display: inline-block;
+        margin-right: 1.5rem;
+    }
+    
+    .menuItems {
+        display: block;
+        /*! box-shadow: 0 3px 3px #777; */
+    }
+ 	
+   	table.core_table td {
+  		font-size: 16px;
+  	}
+
+  	table.core_table th {
+  		font-size: 16px;
+  	}  
+	 
+    .toggleMenu {
+        display: none;
+    }
+    
+    .wrapperTop {
+        box-shadow: 1px 2px 10px #777;
+    }
+}
+
+@media screen and (min-width: 1100px){
+    /*when browser window is wider than mim-width*/
+    .html {
+        font-size: 17px;
+        line-height: 1.3rem;
+    }
+}
+
+/* ========= Contact Form ===============*/
+button:disabled{
+	opacity: 0;
+	cursor: default;
+}
+
+.catcher_class {
+	display: none; 
+	visibility: hidden;
+}
+
+#contact_form {
+  overflow: auto;
+  overflow-y: auto;
+  padding-top: 0px;
+}
+#contact_form #form {
+  width: 100%; /*410px;*/
+  /*float:left;*/
+}
+#contact_form #form h2 {
+  font: 48px 'Open Sans', Georgia, serif;
+}
+#contact_form #form span {
+  display:block;
+  /*float:left;*/
+  width: 100%; /*100px;*/
+  padding-top:5px;
+  font: 14px/16px'Open Sans', Georgia, serif;
+}
+#contact_form #form input {
+  /*float:left;*/
+  width: 100%; /*255px;*/
+  border:0px;
+  color: #ffffff; /*#F1F1F1;*/
+  padding:10px 10px 10px 30px;
+  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+  margin-bottom:10px;
+}
+#contact_form #form textarea {
+  /*float:left;*/
+  border:0px;
+  width: 100%; /*255px;*/
+  height:140px;
+  padding:10px 10px 10px 32px;
+  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+  color: #ffffff; /*#F1F1F1;*/
+  resize: none;
+  margin: 10px 0px 0px 2px;
+}
+
+#contact_form #form input.name {
+  background: #8a768f /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+}
+
+#contact_form #form input.phone {
+  background: #8a768f /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 10px;
+  background-size: 1.75em 1.75em
+}
+
+#contact_form #form input.email {
+  background: #8a768f /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
+}
+#contact_form #form input.captcha {
+  background: #8a768f /*#222222*/ url(refresh_icon_wht.png) no-repeat 10px 9px;  /*http://img3.uploadhouse.com/fileuploads/17737/17737011310213e71805ecf2292144cbbecf42ad.png*/
+}
+#contact_form #form textarea.message {
+  background: #8a768f /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+}
+#contact_form #form button {
+  /*
+  cursor: pointer;
+  width:85px;
+  height:30px;
+  /*float:right;
+  padding:0px 0px 5px 0px;
+  margin:10px 16px 0px 0px;
+  background:#222222;
+  color:#F1F1F1;
+  */
+  font: 12px 'Open Sans', Arial, sans-serif;
+  width: 75%;
+  /*border-radius: 20px;*/
+}
+
+#contact_form #captcha span{
+    width: 50px;
+}
+
+#contact_form #captcha input{
+  background: url(refresh_icon.png) no-repeat scroll 0 0 transparent;
+  margin: 5px 0 0;
+  padding: 0;
+  border: medium none;
+  cursor: pointer;
+  width: 15px;
+}
+
+.fa-phone {
+    font-size:3em; 
+    color:#fff;
+}
+
+.fa-phone:before {content: "\f095";}
+
+.g-recaptcha {
+    transform:scale(0.97);
+    transform:scale(60vw);
+    transform-origin:0 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff;
+    opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+.status_msg {
+	color:red; 
+}
+
+.submit_btn{
+	display:block;
+	border:none;
+	background: #7C359C; /*#ffc20c; /*#f8ae45;*/
+	color:#FFFFFF;
+	padding:12px 25px;
+	cursor:pointer;
+	text-decoration:none;
+	font-weight:bold;
+	transition: all 0.3s ease-in-out;
+}
+.submit_btn:hover{
+	background: #49205b; /*#bc8f09;/*#d8850e;*/
+	transition: all 0.3s ease-in-out;
+}
+
+.successMessage {
+	height: 20px;
+	width: auto;
+	font-size: 0.8em;
+	color: green;
+}
+
+@media (max-width: 400px) { /*execute until 400*/
+	.g-recaptcha {
+	    transform:scale(0.77);
+	    transform:scale(50vw);
+	    transform-origin:0 0;
+	}
+}
+
+@media (max-width: 300px) { /*execute until 300*/
+	.g-recaptcha {
+	    transform:scale(0.50);
+	    transform:scale(50vw);
+	    transform-origin:0 0;
+	}
+}
+
+@media (max-width: 991px) { /*execute until 991*/
+	#contact_form #form {
+	  width: 100%; /*410px;*/
+	  /*float:left;*/
+	}
+	
+	#contact_form #form span {
+  	  display:block;
+	  /*float:left;*/
+	  width: 100%; /*100px;*/
+	  padding-top:5px;
+	  font: 14px/16px'Open Sans', Georgia, serif;
+	}
+	#contact_form #form input {
+	  /*float:left;*/
+	  width: 100%; /*255px;*/
+	  border:0px;
+	  color: #ffffff; /*#F1F1F1;*/
+	  padding:10px 10px 10px 30px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  margin-bottom:10px;
+	}
+	#contact_form #form textarea {
+	  /*float:left;*/
+	  border:0px;
+	  width: 100%; /*255px;*/
+	  height:140px;
+	  padding:10px 10px 10px 32px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  color: #ffffff; /*#F1F1F1;*/
+	  resize: none;
+	  margin: 0px 0px 0px 3px;
+	}
+	
+	#contact_form #form button {
+	  font: 12px 'Open Sans', Georgia, serif;
+  	  width: 55%;
+	  /*border-radius: 20px;*/
+	}
+	#contact_form #captcha span{
+	    width: 50%;
+	}
+}
+/* ========= End Contact Form ===========*/
+</style>
 </html>
 
 

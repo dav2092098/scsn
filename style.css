@@ -169,7 +169,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     background-size: 100% 100%;
     background-repeat: no-repeat;
     cursor: pointer;
-    margin: -70px 0px 0px 0px;
+    margin: -75px 0px 0px 0px;
     border-radius: 10px;
     right: 10px;
  }
@@ -312,11 +312,11 @@ form input {
 }
 
 .about_me_media {
-    width: 400px;
+    width: 600px;
     height: 315px;
-    background: url('img/mummys_photo_ed2.jpg');
+    background: url('img/scsn_outside.png');
     background-position: 0px 0px;
-    background-size: 400px 315px;
+    background-size: 600px 315px;
     display: table-cell;
     vertical-align: bottom;
     font-size: 10px;

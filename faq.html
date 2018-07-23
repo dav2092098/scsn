@@ -215,20 +215,14 @@ By: David Ayodele
 	    <div class="content">
 	    	<div id="form">
 	    		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
-    				<label class="preferred_contact" for="entry_187878632">Best reply mode:</label>
-                    <select name="entry.187878632" id="entry_187878632" class="preferred_contact_select">
-                    <option value=""></option>
-                    <option value="Email">Email</option> 
-                    <option value="Phone call">Phone call</option> 
-                    <option value="Text message">Text message</option>
-                    </select>
-                    <br>
-                    <label class="preferred_class" for="entry_898269100">Best time:</label>
+    				
+                    <!-- <label class="preferred_class" for="entry_898269100">Best time:</label>
                     <select name="entry.898269100" id="entry_898269100" class="preferred_class_select">
                     <option value=""></option>
                     <option value="Day">Day</option> 
                     <option value="Eve">Eve</option>
                     </select>
+                    -->
 	    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
 	    			<!--<span>Message</span>-->
     				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
@@ -239,11 +233,20 @@ By: David Ayodele
 	    			<!--<span>Phone</span>-->
 	    			<input type="tel" name="entry.1454483309" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
 	    		    <br>
+                    <label class="preferred_contact" for="entry_187878632">Best reply method:</label>
+                    <select name="entry.187878632" id="entry_187878632" class="preferred_contact_select">
+                    <option value=""></option>
+                    <option value="Email">Email</option> 
+                    <option value="Phone call">Phone call</option> 
+                    <option value="Text message">Text message</option>
+                    </select>
+                    <br>
+	    		    <br>
 	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
                     
 	    			<br>
 	    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
-	    			<span style="font: bold normal 10px/80% Arial, Helvetica, sans-serif; line-height: 10px;">Please click the captcha below before submitting</span>
+	    			<span style="font: bold normal 10px/80% Arial, Helvetica, sans-serif; line-height: 10px;">Please click the captcha below before submitting (may take a few seconds)</span>
 	    			<br>
 	    			<div class="g-recaptcha" id="captchabox" data-sitekey="6Lf8sVsUAAAAAGSeEocTRqoyho51t1Tp5AInt4kh" data-callback="imNotARobot">
 	    			</div>

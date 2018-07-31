@@ -601,6 +601,9 @@ table.core_table td:last-child {
         float: left;
     }
     */
+    .about_me_media {
+        background-position: -100px 0px;
+    }
 }
 
 @media screen and (min-width: 400px) {

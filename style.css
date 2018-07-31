@@ -771,7 +771,7 @@ button:disabled{
   /*float:left;*/
   width: 100%; /*100px;*/
   padding-top:5px;
-  font: 14px/16px'Open Sans', Georgia, serif;
+  font: 14px'Open Sans', Georgia, serif;
 }
 #contact_form #form input {
   /*float:left;*/
@@ -904,7 +904,9 @@ button:disabled{
 }
 
 #status_msg {
-	color:#187320; 
+	color:#187320;
+	margin-top: -20px;
+	font-size: 0.7rem;
 }
 
 .submit_btn{
@@ -924,9 +926,9 @@ button:disabled{
 }
 
 .successMessage {
-	height: 20px;
+	height: 15px;
 	width: auto;
-	font-size: 0.8em;
+	font-size: 0.7rem;
 	color: #187320;
 }
 
@@ -973,7 +975,7 @@ button:disabled{
 	  /*float:left;*/
 	  width: 100%; /*100px;*/
 	  padding-top:5px;
-	  font: 14px/16px'Open Sans', Georgia, serif;
+	  font: 14px 'Open Sans', Georgia, serif;
 	}
 	#contact_form #form input {
 	  /*float:left;*/

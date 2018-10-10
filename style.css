@@ -328,6 +328,9 @@ form input {
     */
 }
 
+.calendar_text {
+    font: 12px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
 .classes_media {
     max-width: 400px;
     height: 225px;

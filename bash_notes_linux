@@ -77,6 +77,8 @@ apt-get upgrade
 
 
 ==========================
+https://unix.stackexchange.com/questions/112023/how-can-i-replace-a-string-in-a-files/112024#112024
+
 These are for cases where you know that the directory contains only regular files and that you want to process all non-hidden files. If that is not the case, use the approaches in 2.
 
 All sed solutions in this answer assume GNU sed. If using FreeBSD or OS/X, replace -i with -i ''. Also note that the use of the -i switch with any version of sed has certain filesystem security implications and is inadvisable in any script which you plan to distribute in any way.

@@ -151,6 +151,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 .menuItems li a {
     color: #fff;
     text-decoration: none;
+    text-shadow: 1px 1px #000000;
 }
 
 .menuItems li:hover {

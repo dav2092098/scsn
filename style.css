@@ -239,6 +239,36 @@ form input {
 }
 
 /*-----UNIQUE------*/
+
+/*===== Calendar ======*/
+.view-cap, .view-container-border {
+    background-color: #a682ab;
+}
+
+.st-bg { background:transparent; }
+
+.mv-daynames-table {
+    table-layout: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #917c95;
+    color: #000;
+}
+
+.ui-rtsr-unselected {
+    background-color: #e6cdea;
+    color: #20c;
+    cursor: pointer;
+	font-weight: bold;
+}
+
+.ui-rtsr-selected {
+    background-color: #fad163;
+    font-weight: bold;
+}
+/*=====================*/
+
 #admin {
     height: 200px;
     width: 200px;

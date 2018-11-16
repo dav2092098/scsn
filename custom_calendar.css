@@ -1,0 +1,13 @@
+.dp-cur, .chip dt, .te, .te-t, .te-rev-s, .rb-n, .rb-i, .agenda, .event-title{
+white-space:normal !important;
+}
+
+.st-dtitle-down {
+    border-top: 1px solid #ddd;
+}
+
+.st-bg-today, .st-bg-td-first {
+    background: #ffffff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}

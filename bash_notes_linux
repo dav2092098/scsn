@@ -1,3 +1,8 @@
+------ UNDO CHANGES IN LAST 5 MINS --------
+find ./ -mmin -5 -exec rm -i '{}' \;
+
+-------------------------------------------
+
 APT-GET issues
 sudo dpkg --configure -a
 sudo apt-get install -f

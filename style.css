@@ -414,7 +414,7 @@ form input {
     width: 50px;
     ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
-    filter: drop-shadow(0.5px 0.1px 0.2px rgba(0,0,0,1));
+    filter: drop-shadow(0.5px 0.5px 0.5px rgba(0,0,0,1));
 }
 
 .mail_img {
@@ -424,7 +424,7 @@ form input {
     width: 50px;
     ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
-    filter: drop-shadow(0.5px 0.1px 0.2px rgba(0,0,0,1));
+    filter: drop-shadow(0.5px 0.5px 0.5px rgba(0,0,0,1));
 }
 
 .mail_img:hover {
@@ -701,6 +701,11 @@ table.core_table td:last-child {
         background-position: 0px -210px;
     }
     
+    .copyleft_logo {
+      display:inline-block;
+      transform: rotate(180deg);
+    }
+    
     .fixed-header {
         position: fixed;
         top: 0;
@@ -733,6 +738,10 @@ table.core_table td:last-child {
         float: left;
         padding: 1rem;
         /*text-shadow: 1px 1px #000000;*/
+    }
+    
+    .fl_oneThird.copyleft {
+        text-shadow: 0.8px 0.8px rgba(0, 0, 0, 0.5);
     }
     
     .fl_twoThirds {

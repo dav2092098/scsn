@@ -718,6 +718,7 @@ table.core_table td:last-child {
         margin-left: 0px;
         margin-right: 0px;
         /*! box-shadow: 3px 5px 5px #000; */ /*adds popout shadow effect for body text*/
+        box-shadow: 1px 2px 10px rgba(0,0,0,0.5);
     }
     
     .fl_fullwidth {

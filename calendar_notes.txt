@@ -1,0 +1,109 @@
+
+
+.view-cap, .view-container-border {
+    background-color: transparent;
+}
+
+.view-cap, .view-container-border {
+    background-color: transparent;
+}
+
+<!-- ========== Celandar Week Days (Adjust padding to 5px) ============ -->
+<th class="mv-dayname" title="Sun" style="
+    padding-bottom: 5px;
+    padding-top: 0px;
+">Sun</th>
+
+
+OR
+
+<tbody>
+  <tr>
+  <th class="mv-dayname" title="Sun" style="
+	  padding-bottom: 5px;
+	  padding-top: 0px;
+	  font-size: 3.0vmin;
+  ">Sun
+  </th>
+	<th class="mv-dayname" title="Mon" style="
+	  padding-top: 0px;
+	  padding-bottom: 5px;
+	  font-size: 3.0vmin;
+  ">Mon
+  </th>
+  <th class="mv-dayname" title="Tue" style="
+	  padding-top: 0px;
+	  padding-bottom: 5px;
+	  font-size: 3.0vmin;
+  ">Tue
+  </th>
+  <th class="mv-dayname" title="Wed" style="
+	  padding-top: 0px;
+	  padding-bottom: 5px;
+	  font-size: 3.0vmin;
+  ">Wed
+  </th>
+  <th class="mv-dayname" title="Thu" style="
+	  padding-top: 0px;
+	  padding-bottom: 5px;
+	  font-size: 3.0vmin;
+  ">Thu
+  </th>
+  <th class="mv-dayname" title="Fri" style="
+	  padding-top: 0px;
+	  padding-bottom: 5px;
+	  font-size: 3.0vmin;
+  ">Fri
+  </th>
+  <th class="mv-dayname" title="Sat" style="
+	  padding-top: 0px;
+	  padding-bottom: 5px;
+	  font-size: 3.0vmin;
+  ">Sat
+  </th>
+  </tr>
+</tbody>
+
+<!-- ============================================================= -->
+
+
+<!-- ========== Today (Adjust border colors) ============ -->
+st-bg-today, .st-bg-td-first {
+    background: #ffffff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+/*Week below*/
+.st-dtitle-down {
+    border-top: 1px solid #ddd;
+}
+<!-- ============================================================= -->
+
+<!-- ========== Caledar Day Numbers (Adjust border colors) ============ -->
+.st-dtitle {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    background: #e9dfef;
+    color: #666;
+    padding: 0 2px 0 0;
+    text-align: right;
+    line-height: 16px;
+    overflow: hidden;
+}
+<!-- ============================================================= -->
+
+<!-- ========== Caledar Holidays (Adjust bg & border color) (find/replace) ============ -->
+<td class="st-c">
+  <div class="st-c-pos">
+	<div class="ca-evp77  rb-n" style="border: 1px solid #917c95;color:;background-color: #917c95;">
+	  <div class="rb-ni">Thanksgiving Day</div>
+	</div>
+  </div>
+</td>
+
+.st-c-pos {
+    font-family: Verdana, sans-serif;
+    font-size: 2.0vmin;
+    cursor: pointer;
+}
+<!-- ============================================================= -->

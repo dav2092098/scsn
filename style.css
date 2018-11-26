@@ -550,7 +550,7 @@ table.core_table td:last-child {
 
 .upload_here {
     color: #e94335;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .upload_here:hover {

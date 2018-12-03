@@ -1,4 +1,13 @@
 
+1) Open calendar.html
+2) Go to month of interest
+3) Copy source (watch for duplicate sections), format code (ctl+alt+f) and paste into new html page titled "calendar_xxx.html" where xxx is the month abbrev
+4) Change style sheet ref to: <link type="text/css" rel="stylesheet" href="custom_calendar2.css"> 
+5) Modify html style elements to match nov or dec.
+
+
+https://codersgrave.com/integrating-styled-google-calendar-website/
+https://www.webdesignerdepot.com/2012/04/integrating-google-calendar-with-your-website/
 
 .view-cap, .view-container-border {
     background-color: transparent;

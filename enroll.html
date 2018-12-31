@@ -32,7 +32,7 @@ By: David Ayodele
 	<!--End Priority scripts -->
 	
 	<!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href= 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href= 'https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     
@@ -120,110 +120,330 @@ By: David Ayodele
         <div class="layer2">
         </div>
         -->
-        <h2>Basic Information &amp; Common Questions</h2>
+        <h2>Enrollment</h2>
         <br>
         <br>
-        <form id="form1" action="https://docs.google.com/forms/d/e/1FAIpQLSc1Um8K4KPK9R5V7lrDQrszoGb4AXqDtUahiCX6240tSv6NXw/formResponse" method="post" class="contact_prior" target="hidden_iframe"> <!-- target="hidden_iframe" onsubmit="submitted = true;" in case url redirect needed -->
-			<p class="input_wrapper">
-			<input type="text" name="entry.608595779" value="" id ="contact_nom" tabindex=2 required>
-			<label for="contact_nom">Employer</label>
-			</p>
-			<p class="input_wrapper">
-			<input type="text" name="entry.1441536724" value="" id ="contact_sujet" tabindex=2 required>
-			<label for="contact_sujet">AZ Address</label>
-			</p>
-			<p class="input_wrapper">
-			<input type="text" name="entry.295122875" value="" id ="contact_sujet" tabindex=2 required>
-			<label for="contact_sujet">Occupation</label>
-			</p>
-			<p class="input_wrapper">
-			<input type="email" name="entry.1410559524" value="" id="entry_295122875" dir="auto" aria-label="Email: Please enter a valid email" title="Please enter a valid email" tabindex=2 required> <!--  onfocusout="Validate();" -->
-			<label for="entry_295122875">Email</label>
-			</p>
-			<p class="submit_wrapper">
-			<input type="submit" name="submit" value="Proceed Here" id="toggleMenu" class="contactbutton" onclick="Validate();"> <!-- onmouseover="Validate();" onclick="Validate();" -->
-			<br>
-			<input type="submit" name="submit" value="Use Crowdpac" id="ss-submit" class="contactbutton" onclick="location.href='https://www.crowdpac.com/campaigns/380880/sharron-sauls';">
-			</p>
-		</form>
+        
+        <!-- Contact Form (edited 7/07/18)-->
+		<section id="contact_form">
+		<h4>
+		Online Enrollment Form 
+		</h4>
+		<h6>
+		Please fill your personal information exactly as it appears on your driver's license or government issued ID. Please feel free to enroll in person. We're open Monday-Thrusday 9am-8pm.
+		<br>
+		<br>
+		</h6>
+	    <script type="text/javascript">
+	    var submitted=false;
+	    var name = '';
+	    var str = '';
+	    var n = -1;
+	    
+	    function _(id){ return document.getElementById(id); }
+	    
+    	var imNotARobot = function() {
+	  		console.info("Captcha box was clicked");
+	  		_("ss-submit").disabled = false;
+	  		var name = $("#name").val();
+	  		$.ajax({
+	  			url: 'recaptcha_scsn.php',
+	  			type: "POST",
+	  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+	  			success: function(data) {
+		  			str = grecaptcha.getResponse();
+		  			console.log(grecaptcha.getResponse());
+		  			//document.getElementById("status_msg").innerHTML = n;
+		  			n = str.indexOf("03A");
+		  			if (n >= 0) {
+		  				if ($(".status_msg")[0]){
+						    // Do something if class exists
+						    $( "#status_msg" ).removeClass();
+						    $("#status_msg").addClass( "successMessage" );
+						} else {
+						    // Do something if class does not exist
+					}
+	  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+	  				document.getElementById("status_msg").className = ".successMessage";
+					}
+				}
+			})
+    	};
+	    
+	    /*--- print to present page function--- */
+	    (function () {
+			$.webshims.setOptions('form', {
+				lazyCustomMessages: true,
+				iVal: {
+					handleBubble: 'hide',
+					fx: 'slide',
+					sel: '.ws-validate',
+					fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+				}
+			});
+			$.webshims.polyfill('form');
+		})();
+		/*--- End print to present page function--- */
+		
+		function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
+			var reason = "";
+			var i = document.getElementById("status_msg");
+			var j = document.getElementById("successMessage");
+		    reason += validateName(contact.name);
+		    reason += validateEmail(contact.email);
+		    reason += validatePhone(contact.phone);
+		    
+			//_("ss-submit").disabled = true;
+			var formdata = new FormData();
+			formdata.append( "name", _("name").value );
+			formdata.append( "email", _("email").value );
+			formdata.append( "msg", _("msg").value );
+			
+			//var ajax = new XMLHttpRequest();
+			//event.preventDefault();
+	  		name = $("#name").val();
+	  		$.ajax({
+	  			url: 'recaptcha_scsn.php',
+	  			type: "POST",
+	  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+	  			success: function(data) {
+	  				str = grecaptcha.getResponse();
+	  				console.log(grecaptcha.getResponse());
+	  				n = str.indexOf("03A");
+	  				//document.getElementById("status_msg").innerHTML = n;
+	  			}
+	  		})
+	  		
+	  	    console.log(reason);
+	  	    switch (true) {
+	  		
+	  		  case (reason.length <= 0 && n >= 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
+			  	_("status_msg").innerHTML = "";
+			  	$('#contactForm').attr('action', 'https://docs.google.com/forms/d/e/1FAIpQLSe4VwcXOeVk-ZIKT4U3MeuvLHyn84lGggATLmeYX0O6P2DAMA/formResponse');
+			  	j .className += "successMessage";
+			    _("ss-submit").value = _("msg").value;
+		        submitted = true;
+		        _("successMessage").innerHTML = "Thank you, " + name + "! Someone at SCSN will respond shortly!"
+		        _("ss-submit").disabled = true;
+		        return true;
+	  		    break;
+	  		    
+	  		  case (reason.length <= 0 && n < 0):
+	  			i.className += "status_msg";
+	  	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
+	  	    	_("ss-submit").disabled = true;
+	  	    	return false;
+	  		    break;
+	  		    
+	  		  default:
+	  				return false;
+	  		}
+		}
+		
+		// validate required fields
+		function validateName(name) { // takes name var as input
+		    var error = "";
+		
+		    if (name.value.length == 0) {
+		      alert("Please fill all inputs to submit");
+		        //name.style.background = "Red";
+		        var error = "1";
+		    } else {
+		        //name.style.background = "White";
+		    }
+		    return error;
+		}
+		
+		// validate email as required field and format (or handle with html5)
+		function trim(s) {
+		    return s.replace(/^\s+|\s+$/, "");
+		}
+		
+		function validateEmail(email) { // takes email var as input
+		    var error = "";
+		    var temail = trim(email.value); // value of field with whitespace trimmed off
+		    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+		    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
+		
+		    if (email.value == "") {
+		        alert("Please fill all inputs to submit");
+		        //email.style.background = "Red";
+		        var error = "2";
+		    } else if (!emailFilter.test(temail)) { //test email for illegal characters
+		        alert("Please enter a valid email to submit");
+		        //email.style.background = "Red";
+		        var error = "3";
+		    } else if (email.value.match(illegalChars)) {
+		        alert("Please enter a valid email to submit");
+		        //email.style.background = "Red";
+		        var error = "4";
+		    } else {
+		        //email.style.background = "White";
+		    }
+		    return error;
+		}
+
+		// validate phone for required and format (or handle with html5)
+
+		function validatePhone(phone) {
+		    var error = "";
+		    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
+		
+		    if (phone.value == "") {
+		        alert("Please fill all inputs to submit");
+		        //phone.style.background = "Red";
+		        var error = "6";
+		    } else if (isNaN(parseInt(stripped))) {
+		        alert("Please enter a valid 10 digit phone number to submit");
+		        var error = "5";
+		        //phone.style.background = "Red";
+		    } else if (stripped.length < 10) {
+		        alert("Please enter a valid 10 digit phone number to submit");
+		        var error = "6";
+		        //phone.style.background = "Red";
+		    } else {
+		        //phone.style.background = "White";
+		    }
+		    return error;
+		}
+		
+		
+
+	    </script>
+	    <script>
+	    var total;
+
+		function getRandom(){return Math.ceil(Math.random()* 20);}
+		function createSum(){
+				var randomNum1 = getRandom(),
+					randomNum2 = getRandom();
+			total =randomNum1 + randomNum2;
+		  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
+		  $("#math_ans").val('');
+		  checkInput();
+		}
+		
+		function checkInput(){
+				var input = $("#math_ans").val(), 
+		    	slideSpeed = 200,
+		      hasInput = !!input, 
+		      valid = hasInput && input == total;
+		    $('#math_message').toggle(!hasInput);
+		    $('button[type=submit]').prop('disabled', !valid);  
+		    $('#math_success').toggle(valid);
+		    $('#math_fail').toggle(hasInput && !valid);
+		}
+		
+		$(document).ready(function(){
+			//create initial sum
+			createSum();
+			// On "reset button" click, generate new random sum
+			$('button[type=math_reset]').click(createSum);
+			// On user input, check value
+			$( "#math_ans" ).keyup(checkInput);
+		});
+	    
+	    </script>
+	    
+	    <!-- End Contact Form Script -->
+	        
+	    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0"> 
+	      <!--onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">-->
+	    </iframe>
+	    <!--<center> -->
+	    <div class="content">
+	    	<div id="form">
+	    		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
+    				
+    				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
+    				<h5>
+	    			<label>Legal Last Name</label>
+	    			</h5>
+    				<input type="text" name="entry.1072099089" id="name3" class="name" placeholder="Last Name" tabindex=1 required/> <!-- name -->
+    				<h5>
+	    			<label>Legal First Name</label>
+	    			</h5>
+	    			<input type="text" name="entry.834080210" id="name" class="name" placeholder="First Name" tabindex=1 required/> <!-- name -->
+	    			<h5>
+	    			<label>Middle Name or Initial</label>
+	    			</h5>
+	    			<input type="text" name="entry.1077448874" id="name2" class="name" placeholder="Middle Name or Initial" tabindex=1 required/> <!-- name -->
+	    			<br>
+	    			<br>
+	    			<h5>
+	    			<label>Street Address (example: 8900 North Central)</label>
+	    			</h5>
+	    			<input type="text" name="entry.1739182327" id="address" class="address" placeholder="Present Address (Street address only, example: 8900 North Central)" tabindex=1 required/> <!-- name -->
+	    			<h5>
+	    			<label>City</label>
+	    			</h5>
+	    			<input type="text" name="entry.1581544026" id="city" class="city" placeholder="City" tabindex=1 required/> <!-- name -->
+	    			<h5>
+	    			<label>Zip</label>
+	    			</h5>
+	    			<input type="text" name="entry.2101851789" id="zip" class="zip" placeholder="Zip" tabindex=1 required/> <!-- name -->
+	    			<h5>
+	    			<label>Phone Number, please use format (555)555-5555</label>
+	    			</h5>
+	    			<input type="tel" name="entry.1968393945" id="phone" class="phone2" placeholder="Phone number, please use format (555)555-5555" tabindex=2 required/>
+	    		    <h5>
+	    			<label>Email</label>
+	    			</h5>
+	    		    <input type="email" name="entry.1370375900" id="email" class="email2" placeholder="Email" tabindex=2 required/>
+	    		    <br>
+	    		    <br>
+	    		    <h5>
+	    		    <label class="birthdate" for="entry_1454483309">Date of Birth (must be above age 16)</label>
+	    		    </h5>
+	    			<input type="date" name="entry.1454483309" id="dob" class="birthdate" placeholder="Date of Birth" tabindex=2 required/>
+	    		    <br>
+	    		    <br>
+	    		    <h5>
+	    		    <label class="course_date" for="entry_668287497">Course Start Date (please see course calendar or contact us for start dates)</label>
+                    </h5>
+                    <input type="date" name="entry.668287497" id="course" class="course_date" placeholder="Class Start Date" tabindex=2 required/>
+	    		    <br>
+                    <br>
+                    <h5>
+	    			<label class="payment" for="entry_2108841464">Select payment amount (please come in to setup payment plans)</label>
+	    			</h5>
+                    <select name="entry.2108841464" id="entry_2108841464" class="payment">
+                    <option value=""></option>
+                    <option value="Enrollment Fee Only ($300)">Enrollment Fee Only ($300)</option>
+                    <option value="Enrollment + Full Tuition ($1250)">Enrollment + Full Tuition ($1250)</option> 
+                    </select>
+                    <br>
+	    		    <br>
+	    		    <br>
+	    		    <h5>
+	    			<label>Additional Notes</label>
+	    			</h5>
+	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="Special Notes" tabindex=4></textarea>
+                    <br>
+	    			<br>
+	    			<center>
+	    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
+	    			<span style="font: bold normal 10px/80% Arial, Helvetica, sans-serif; line-height: 10px;">To submit, please click the captcha below (may take a few seconds)</span>
+	    			<br>
+	    			<div class="g-recaptcha" id="captchabox" data-sitekey="6Lf8sVsUAAAAAGSeEocTRqoyho51t1Tp5AInt4kh" data-callback="imNotARobot">
+	    			</div>
+	    			<span id="status_msg" name="msg"></span>
+	    			<!-- <span id="captcha">Captcha Code:</span> -->
+	    			</center>
+	    		</form>
+	      </div>
+	    </div>
+	    <div id="successMessage" style="display: none; color: green;"> 
+	    <br>
+	    </div>
+	    <!-- </center> -->
+	    </section>
+	    <!-- End contact form -->
+        
 		<br>
 		<br>
         <p>
-        &#10070;<!-- &#10147;--> Question: Do you offer any payment plans?
-        <br>
-        <br>
-		Answer: We offer a variety of payment plans that meet most students' needs. Students need to contact
-		administration to arrange payment plans. Please note that we do not accept personal checks.
-		<br>
-		<br>
-		The total cost of the program is $1,250 per candidate. 
-		<br>
-		&bull; Enrollment/Registration is $300.00.
-		<br>
-		&bull; Tuition is $950.00.
-		<br>
-		<br>
-		We do accept installment payments for tuition weekly or bi-weekly. After graduation, 
-		preparation for the board-exam is free.	We do not charge for textbooks, equipment, or additional lab use.  
-		<br>
-		<br>
-		&#10070;<!-- &#10147;--> Question: Do you offer Financial Aid?
-		<br>
-		<br>
-		Answer: We do not offer any federally funded financial assistance, however, students may obtain financial assistance through an external agency. Some well-known resources are listed below:
-		<br>
-		<br>
-		<ul style="list-style: none;">
-		<li>
-		<a class="scrubs_link" href="https://www.arizonaatwork.com" target="_blank" style="text-decoration:none;">
-		Arizona @ Work
-		</a>
-		</li>
-		
-		<li>
-		<a class="scrubs_link" href="https://azahec.uahs.arizona.edu/" target="_blank" style="text-decoration:none;">
-		Arizona Health Education Centers
-		</a>
-		</li>
-		
-		<li>
-		<a class="scrubs_link" href="http://awee.org/what-we-do/" target="_blank" style="text-decoration:none;">
-		Arizona Women’s Education and Employment (AWEE)
-		</a>
-		</li>
-		
-		<li>
-		<a class="scrubs_link" href="https://scottsdalecommunitypartners.org/program/emergency-assistance/" target="_blank" style="text-decoration:none;">
-		Scottsdale Community Partners
-		</a>
-		</li>
-		
-		<li>
-		<a class="scrubs_link" href="http://www.campusrn.com/scholarships/scholarship_list.asp" target="_blank" style="text-decoration:none;">
-		Campus RN
-		</a>
-		</li>
-		
-		<li>
-		<a class="scrubs_link" href="http://www.nahnnet.org/NAHN/Scholarships___Awards/NAHN/Content/Scholarships.aspx?hkey=fd884e96-f8b4-4d57-abeb-ace7225e888d" target="_blank" style="text-decoration:none;">
-		National Association of Hispanic Nurses (NAHN)
-		</a>
-		</li>
-		<li>
-		<a class="scrubs_link" href="https://blacknursesrock.com/nursing-scholarships-grants-and-loans/" target="_blank" style="text-decoration:none;">
-		Black Nurses Rock (BNR)
-		</a>
-		</li>
-		<li>
-		<a class="scrubs_link" href="http://aapina.org/aapina-scholarship/" target="_blank" style="text-decoration:none;">
-		Asian American / Pacific Islander Nurses Association (AAPINA)
-		</a>
-		</li>
-		
-		</ul>
-		<br>
-		The above list is by no means exhaustive. Many more options are available. Historically, students have received funding from sources such as their employer, credit unions, religious organizations, community programs, but mostly family/friends. Your personal drive and determination will likely be the ultimate contributor to your success. Please do not hesitate to call or come in and speak with us if you have any questions. Our number is (602) 943-1337, we'll do our best to help. 
-		<br>
+        
 		<br>
 		&#10070;<!-- &#10147;--> Question: How do I find transportation to school?
 		<br>
@@ -266,109 +486,7 @@ By: David Ayodele
         </section>
         
         
-        <!-- Contact Form (edited 7/07/18)-->
-		<section id="contact_form">
-		<h4>
-		Contact Us
-		</h4>
-		<h6>
-		We'll reply promptly
-		<br>
-		<br>
-		</h6>
-	    <script type="text/javascript">
-        var _0x520a=['name','value','msg','ajax','length','catcher_id','#contactForm','attr','action','https://docs.google.com/forms/d/e/1FAIpQLScGw1dwK02VQnCTwSTkFyr_Am5F5i93mdJ5T_WQupcZj0VXVw/formResponse','innerHTML','Thank\x20you,\x20','substr','\x20Please\x20click\x20the\x20\x22captcha\x22\x20box','Please\x20fill\x20all\x20inputs\x20to\x20submit','test','Please\x20enter\x20a\x20valid\x20email\x20to\x20submit','match','Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit','getElementById','info','Captcha\x20box\x20was\x20clicked','ss-submit','disabled','#name','val','recaptcha_scsn.php','POST','name=','&g-recaptcha-response=','getResponse','log','indexOf','03A','.status_msg','removeClass','#status_msg','addClass','successMessage','status_msg','Captcha\x20check\x20complete!','className','.successMessage','setOptions','form','hide','slide','.ws-validate',':not(span,\x20label,\x20em,\x20strong,\x20b,\x20i,\x20mark,\x20p)','webshims','polyfill','email','phone','append'];(function(_0x330af9,_0x27f57d){var _0x15d11c=function(_0x2827dc){while(--_0x2827dc){_0x330af9['push'](_0x330af9['shift']());}};_0x15d11c(++_0x27f57d);}(_0x520a,0x157));var _0x20fc=function(_0x2d202c,_0xb61886){_0x2d202c=_0x2d202c-0x0;var _0x3f3773=_0x520a[_0x2d202c];return _0x3f3773;};var submitted=![];var name='';var str='';var n=-0x1;function _(_0x527720){return document[_0x20fc('0x0')](_0x527720);}var imNotARobot=function(){console[_0x20fc('0x1')](_0x20fc('0x2'));_(_0x20fc('0x3'))[_0x20fc('0x4')]=![];var _0x37d36=$(_0x20fc('0x5'))[_0x20fc('0x6')]();$['ajax']({'url':_0x20fc('0x7'),'type':_0x20fc('0x8'),'data':_0x20fc('0x9')+_0x37d36+_0x20fc('0xa')+grecaptcha[_0x20fc('0xb')](),'success':function(_0x1e0814){str=grecaptcha[_0x20fc('0xb')]();console[_0x20fc('0xc')](grecaptcha['getResponse']());n=str[_0x20fc('0xd')](_0x20fc('0xe'));if(n>=0x0){if($(_0x20fc('0xf'))[0x0]){$('#status_msg')[_0x20fc('0x10')]();$(_0x20fc('0x11'))[_0x20fc('0x12')](_0x20fc('0x13'));}else{}document[_0x20fc('0x0')](_0x20fc('0x14'))['innerHTML']=_0x20fc('0x15');document['getElementById']('status_msg')[_0x20fc('0x16')]=_0x20fc('0x17');}}});};(function(){$['webshims'][_0x20fc('0x18')](_0x20fc('0x19'),{'lazyCustomMessages':!![],'iVal':{'handleBubble':_0x20fc('0x1a'),'fx':_0x20fc('0x1b'),'sel':_0x20fc('0x1c'),'fieldWrappper':_0x20fc('0x1d')}});$[_0x20fc('0x1e')][_0x20fc('0x1f')]('form');}());function validateFormOnSubmit(_0x1d483c){var _0x166ae5='';var _0x41fc33=document[_0x20fc('0x0')]('status_msg');var _0x2ae4ad=document[_0x20fc('0x0')](_0x20fc('0x13'));_0x166ae5+=validateName(_0x1d483c['name']);_0x166ae5+=validateEmail(_0x1d483c[_0x20fc('0x20')]);_0x166ae5+=validatePhone(_0x1d483c[_0x20fc('0x21')]);var _0x173041=new FormData();_0x173041[_0x20fc('0x22')](_0x20fc('0x23'),_(_0x20fc('0x23'))[_0x20fc('0x24')]);_0x173041[_0x20fc('0x22')](_0x20fc('0x20'),_(_0x20fc('0x20'))['value']);_0x173041[_0x20fc('0x22')](_0x20fc('0x25'),_(_0x20fc('0x25'))[_0x20fc('0x24')]);name=$(_0x20fc('0x5'))[_0x20fc('0x6')]();$[_0x20fc('0x26')]({'url':_0x20fc('0x7'),'type':_0x20fc('0x8'),'data':_0x20fc('0x9')+name+_0x20fc('0xa')+grecaptcha[_0x20fc('0xb')](),'success':function(_0x25487c){str=grecaptcha['getResponse']();console['log'](grecaptcha[_0x20fc('0xb')]());n=str['indexOf'](_0x20fc('0xe'));}});console[_0x20fc('0xc')](_0x166ae5);switch(!![]){case _0x166ae5[_0x20fc('0x27')]<=0x0&&n>=0x0&&_(_0x20fc('0x28'))[_0x20fc('0x24')]=='':_(_0x20fc('0x14'))['innerHTML']='';$(_0x20fc('0x29'))[_0x20fc('0x2a')](_0x20fc('0x2b'),_0x20fc('0x2c'));_0x2ae4ad[_0x20fc('0x16')]+=_0x20fc('0x13');_(_0x20fc('0x3'))[_0x20fc('0x24')]=_(_0x20fc('0x25'))[_0x20fc('0x24')];submitted=!![];_(_0x20fc('0x13'))[_0x20fc('0x2d')]=_0x20fc('0x2e')+name[_0x20fc('0x2f')](0x0,name[_0x20fc('0xd')]('\x20'))+'!\x20Someone\x20at\x20SCSN\x20will\x20respond\x20shortly!';_('ss-submit')['disabled']=!![];return!![];break;case _0x166ae5[_0x20fc('0x27')]<=0x0&&n<0x0:_0x41fc33[_0x20fc('0x16')]+='status_msg';_('status_msg')[_0x20fc('0x2d')]=_0x166ae5[_0x20fc('0x27')]+'\x20'+n+_0x20fc('0x30');_(_0x20fc('0x3'))['disabled']=!![];return![];break;default:return![];}}function validateName(_0x43ce06){var _0x2a2d94='';if(_0x43ce06['value']['length']==0x0){alert(_0x20fc('0x31'));var _0x2a2d94='1';}else{}return _0x2a2d94;}function trim(_0x36937e){return _0x36937e['replace'](/^\s+|\s+$/,'');}function validateEmail(_0x2355f6){var _0x214f75='';var _0x21e7b8=trim(_0x2355f6[_0x20fc('0x24')]);var _0x575ae1=/^[^@]+@[^@.]+\.[^@]*\w\w$/;var _0xda0de0=/[\(\)\<\>\,\;\:\"\[\]]/;if(_0x2355f6[_0x20fc('0x24')]==''){alert('Please\x20fill\x20all\x20inputs\x20to\x20submit');var _0x214f75='2';}else if(!_0x575ae1[_0x20fc('0x32')](_0x21e7b8)){alert(_0x20fc('0x33'));var _0x214f75='3';}else if(_0x2355f6['value'][_0x20fc('0x34')](_0xda0de0)){alert(_0x20fc('0x33'));var _0x214f75='4';}else{}return _0x214f75;}function validatePhone(_0x3b9ce8){var _0x4c1f49='';var _0x474564=_0x3b9ce8[_0x20fc('0x24')]['replace'](/[\(\)\.\-\ ]/g,'');if(_0x3b9ce8['value']==''){alert(_0x20fc('0x31'));var _0x4c1f49='6';}else if(isNaN(parseInt(_0x474564))){alert(_0x20fc('0x35'));var _0x4c1f49='5';}else if(_0x474564['length']<0xa){alert('Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit');var _0x4c1f49='6';}else{}return _0x4c1f49;}
-	    </script>
-	    <script>
-	    var total;
-
-		function getRandom(){return Math.ceil(Math.random()* 20);}
-		function createSum(){
-				var randomNum1 = getRandom(),
-					randomNum2 = getRandom();
-			total =randomNum1 + randomNum2;
-		  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
-		  $("#math_ans").val('');
-		  checkInput();
-		}
-		
-		function checkInput(){
-				var input = $("#math_ans").val(), 
-		    	slideSpeed = 200,
-		      hasInput = !!input, 
-		      valid = hasInput && input == total;
-		    $('#math_message').toggle(!hasInput);
-		    $('button[type=submit]').prop('disabled', !valid);  
-		    $('#math_success').toggle(valid);
-		    $('#math_fail').toggle(hasInput && !valid);
-		}
-		
-		$(document).ready(function(){
-			//create initial sum
-			createSum();
-			// On "reset button" click, generate new random sum
-			$('button[type=math_reset]').click(createSum);
-			// On user input, check value
-			$( "#math_ans" ).keyup(checkInput);
-		});
-	    
-	    </script>
-	    
-	    <!-- End Script -->
-	        
-	    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0"> 
-	      <!--onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">-->
-	    </iframe>
-	    <center>
-	    <div class="content">
-	    	<div id="form">
-	    		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
-    				
-                    <!-- <label class="preferred_class" for="entry_898269100">Best time:</label>
-                    <select name="entry.898269100" id="entry_898269100" class="preferred_class_select">
-                    <option value=""></option>
-                    <option value="Day">Day</option> 
-                    <option value="Eve">Eve</option>
-                    </select>
-                    -->
-	    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
-	    			<!--<span>Message</span>-->
-    				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
-    				<!-- <span>Name</span> -->
-	    			<input type="text" name="entry.1072099089" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
-	    			<!--<span>Email</span>-->
-	    			<input type="email" name="entry.1370375900" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
-	    			<!--<span>Phone</span>-->
-	    			<input type="tel" name="entry.1454483309" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
-	    		    <br>
-                    <label class="preferred_contact" for="entry_187878632">Select reply method:</label>
-                    <select name="entry.187878632" id="entry_187878632" class="preferred_contact_select">
-                    <option value=""></option>
-                    <option value="Email">Email</option> 
-                    <option value="Phone call">Phone call</option> 
-                    <option value="Text message">Text message</option>
-                    </select>
-                    <br>
-	    		    <br>
-	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
-                    
-	    			<br>
-	    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
-	    			<span style="font: bold normal 10px/80% Arial, Helvetica, sans-serif; line-height: 10px;">To submit, please click the captcha below (may take a few seconds)</span>
-	    			<br>
-	    			<div class="g-recaptcha" id="captchabox" data-sitekey="6Lf8sVsUAAAAAGSeEocTRqoyho51t1Tp5AInt4kh" data-callback="imNotARobot">
-	    			</div>
-	    			<span id="status_msg" name="msg"></span>
-	    			<!-- <span id="captcha">Captcha Code:</span> -->
-	    		</form>
-	      </div>
-	    </div>
-	    <div id="successMessage" style="display: none; color: green;"> 
-	    <br>
-	    </div>
-	    </center>
-	    </section>
-	    <!-- End contact form -->
+        
         
         </aside>
     </div><!-- end wrapper main -->

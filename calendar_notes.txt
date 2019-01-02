@@ -1,10 +1,86 @@
 
 1) Open calendar.html
 2) Go to month of interest
-3) Copy source (watch for duplicate sections), format code (ctl+alt+f) and paste into new html page titled "calendar_xxx.html" where xxx is the month abbrev
+3) Copy source (use inspect element, watch for duplicate sections), format code (ctl+alt+f) and paste into new html page titled "calendar_xxx.html" where xxx is the month abbrev
 4) Change style sheet ref to: <link type="text/css" rel="stylesheet" href="custom_calendar2.css"> 
-5) Modify html style elements to match nov or dec.
+5) Remove embed script reference after _DumpException function: 
+  <script type="text/javascript" nonce="">
+    function _DumpException(e) { throw e; }
+  </script>
+  <!-- Removes the following script:
+  <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script>
+  -->
+  
 
+6) Change font color: #2952A3 to #504752. Modify other html style elements to match nov or dec.
+
+7) Change container height to 100%:
+<div id="container" style="width: 100%; position: relative; height: 100%;" class="locale-en ">
+<div id="viewContainer1" class="view-container" style="height: 100%;">
+
+8) Remove date nav buttons:
+
+<!--
+<td class="date-nav-buttons"><button class="today-button" id="todayButton1">Today</button><img id="navBack1" role="button" tabindex="0" title="Previous period" src="//calendar.google.com/googlecalendar/images/blank.gif" class="navbutton navBack" width="22" height="17">
+<img id="navForward1" role="button" tabindex="0" title="Next period" src="//calendar.google.com/googlecalendar/images/blank.gif" class="navbutton navForward" width="22" height="17">
+</td>
+-->
+
+<!--
+<td id="dateMenuArrow1" class="date-picker-off"><img src="//calendar.google.com/googlecalendar/images/menu_arrow_open.gif" id="arrowImg1" class="arrowImg" width="9" height="9">
+</td>
+-->
+
+<!--
+<td id="td-print-image-id"><img src="//calendar.google.com/googlecalendar/images/icon_print.gif" style="cursor: pointer;" title="Print my calendar (shows preview)" width="16" height="16">
+</td>
+-->
+
+<!--
+<td id="td-print-text-id">
+  <div class="tab-name">Print</div>
+</td>
+-->
+
+<!-- 
+<td id="calendarTabs1">
+  <table cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="ui-rtsr">
+          <div class="ui-rtsr-unselected ui-rtsr-first-tab t1-embed">&nbsp;</div>
+          <div class="ui-rtsr-unselected ui-rtsr-first-tab t2-embed">&nbsp;</div>
+          <div id="tab-controller-container-week" class="ui-rtsr-unselected ui-rtsr-first-tab ui-rtsr-name">Week</div>
+        </td>
+        <td class="ui-rtsr">
+          <div class="ui-rtsr-selected t1-embed">&nbsp;</div>
+          <div class="ui-rtsr-selected t2-embed">&nbsp;</div>
+          <div id="tab-controller-container-month" class="ui-rtsr-selected ui-rtsr-name">Month</div>
+        </td>
+        <td class="ui-rtsr">
+          <div class="ui-rtsr-unselected ui-rtsr-last-tab t1-embed">&nbsp;</div>
+          <div class="ui-rtsr-unselected ui-rtsr-last-tab t2-embed">&nbsp;</div>
+          <div id="tab-controller-container-agenda" class="ui-rtsr-unselected ui-rtsr-last-tab ui-rtsr-name">Agenda</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</td>
+-->
+
+<!--
+<td class="calendar-nav"><img id="calendarListButton1" src="//calendar.google.com/googlecalendar/images/btn_menu6.gif" alt="" title="" width="15" height="14">
+</td>
+-->
+
+
+9 - if needed) Change month row heights to following:
+<div class="month-row" style="top:0%;height:17.666666666666668%">
+<div class="month-row" style="top:16.666666666666668%;height:17.666666666666668%">
+<div class="month-row" style="top:33.333333333333336%;height:17.666666666666668%">
+<div class="month-row" style="top:50%;height:17.666666666666668%">
+<div class="month-row" style="top:66.66666666666667%;height:17.666666666666668%">
+<div class="month-row" style="top:83.33333333333334%;bottom:0">
 
 https://codersgrave.com/integrating-styled-google-calendar-website/
 https://www.webdesignerdepot.com/2012/04/integrating-google-calendar-with-your-website/
@@ -18,6 +94,9 @@ https://www.webdesignerdepot.com/2012/04/integrating-google-calendar-with-your-w
 }
 
 <!-- ========== Celandar Week Days (Adjust padding to 5px) ============ -->
+
+*** Should already be modified in stylesheet so ignore ***
+
 <th class="mv-dayname" title="Sun" style="
     padding-bottom: 5px;
     padding-top: 0px;

@@ -1,0 +1,22 @@
+
+Sandbox:
+https://developer.paypal.com/developer/accounts/
+
+https://developer.paypal.com/docs/checkout/how-to/server-integration/#3-test-it
+
+Button Generator:
+https://www.paypal.com/us/cgi-bin/webscr?SESSION=6OyAqdSXFfVL2OjJ%2dN6YEYeYX174BB5fLyxi1vDlrIE3BXXJivZuogu33Wa&dispatch=5885d80a13c0db1f8e263663d3faee8db8175432b4df92754f4b4adb5a123d61
+
+
+https://nodejs.org/en/download/package-manager/
+
+https://developer.paypal.com/docs/checkout/how-to/server-integration/#1-set-up-your-client-to-call-your-server
+
+https://developer.paypal.com/docs/checkout/integrate/#4-test-it
+
+https://developer.paypal.com/docs/api/overview/#
+
+https://codepen.io/cferdinandi/pen/mweygo
+
+https://eloquentjavascript.net/09_regexp.html
+

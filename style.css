@@ -978,9 +978,9 @@ button:disabled{
 
 .g-recaptcha {
     margin: 10px;
-    transform:scale(0.70);
-    transform:scale(70vw);
-    transform-origin:0 0;
+    transform:scale(0.90);
+    transform:scale(90vw);
+    transform-origin:5 0;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -1026,12 +1026,19 @@ button:disabled{
     margin: 5px 0px 10px 0px;
 }
 
-.status_msg {
-	color:red; 
+.red_msg {
+	color:red;
+	margin-top: -20px;
+	font-size: 0.7rem;
+}
+
+.green_msg {
+	color:#187320;
+	margin-top: -20px;
+	font-size: 0.7rem;
 }
 
 #status_msg {
-	color:#187320;
 	margin-top: -20px;
 	font-size: 0.7rem;
 }
@@ -1369,6 +1376,7 @@ table {
 	*/
 }
 
+/*######### PAYMENT FORM ##########*/
 .payment_form {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 15px;
@@ -1381,6 +1389,25 @@ table {
 	-ms-transition: all linear 1s;
 	transition: all linear 1s;
 }
+
+.payment_hidden {
+    -webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	transition: all 250ms ease;
+    visibility: hidden;
+}
+
+.payment_visible {
+    -webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	transition: all 250ms ease;
+    visibility: visible;
+}
+/*######### END PAYMENT FORM ##########*/
 
 .contact_prior {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;

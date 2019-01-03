@@ -941,11 +941,11 @@ button:disabled{
 #contact_form #form textarea.message2 {
   background: #8a768f /*#222222*/ url(../img/icons/comment-bubble.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
-    
 }
 
 #contact_form #form textarea.message {
-  background: #8a768f /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+  background: #8a768f /*#222222*/ url(../message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+  background-size: 20px 20px;
 }
 
 #contact_form #form button {

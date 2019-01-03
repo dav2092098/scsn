@@ -12,7 +12,7 @@ By: David Ayodele
     Star Canyon School of Nursing
     </title>        
     <!--Begin Priority scripts -->
-    <link rel="stylesheet" href="style.css" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
+    <link rel="stylesheet" href="payment/payment_form.css" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
     <!--<link rel="stylesheet" href="clock.css" media="all">-->
     
     
@@ -106,7 +106,7 @@ By: David Ayodele
     </div>
     <div class="wrapperMain clearfix">
         <div class="fl_fullwidth">
-        <div class="banner_faq">
+        <div class="banner_payment">
         <h1 class="banner_text">
         <br>
         </h1>
@@ -122,15 +122,14 @@ By: David Ayodele
         -->
         <h2>Enrollment</h2>
         <br>
-        <br>
         
         <!-- Contact Form (edited 7/07/18)-->
 		<section id="contact_form">
 		<h4>
-		Online Enrollment Form 
+		Online Payment Form 
 		</h4>
 		<h6>
-		Please fill your personal information exactly as it appears on your driver's license or government issued ID. Please feel free to enroll in person. We're open Monday-Thrusday 9am-8pm.
+		Please enter your personal information exactly as it appears on your driver's license or government issued ID. You will need to complete all enrollment paperwork before enrollment is finalized. Please feel free to enroll in person. We're open Monday-Thursday 9am-8pm.
 		<br>
 		<br>
 		</h6>
@@ -140,11 +139,46 @@ By: David Ayodele
 	    var str = '';
 	    var n = -1;
 	    
+	    var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        var course_dates = ["2019-01-21", "2019-01-28", "2019-03-04", "2019-03-18", "2019-04-15", "2019-05-06"];
+        
+        if(dd<10) {
+            dd = '0'+dd
+        } 
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+        
+        today = yyyy + '-' + mm + '-' + dd;
+        
+        
+        Date.daysBetween = function( date1, date2 ) {
+          //Get 1 day in milliseconds
+          var one_day=1000*60*60*24;
+        
+          // Convert both dates to milliseconds
+          var date1_ms = date1.getTime();
+          var date2_ms = date2.getTime();
+        
+          // Calculate the difference in milliseconds
+          var difference_ms = date2_ms - date1_ms;
+            
+          // Convert back to days and return
+          return Math.round(difference_ms/one_day); 
+        }
+    
 	    function _(id){ return document.getElementById(id); }
 	    
     	var imNotARobot = function() {
+    	    
+    	    var date_obj_today = new Date(today);
+            var date_obj_dob = new Date(_("dob").value);
+        
 	  		console.info("Captcha box was clicked");
-	  		_("ss-submit").disabled = false;
+	  		
 	  		var name = $("#name").val();
 	  		$.ajax({
 	  			url: 'recaptcha_scsn.php',
@@ -164,7 +198,24 @@ By: David Ayodele
 						    // Do something if class does not exist
 					}
 	  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
-	  				document.getElementById("status_msg").className = ".successMessage";
+	  				/*document.getElementById("status_msg").className = ".successMessage";*/
+	  				if (_("course").value < today || !course_dates.includes(_("course").value)) {
+        	  		    _("status_msg").className = "red_msg";
+        	  		    console.info("Course date slected is " + _("course").value + ". This is prior to today: " + today);
+        	  		    console.info(Date.daysBetween(date_obj_dob, date_obj_today));
+        	  		    _("status_msg").innerHTML = "Error: Invalid course date selected: " + _("course").value + ". Please check the course calendar. Today is: " + today + ". Reload page and re-enter info.";
+        	  		}
+        	  		
+        	  		if (Date.daysBetween(date_obj_dob, date_obj_today) < 5844) {
+        	  		    _("status_msg").className = "red_msg";
+        	  		    console.info("Date of birth is " + _("dob").value + ". This less than 16 years from today: " + today);
+        	  		    _("status_msg").innerHTML = "Error: Date of birth is " + _("dob").value + ". This less than 16 years from today: " + today + ". Reload page and re-enter info.";
+        	  		}
+        	  		
+        	  		if (_("course").value > today && Date.daysBetween(date_obj_dob, date_obj_today) > 5844 && course_dates.includes(_("course").value)) {
+        	  		    _("ss-submit").disabled = false;   
+        	  		}
+	  				
 					}
 				}
 			})
@@ -218,20 +269,26 @@ By: David Ayodele
 	  	    switch (true) {
 	  		
 	  		  case (reason.length <= 0 && n >= 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
+			  	_("status_msg").className = "green_msg";
 			  	_("status_msg").innerHTML = "";
 			  	$('#contactForm').attr('action', 'https://docs.google.com/forms/d/e/1FAIpQLSe4VwcXOeVk-ZIKT4U3MeuvLHyn84lGggATLmeYX0O6P2DAMA/formResponse');
 			  	j .className += "successMessage";
 			    _("ss-submit").value = _("msg").value;
 		        submitted = true;
-		        _("successMessage").innerHTML = "Thank you, " + name + "! Someone at SCSN will respond shortly!"
+		        _("successMessage").innerHTML = "Thank you, " + name + "! You may proceed with payment. Please note: We will need to view your ID before class starts to finalize enrollment.";
+		         
 		        _("ss-submit").disabled = true;
+		        _("payment_form").className = ".payment_visible";
+		        
 		        return true;
 	  		    break;
 	  		    
 	  		  case (reason.length <= 0 && n < 0):
+	  		    _("status_msg").className = "red_msg";
 	  			i.className += "status_msg";
 	  	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
 	  	    	_("ss-submit").disabled = true;
+	  	    	_("payment_form").className = ".payment_hidden";
 	  	    	return false;
 	  		    break;
 	  		    
@@ -405,7 +462,7 @@ By: David Ayodele
 	    		    <br>
                     <br>
                     <h5>
-	    			<label class="payment" for="entry_2108841464">Select payment amount (please come in to setup payment plans)</label>
+	    			<label class="payment" for="entry_2108841464">Payment amount (you will be asked again to confirm) <br> <h6>Please come in to setup payment plans</h6></label>
 	    			</h5>
                     <select name="entry.2108841464" id="entry_2108841464" class="payment">
                     <option value=""></option>
@@ -414,13 +471,17 @@ By: David Ayodele
                     </select>
                     <br>
 	    		    <br>
+	    		    <div>
+                    <button class="reset_btn" type="reset" value="Reset">
+                    Reset
+                    </buttom>
+                    </div>
 	    		    <br>
 	    		    <h5>
 	    			<label>Additional Notes</label>
 	    			</h5>
 	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="Special Notes" tabindex=4></textarea>
                     <br>
-	    			<br>
 	    			<center>
 	    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
 	    			<span style="font: bold normal 10px/80% Arial, Helvetica, sans-serif; line-height: 10px;">To submit, please click the captcha below (may take a few seconds)</span>
@@ -433,10 +494,113 @@ By: David Ayodele
 	    		</form>
 	      </div>
 	    </div>
+	    <center>
 	    <div id="successMessage" style="display: none; color: green;"> 
 	    <br>
 	    </div>
-	    <!-- </center> -->
+	    <br>
+	    <br>
+	    <!-- Payment section-->
+        
+        <!--
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+        
+        <div id="paypal-button-container"></div>
+        
+        <script>
+        var amount = '300.00';
+        if (document.getElementById("entry_2108841464").value == 'Enrollment + Full Tuition ($1250)'){
+            amount = '1250.00';
+        }
+        
+        // Render the PayPal button
+    
+        paypal.Button.render({
+    
+            // Set your environment
+    
+            env: 'sandbox', // sandbox | production
+    
+            // Specify the style of the button
+    
+            style: {
+                layout: 'vertical',  // horizontal | vertical
+                size:   'medium',    // medium | large | responsive
+                shape:  'rect',      // pill | rect
+                color:  'gold'       // gold | blue | silver | black
+            },
+    
+            // Specify allowed and disallowed funding sources
+            //
+            // Options:
+            // - paypal.FUNDING.CARD
+            // - paypal.FUNDING.CREDIT
+            // - paypal.FUNDING.ELV
+    
+            funding: {
+                allowed: [ paypal.FUNDING.CARD, paypal.FUNDING.CREDIT ],
+                disallowed: [ ]
+            },
+    
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+    
+            client: {
+                sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                production: '<insert production client id>'
+            },
+    
+            payment: function(data, actions) {
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: amount, currency: 'USD' }
+                            }
+                        ]
+                    }
+                });
+            },
+    
+            onAuthorize: function(data, actions) {
+                return actions.payment.execute().then(function() {
+                    window.alert('Payment Complete!');
+                });
+            }
+    
+        }, '#paypal-button-container');
+    
+        </script>
+        -->
+        
+        <form id="payment_form" class="payment_hidden" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="starcanyonschool@gmail.com">
+        <input type="hidden" name="lc" value="US">
+        <input type="hidden" name="item_name" value="Tuition + Fees">
+        <input type="hidden" name="button_subtype" value="services">
+        <input type="hidden" name="no_note" value="0">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="bn" value="PP-BuyNowBF:payment_btn.png:NonHostedGuest">
+        <table>
+        <tr><td><input type="hidden" name="on0" value="Fees">Fees</td></tr><tr><td><select name="os0">
+        	<option value="Enrollment Only">Enrollment Only $300.00 USD</option>
+        	<option value="Enrollment + Full Tuition">Enrollment + Full Tuition $1,250.00 USD</option>
+        </select> </td></tr>
+        </table>
+        <input type="hidden" name="option_select0" value="Enrollment Only">
+        <input type="hidden" name="option_amount0" value="300.00">
+        <input type="hidden" name="option_select1" value="Enrollment + Full Tuition">
+        <input type="hidden" name="option_amount1" value="1250.00">
+        <input type="hidden" name="option_index" value="0">
+        <br>
+        <input type="image" src="http://raw.githubusercontent.com/dav2092098/scsn/master/img/payment_btn.png" height="27%" width="27%" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+
+
+    
+	    </center>
 	    </section>
 	    <!-- End contact form -->
         
@@ -444,42 +608,32 @@ By: David Ayodele
 		<br>
         <p>
         
-		<br>
-		&#10070;<!-- &#10147;--> Question: How do I find transportation to school?
-		<br>
-		<br>
-		Answer: The school is conveniently located along city bus routes on Central Avenue &amp; Dunlap Road. Please see the map on this page and on the home page to view our location. Students have had success using the valley metro trip planner available <a class="scrubs_link" href="https://www.valleymetro.org/trip-planner" target="_blank" style="text-decoration:none;">
-		<u>here</u></a>.
-		<br>
-		<br>
-		&#10070; Question: How do I get books?
-		<br>
-		<br>
-		Answer: Books are available to all students as loans for the duration of the program.
-		Laboratory materials/tools or extra hours needed throughout the training program are also available at no additional charge.  
-        </article>
+		</article>
         </main>
         <aside class="fl_oneThird">
         <section class="aside_classes">
-        <h3 style="font-family: Arial, sans-serif;">Our Location
+        <h3 style="font-family: Arial, sans-serif;">Disclaimer
         </h3>
+        Payment of the enrollment fee or tuition does not finalize enrollment. Your enrollment is not finalized until you have completed and signed all enrollment forms.
+        You may stop by anytime during our open hours to fill out enrollment forms. We are open Mon-Thurs, 9am-8pm.
+        <br>
+        <br>
+        We are located at 8900 North Central Avenue in Suite 107, Phoenix, AZ 85020.
+        <br>
+        <br>
+        <p>
+        We are conveniently located along city bus routes on Central Avenue &amp; Dunlap Road.
+        <br>
+        <br>
         <center>
         <div id="map">
         </div>
         </center>
         <br>
-        <p>
-        &bull; We're conveniently located along city bus routes on Central Avenue &amp; Dunlap Road.
-        <br>
-        <br>
-        &bull; Clinical locations vary and may be held anywhere in the Valley.
-        <br>
-        <br>
-        Star Canyon School of Nursing is at:
-        <br>
-        8900 North Central Ave.
-        <br>
-        Phoenix, AZ 85020
+        
+        <iframe src="file_upload_page_min.html" style="border-width:0" width="103%" height="200px" frameborder="1" scrolling="no">
+        </iframe>
+        
         <br>
         <br>
         </p>    

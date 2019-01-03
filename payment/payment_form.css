@@ -309,8 +309,17 @@ form input {
 .banner_faq {
     height: 250px;
     width: 100%;
-    background: url('img/keybrd_steth_1100x731.jpg');
+    background: url('../img/keybrd_steth_1100x731.jpg');
     background-position: 0px 0px;
+    background-size: 1000px 667px;
+    background-repeat: no-repeat;
+}
+
+.banner_payment {
+    height: 250px;
+    width: 100%;
+    background: url('notebook_pencil_1100x733.jpg');
+    background-position: 0px -300px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
 }
@@ -954,6 +963,12 @@ button:disabled{
   font: 12px 'Open Sans', Arial, sans-serif;
   width: 100px;
   /*border-radius: 20px;*/
+}
+
+.reset_btn {
+    height: 25px;
+    width: 20%;
+    font: #000;
 }
 
 #contact_form #captcha span{

@@ -62,7 +62,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     /*background: #fff;*/
     
     background: #efefef;
-    background-image: url('img/textures/white-leather.png');
+    background-image: url('../img/textures/white-leather.png');
     background-attachment: fixed;
     color: #333;
     
@@ -274,7 +274,7 @@ form input {
 #admin {
     height: 200px;
     width: 200px;
-    background: url('img/admin-1.jpg');
+    background: url('../img/admin-1.jpg');
     background-position: 0px 0px;
     background-repeat: no-repeat;
 }
@@ -282,7 +282,7 @@ form input {
 .banner {
     height: 250px;
     width: 100%;
-    background: url('img/nurses_general_med_1100x733.jpg');
+    background: url('../img/nurses_general_med_1100x733.jpg');
     background-position: -100px -100px;
     background-size: 1100px 733px;
     background-repeat: no-repeat;
@@ -291,7 +291,7 @@ form input {
 .banner_about {
     height: 250px;
     width: 100%;
-    background: url('img/glasses_desk_1100x733.jpg');
+    background: url('../img/glasses_desk_1100x733.jpg');
     background-position: -390px -210px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
@@ -300,7 +300,7 @@ form input {
 .banner_classes {
     height: 250px;
     width: 100%;
-    background: url('img/classroom_chairs_1100x618.jpg');
+    background: url('../img/classroom_chairs_1100x618.jpg');
     background-position: 0px -100px;
     background-size: 1000px 667px;
     background-repeat: no-repeat;
@@ -356,7 +356,7 @@ form input {
 .about_me_media {
     width: 600px;
     height: 315px;
-    background: url('img/s-mtn2.jpg');
+    background: url('../img/s-mtn2.jpg');
     background-position: 0px 0px;
     background-size: 600px 315px;
     display: table-cell;
@@ -376,7 +376,7 @@ form input {
 .classes_media {
     max-width: 400px;
     height: 225px;
-    background: url('img/lab_prac_kat_lete_britt2.jpg');
+    background: url('../img/lab_prac_kat_lete_britt2.jpg');
     background-position: 0px 0px;
     background-size: 400px 225px;
     display: table-cell;
@@ -393,7 +393,7 @@ form input {
 .classes_media2 {
     max-width: 400px;
     height: 225px;
-    background: url('img/lab_prac_latoya_7-11-18_ed.jpg');
+    background: url('../img/lab_prac_latoya_7-11-18_ed.jpg');
     background-position: 0px 0px;
     background-size: 400px 225px;
     display: table-cell;
@@ -860,37 +860,37 @@ button:disabled{
 }
 
 #contact_form #form input.name {
-  background: #8a768f /*#222222*/ url(img/icons/user-shape.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/user-shape.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.address {
-  background: #8a768f /*#222222*/ url(img/icons/home.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/home.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.city {
-  background: #8a768f /*#222222*/ url(img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.zip {
-  background: #8a768f /*#222222*/ url(img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.phone2 {
-  background: #8a768f /*#222222*/ url(img/icons/telephone.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/telephone.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.phone {
-  background: #8a768f /*#222222*/ url(img/icons/telephone.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/telephone.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
@@ -901,35 +901,35 @@ button:disabled{
 }
 
 #contact_form #form input.email2 {
-  background: #8a768f /*#222222*/ url(img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.email {
-  background: #8a768f /*#222222*/ url(img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.email_old {
-  background: #8a768f /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
+  background: #8a768f /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://../img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
 }
 
 #contact_form #form input.birthdate {
-  background: #8a768f /*#222222*/ url(img/icons/gift-box.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/gift-box.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.course_date {
-  background: #8a768f /*#222222*/ url(img/icons/stethoscope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/stethoscope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
 
 #contact_form #form input.payment {
-  background: #8a768f /*#222222*/ url(img/icons/dollar-sign.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/dollar-sign.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }
@@ -939,7 +939,7 @@ button:disabled{
 }
 
 #contact_form #form textarea.message2 {
-  background: #8a768f /*#222222*/ url(img/icons/comment-bubble.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background: #8a768f /*#222222*/ url(../img/icons/comment-bubble.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
   background-size: 20px 20px;
     
 }

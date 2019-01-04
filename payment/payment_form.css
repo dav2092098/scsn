@@ -1096,7 +1096,7 @@ button:disabled{
 
 @media (max-width: 500px) {
     .banner_payment {
-        background-position: -250px -300px;
+        background-position: -300px -300px;
     }
 }
 

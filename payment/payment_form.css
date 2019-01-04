@@ -993,8 +993,7 @@ button:disabled{
 
 .g-recaptcha {
     margin: 10px;
-    transform:scale(0.90);
-    transform:scale(90vw);
+    transform:scale(1.00);
     transform-origin:5 0;
 }
 
@@ -1094,6 +1093,12 @@ button:disabled{
 	text-align: center;
 }
 */
+
+@media (max-width: 500px) {
+    .banner_payment {
+        background-position: -250px -300px;
+    }
+}
 
 @media (max-width: 400px) { /*execute until 400*/
 	.g-recaptcha {

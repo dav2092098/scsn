@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--
-Updated: 5-25-18
+Created: 5-25-18
 By: David Ayodele
 -->
 <html lang="en">
-<head><!-- <head oncontextmenu="return false"> -->
+<head oncontextmenu="return false"> <!-- <head oncontextmenu="return false"> -->
     <meta charset="utf-8">
     <!-- <meta http-equiv="Cache-control" content="no-cache"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,14 +15,19 @@ By: David Ayodele
     <link rel="stylesheet" href="style.css" media="all"><!--?<?php echo date('l jS \of F Y h:i:s A'); ?>-->
     <!--<link rel="stylesheet" href="clock.css" media="all">-->
     
-    
-    <script src="js/jquery.min.js"></script><!-- jQuery load -->
+    <!--<script src="js/jquery.min.js"></script> jQuery load -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!-- jQuery load latest -->
     <!--<script src="js/clock.js"></script> Clock load -->
     <!-- Google reCaptcha API script -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	
 	<!-- PHP call script -->
 	<script type="text/javascript">
+	var EmailVairable = "regina.ayodele@gmail.com, starcanyonschool@gmail.com, starcanyonschoolofnursing@gmail.com";
+    var SubjectVariable = "SCSN Question (from website)";
+    var CCvariable = "";
+    var BCCvariable = "";
+    var BodyVariable = "";
 	var form=document.getElementById("contactForm");
 	
 	function reCaptcha() {
@@ -65,11 +70,11 @@ By: David Ayodele
     <!-- End Analytics Script -->
     
 </head>
-<body>
+<body oncontextmenu="return false">
     <div class="wrapperTop"> <!-- contains logo, navbar and search form -->
         <header class="pageHeader clearfix"> <!-- wrapper needed for floating logo and search form -->
         <div class="fl_half logo_top"> <!-- will float and take up half of page -->
-        <img src="img/scsn_temp_logo_b&p.png" alt="My logo" class="logo">
+        <img src="img/scsn_temp_logo_b&p2.png" alt="My logo" class="logo">
         <span class="logo_text">Star Canyon School of Nursing
         </span>
         </div>
@@ -98,6 +103,9 @@ By: David Ayodele
         <a href="classes.html">Classes</a>
         </li>
         <li>
+        <a href="enroll.html">Enrollment</a>
+        </li>
+        <li>
         <a href="faq.html">Questions/Info</a>
         </li>
         </ul>
@@ -105,11 +113,17 @@ By: David Ayodele
     </div>
     <div class="wrapperMain clearfix">
         <div class="fl_fullwidth">
-        <div class="banner_classes">
+        <div class="banner">
         <h1 class="banner_text">
         <br>
+        <span class="banner_bg">Nursing Assistant Training Program
+        </span>
         </h1>
         <br>
+        <h3 class="banner_text2">
+        <span class="banner_bg">
+        Classes start every month
+        </h3>
         </span>
         </div>
         </div>
@@ -119,130 +133,142 @@ By: David Ayodele
         <div class="layer2">
         </div>
         -->
-        <h2>Classes</h2>
+        <h2>Welcome</h2>
         <p>
-        Classes start every month. Textbooks are available to students at no cost but may be purchased with us. 
-        Electronic copies are also available. Classes consist of lecture 4 days a week and clinical 1 day a week. 
-        A dress code is enforced on clinical days. Students should contact Regina Ayodele at 602.633.4339 for 
-        more information on dress code. Scrubs may be purchased through us for ~ $10 or at the following locations and, in some cases, 
-        may be rented (if available). Gait belts, stethoscope, and other necessary equipment are provided at no charge. 
+        The vision of SCSN is to produce caring and sensitive Nursing Assistants who will be able to demonstrate 
+        excellence and practice ethically in the field of Nursing in the State of Arizona.
         <br>
         <br>
-        Scrubs may also be purchased at the following locations:
+        We know that finding time for school can be hard, to help accomodate busy students, we provide scheduling and financing options.
         <br>
         <br>
-        <a class="scrubs_link" href="https://www.scrubsandbeyond.com/" target="_blank" style="text-decoration:none;">
-        Scrubs &amp; Beyond
-        </a>
+        We offer:
         <br>
-        3755 S. Gilbert Ave #101,  
+        • Day clases: Monday - Thrusday, 9AM-1PM 
         <br>
-        Gilbert, AZ 85297
+        • Evening classes: Monday - Thursday, 5PM-9PM
         <br>
-        Hours: M-F: 10AM-9PM, Sa: 10AM-8PM, Su: 11AM-6PM
+        • Weekend only clinical rotations
         <br>
-        Phone: 480.855.3065
+        • Many open lab hours (excluding Sundays) 
         <br>
+        • Lots of personalized instruction
         <br>
-        <a class="scrubs_link" href="https://www.burlington.com/StoreLocator.aspx" target="_blank" style="text-decoration:none;">
-        Burlington Coat Factory
-        </a>
+        • Several payment plans to meet your needs<sup>1</sup>
         <br>
-        (Multiple Locations) 5000 S Arizona Mills Cir #525, 
-        <br>
-        Tempe, AZ 85282
-        <br>
-        Hours: M-Sa: 930AM-10PM, Su: 930AM-930PM
-        <br>
-        Phone: 480.897.4700
+        <span style="font-size: 8px;">1) Payment plans require an initial $300 installment, please call us for more details.</span>
         <br>
         <br>
-        <a class="scrubs_link" href="http://www.promedapparel.com/" target="_blank" style="text-decoration:none;">
-       	ProMed Apparel
-        </a>
+        <strong>Weekly Schedule</strong>
+        <!-- Begin core table -->
+        </p>
+        <table class="core_table" cellpadding="0" cellspacing="0">
+            <tbody><tr>
+            <th>
+            Monday
+            </th>
+            <th>
+            Tuesday
+            </th>
+            <th>
+            Wednesday
+            </th>
+            <th>
+            Thursday
+            </th>
+            <th>
+            Saturday 
+            </th>
+            <th>
+            Sunday
+            </th>
+            </tr>
+            <tr>
+            <td style="text-align: center;">
+            Day Class: 9am-1pm
+            <br>
+            Eve Class: 5pm-9pm
+            </td>
+            <td style="text-align: center;">
+            Day Class: 9am-1pm
+            <br>
+            Eve Class: 5pm-9pm 
+            </td>
+            <td style="text-align: center;">
+            Day Class: 9am-1pm
+            <br>
+            Eve Class: 5pm-9pm  
+            </td>
+            <td style="text-align: center;">
+            Day Class: 9am-1pm
+            <br>
+            Eve Class: 5pm-9pm  
+            </td>
+            <td style="text-align: center;">
+            Clinicals: 6am-230pm 
+            </td>
+            <td style="text-align: center;">
+            Clinicals: 6am-230pm 
+            </td>
+            </tr>                                        
+        </tbody></table>
+        <!-- end of core table -->
         <br>
-        6610 E Baseline Rd,
+        
+        <p>
+        Classes start every month. Check the calendar below for approximate start dates. Please contact us for more info.
+        </p>
         <br>
-        Mesa, AZ 85206
+        <p>
+        To qualify:
         <br>
-        Hours: M-F: 9AM-6PM, S: 9AM-4PM
+        &bull; Applicants should have a high school Diploma, GED or equivalent foreign or vocational training.
         <br>
-        Phone: 480.832.8323
+        &bull; Applicants should have the ability to communicate clearly.
         <br>
+        &bull; Applicants should be physically able to perform direct patient care tasks, including assisting patients with lifting, bathing, walking, and pushing an occupied wheelchair.
         <br>
-        <a class="scrubs_link" href="http://www.apparelprousa.com/" target="_blank" style="text-decoration:none;">
-        Apparel Pro Scrubs &amp; Medical
-        </a> 
-        <br>
-        2150 W University Dr, 
-        <br>
-        Tempe, AZ 85281
-        <br>
-        Hours: M-F: 9AM-6PM, Sa: 10AM-4PM
-        <br>
-		Phone: 480.894.4632
+        &bull; Applicants must have no felony convictions in the last 5 years<sup>2</sup>.
+        </p>
+        <span style="font-size: 8px;">2) Some exceptions may apply, contact us for more info.</span>
         <br>
         <br>
-        Our staff is experienced and dedicated to creating a supportive and challenging classroom environment. 
-		<br>
-		<br>
-		We enroll candidates age 16 and above. There is no upper age limit for our program. Candidates may ask for a 
-		preliminary exam of basic knowledge to assess level of preparedness. For more information, call 602.943.1337.
-		<br>
-		<br>
-		<br>
-		<div class="classes_media">
-		<!--
-		<span style="position:absolute">
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		</span>
-		-->
-		<span>
-		&nbsp;Former students Kat, Lete, and Brittany return to the lab to prepare for state testing. SCSN will coincidentally be their testing location. <i style="font-size: 6px;">Photo taken: 6/14/18&nbsp;</i>
-		</span>
-		</div>
-		<br>
-		<br>
-		<div class="classes_media2">
-		<span>
-		&nbsp;Former students Latoya and Alondra return to the lab to practice for state testing. <i style="font-size: 6px;">Photo taken: 7/12/18&nbsp;</i>
-		</span>
-		</div>
+        <p>
+        You may upload initial documents such as a copy of your resum&eacute;, driver's license (pdf format please), or a copy of your diploma/GED <a class="upload_here" target="_blank" href="https://script.google.com/macros/s/AKfycbz2jRfte0UTKlTPgjksETvan4soLPWkco0HAzUcQHJmo-3njZnC/exec">
+        <strong>
+        here</strong></a>.
+        </p>
+        <br>
+        <iframe src="https://calendar.google.com/calendar/embed?title=SCSN%20Events%20Calendar&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=1pt84tlcdnnmu4tu7p5tj18nfs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FPhoenix" style="border-width:0" width="103%" height="500px" frameborder="0" scrolling="no">
+        </iframe>
+        <br>
+        <span class="calendar_text">
+        Note: You may sync our calendar with your own if you use gmail. Just click <a href="https://calendar.google.com/calendar/r?cid=1pt84tlcdnnmu4tu7p5tj18nfs@group.calendar.google.com" target="_blank">here</a>.
+        </span>
+        <br>
         </article>
         </main>
         <aside class="fl_oneThird">
         <section class="aside">
-        <h3 style="font-family: Arial, sans-serif; text-align: center;">Our Current Textbook
-        </h3>
-        <center>
-        <!--<div class="li"> -->
-		<a class="textbook_link" href="https://evolve.elsevier.com/cs/product/9780323319744?role=student" target="_blank">
-		<div class="textbook">
-		<div class="overlay_img">
-		</div>
-		</div>
-		<div class="overlay"></div>
-		<img class="book_img" src="img/mosbys_9th.jpg" alt="Mosby's Textbook for Nursing Assistants" />
-		</a>
-		<!-- </div> -->
-        
-        </center>
+        <h2>Come Visit Us
+        </h2>
+        <div id="map">
+        </div>
         <br>
         <p>
-        Mosby's Textbook for Nursing Assistants - 9<sup>th</sup> Edition
+        We're located at:
         <br>
-        ISBN: 9780323319744
+        8900 N. Central Avenue, Ste. 107
         <br>
-        Author(s): Sheila A. Sorrentino, Leighann Remmert, Relda T. Kelly
+        Phoenix, AZ 85020
         <br>
         <br>
-        (Optional) Workbook &amp; Competency Evaluation Review for Mosby's Textbook for Nursing Assistants - 9<sup>th</sup> Ed
+        We're near the Southwest corner of Dunlap and Central Ave., 
+        about a block south of the corner. Use the contact form below or you can call us at (602) 943-1337.
+        You can also email starcanyonschool@gmail.com. 
         <br>
-        ISBN: 9780323476256
         <br>
-        Author(s): Sheila A. Sorrentino, Leighann Remmert, Relda T. Kelly
+        Best hours to visit are Mon-Thurs 1PM-430PM but you can drop by when you can between 9AM-7PM.
         <br>
         <br>
         </p>    
@@ -333,7 +359,7 @@ By: David Ayodele
                     </select>
                     <br>
 	    		    <br>
-	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
+	    			<textarea class="message" name="entry.532265958" id="msg" placeholder="  Enter your message" tabindex=4 required></textarea>
                     
 	    			<br>
 	    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
@@ -351,6 +377,7 @@ By: David Ayodele
 	    </center>
 	    </section>
 	    <!-- End contact form -->
+        
         </aside>
     </div><!-- end wrapper main -->
     <div class="wrapperBottom">
@@ -360,8 +387,8 @@ By: David Ayodele
         <img class="fb_img" src="img/fb_img.png">
         </a>
         </div>
-        <div class="fl_oneThird">
-        Star Canyon School of Nursing, 2018 
+        <div class="fl_oneThird copyleft">
+        Star Canyon School of Nursing <span class="copyleft_logo">&copy;</span> 2018 
         <br>
         8900 N. Central Avenue, Ste. 107
         <br>
@@ -369,10 +396,11 @@ By: David Ayodele
         <br>
         Phone: 602.943.1337
         <br>
-        Fax: 602.943.0864 
+        Fax: 602.943.0864  
         </div>
         <div class="fl_oneThird">
-        <a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(From%20Website)%20">
+        <!-- <a href="#" onclick="javascript:window.location='mailto:'+EmailVairable+'?subject='+SubjectVariable+'&cc='+CCvariable+'&bcc='+BCCvariable+'&body='+BodyVariable">-->
+        <a href="mailto:regina.ayodele@gmail.com?&cc=davidayodele@gmail.com,starcanyonschool@gmail.com&subject=SCSN%20Webmail&body=Please%20include%20your%20name%20and%20phone%20number%20below:">
         <img class="mail_img" src="img/mail_img.png">
         </a> 
         </div>
@@ -408,7 +436,7 @@ By: David Ayodele
     </script>
     <!-- End script-->
     
-    <!-- Begin google maps script -->
+    <!-- Begin google maps init script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfHjaHcyb_H21BLeYTrMopUq79g0rJYa0&callback=initMap" type="text/javascript">
     </script>
     <!-- End google maps script -->
@@ -429,7 +457,10 @@ By: David Ayodele
     });
     </script>
     <!-- End floating header Script -->
+    
 </body>
+
+
 </html>
 
 

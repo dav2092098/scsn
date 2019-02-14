@@ -3,6 +3,16 @@ find ./ -mmin -5 -exec rm -i '{}' \;
 
 -------------------------------------------
 
+s1='<script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script>'
+s2='<!--  <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script> -->'
+sed -i 's/$s1/$s2/g' *.html
+
+**** working version ****
+
+sed -i 's/943-1337/935-6628/g' *.html 
+
+*************************
+
 APT-GET issues
 sudo dpkg --configure -a
 sudo apt-get install -f

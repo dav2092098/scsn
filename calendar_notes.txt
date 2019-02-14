@@ -1,3 +1,13 @@
+s1='<script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script>'
+s2='<!--  <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script> -->'
+sed -i 's/$s1/$s2/g' *.html
+
+**** working version ****
+
+sed -i 's/943-1337/935-6628/g' *.html 
+
+*************************
+
 
 1) Open calendar.html
 2) Go to month of interest
@@ -17,6 +27,7 @@
   s2='<!--  <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script> -->'
   sed -i 's/$s1/$s2/g' *.html
   
+  935-6628
 
 6) Change font color: #2952A3 to #504752. Modify other html style elements to match nov or dec. For holidays, srch for class="rb-ni" and replace #668CD9 with #917c95
 

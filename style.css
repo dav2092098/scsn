@@ -410,6 +410,10 @@ form input {
     z-index: 2;
 }
 
+#course_calendar_text {
+    margin-left: 3px;
+}
+
 .fb_img {
     margin-top: 10px;
     height: 50px;
@@ -441,6 +445,10 @@ form input {
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
+}
+
+#iframe_span {
+    margin-left: 2px;
 }
 
 layer2 { /* contents layer */
@@ -506,6 +514,14 @@ layer2 { /* contents layer */
 
 .scrubs_link:hover {
     text-shadow: 1px 1px 1px rgba(24, 12, 76, 0.5);
+}
+
+#prev_month {
+    margin: 0px 0px 0px 6px;
+}
+
+#next_month {
+    margin: 0px 0px 0px 6px;
 }
 
 table.core_table th {

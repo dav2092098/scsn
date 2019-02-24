@@ -32,7 +32,7 @@ By: David Ayodele
 	<!--End Priority scripts -->
 	
 	<!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href= 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     
     <!-- Custom icons for website -->
@@ -122,6 +122,48 @@ By: David Ayodele
         <div class="layer2">
         </div>
         -->
+        <script>
+        $(document).ready(function() {
+			
+			var i = 3;
+            var calendar = ["calendar_nov.html", "calendar_dec.html", "calendar_jan.html", "calendar_feb.html", "calendar_mar.html", "calendar_apr.html", "calendar_may.html"
+                        , "calendar_jun.html", "calendar_jul.html"];
+           
+            function incMonth() {
+                document.getElementById("iframe_span").innerHTML = '<iframe id="calendar_frame" src="calendar_feb.html" style="border-width:0" width="100%" height="550px" frameborder="0" scrolling="yes"></iframe>';
+        
+                if (i < calendar.length - 1) {
+                    
+        			i = i + 1;
+                    document.getElementById("calendar_frame").src = calendar[i];
+                }
+                else if (i >= calendar.length - 1) {
+                    document.getElementById("iframe_span").innerHTML = "<br><br>Dates not available, please call or come in for additional info.<br><br>"
+                    /*
+                    i = calendar.length - 1;
+                    document.getElementById("calendar_frame").src = calendar[calendar.length - 1];
+                    */
+                }
+                /*calendar.slice(-1)[0]*/
+    		}
+    		
+    		function deccMonth() {
+    		    document.getElementById("iframe_span").innerHTML = '<iframe id="calendar_frame" src="calendar_feb.html" style="border-width:0" width="100%" height="550px" frameborder="0" scrolling="yes"></iframe>';
+        
+    		    if (i > -1) {
+        			i = i - 1;
+                    document.getElementById("calendar_frame").src = calendar[i];
+    		    }
+    		    else if (i <= -1) {
+    		        document.getElementById("iframe_span").innerHTML = "<br><br>Dates not available, please call or come in for additional info.<br><br>";
+                }
+    		}
+    		
+    		$('button[type=inc_button]').click(incMonth);
+		    $('button[type=dec_button]').click(deccMonth);
+		});
+        </script>
+        
         <h2>Classes</h2>
         <p>
         Classes start every month. Textbooks are provided to students at no cost for the duration of the course and may be purchased for permanent ownership. 
@@ -131,9 +173,18 @@ By: David Ayodele
         may be rented (if available). Gait belts, stethoscope, and other necessary equipment are also provided. 
         <br>
         <br>
+        Start dates have "New" next to date time.
+        <br>
+        <br>
+        <span id="course_calendar_text">
+        Course Calendar <button type="dec_button" id="prev_month">Prev Month</button> <button type="inc_button" id="next_month">Next Month</button> 
+        </span>
+        <br>
         <!-- https://calendar.google.com/calendar/embed?title=SCSN%20Course%20Calendar&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=1pt84tlcdnnmu4tu7p5tj18nfs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FPhoenix -->
-        <iframe src="calendar_feb.html" style="border-width:0" width="100%" height="550px" frameborder="0" scrolling="yes">
+        <span id = "iframe_span">
+        <iframe id="calendar_frame" src="calendar_feb.html" style="border-width:0" width="100%" height="550px" frameborder="0" scrolling="yes">
         </iframe>
+        </span>
         <br>
         <span class="calendar_text">
         Note: You may sync our calendar with your own if you use gmail. Just click <a href="https://calendar.google.com/calendar/r?cid=1pt84tlcdnnmu4tu7p5tj18nfs@group.calendar.google.com" target="_blank">here</a>.

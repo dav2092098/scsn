@@ -7,10 +7,13 @@ s1='<script type="text/javascript" src="https://www.google.com/calendar/_/scs/ca
 s2='<!--  <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.O3ZPQ0NP9fY.O/rt=j/d=1/rs=ANwU0p60EQduHM_YO6nneRuNvqrCWpbOzA/m=embed" nonce=""></script> -->'
 sed -i 's/$s1/$s2/g' *.html
 
-**** working version ****
+s1='<span id="calendarTitle">SCSN Course Calendar</span>'
+s2='<!--<span id="calendarTitle">SCSN Course Calendar</span>-->'
+sed -i 's/$s1/$s2/g' *.html
+
+**** working version (only works for continuous text)****
 
 sed -i 's/943-1337/935-6628/g' *.html 
-
 *************************
 
 APT-GET issues

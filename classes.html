@@ -124,11 +124,19 @@ By: David Ayodele
         -->
         <script>
         $(document).ready(function() {
+            
+			var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
 			
-			var i = 3;
             var calendar = ["calendar_nov.html", "calendar_dec.html", "calendar_jan.html", "calendar_feb.html", "calendar_mar.html", "calendar_apr.html", "calendar_may.html"
                         , "calendar_jun.html", "calendar_jul.html"];
            
+            var i = mm + 1;
+			document.getElementById("calendar_frame").src = calendar[i];
+			
             function incMonth() {
                 document.getElementById("iframe_span").innerHTML = '<iframe id="calendar_frame" src="calendar_feb.html" style="border-width:0" width="100%" height="550px" frameborder="0" scrolling="yes"></iframe>';
         

@@ -129,14 +129,58 @@ By: David Ayodele
             var dd = today.getDate();
             var mm = today.getMonth()+1; //January is 0!
             var yyyy = today.getFullYear();
-            today = yyyy + '-' + mm + '-' + dd;
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+            var meridiem = " AM";
+            
+            if (hours > 11){
+              hours = hours - 12;
+              meridiem = " PM";
+            }
+            
+            today =  mm + '/' + dd + '/' + yyyy + ' - ' + hours + ':' + minutes + ':' + seconds + meridiem;
 			
             var calendar = ["calendar_nov.html", "calendar_dec.html", "calendar_jan.html", "calendar_feb.html", "calendar_mar.html", "calendar_apr.html", "calendar_may.html"
                         , "calendar_jun.html", "calendar_jul.html"];
            
             var i = mm + 1;
+			
 			document.getElementById("calendar_frame").src = calendar[i];
 			
+			function showTime() {
+			    var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                if (mm<10){
+                  mm = "0" + mm;
+                }
+                var yyyy = today.getFullYear();
+                var hours = today.getHours();
+                if (hours<10){
+                  hours = "0" + hours;
+                }
+                var minutes = today.getMinutes();
+                if (minutes<10){
+                  minutes = "0" + minutes;
+                }
+                var seconds = today.getSeconds();
+                if (seconds<10){
+                  seconds = "0" + seconds;
+                }
+                var meridiem = " AM";
+                if (hours > 11){
+                  hours = hours - 12;
+                  meridiem = " PM";
+                }
+                today =  mm + '/' + dd + '/' + yyyy + ' - ' + hours + ':' + minutes + ':' + seconds + meridiem;
+			    document.getElementById('scsn_clock').innerHTML = "  Present time: " + today;
+			}
+			
+			showTime();
+			
+			setInterval(showTime, 500);
+            			
             function incMonth() {
                 document.getElementById("iframe_span").innerHTML = '<iframe id="calendar_frame" src="calendar_feb.html" style="border-width:0" width="100%" height="550px" frameborder="0" scrolling="yes"></iframe>';
         
@@ -170,6 +214,7 @@ By: David Ayodele
     		$('button[type=inc_button]').click(incMonth);
 		    $('button[type=dec_button]').click(deccMonth);
 		});
+		
         </script>
         
         <h2>Classes</h2>
@@ -185,7 +230,7 @@ By: David Ayodele
         <br>
         <br>
         <span id="course_calendar_text">
-        Course Calendar <button type="dec_button" id="prev_month">Prev Month</button> <button type="inc_button" id="next_month">Next Month</button> 
+        Course Calendar <button type="dec_button" id="prev_month">Prev Month</button> <button type="inc_button" id="next_month">Next Month</button> &nbsp; &nbsp; <span id="scsn_clock"></span> 
         </span>
         <br>
         <!-- https://calendar.google.com/calendar/embed?title=SCSN%20Course%20Calendar&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=1pt84tlcdnnmu4tu7p5tj18nfs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FPhoenix -->

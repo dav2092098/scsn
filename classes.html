@@ -149,23 +149,26 @@ By: David Ayodele
 			document.getElementById("calendar_frame").src = calendar[i];
 			
 			function showTime() {
+			    
+			    var utc_offset = -7; // Arizona = UTC-0700 
 			    var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth()+1; //January is 0!
-                if (mm<10){
+                var dd = today.getUTCDate();  // gets UTC date instead of local
+                var mm = today.getUTCMonth()+1; //January is 0!
+                if (mm < 10){
                   mm = "0" + mm;
                 }
-                var yyyy = today.getFullYear();
-                var hours = today.getHours();
-                if (hours<10){
+                var yyyy = today.getUTCFullYear();
+                var hours = today.getUTCHours();
+                hours = hours + utc_offset;
+                if (hours < 10){
                   hours = "0" + hours;
                 }
-                var minutes = today.getMinutes();
-                if (minutes<10){
+                var minutes = today.getUTCMinutes();
+                if (minutes < 10){
                   minutes = "0" + minutes;
                 }
-                var seconds = today.getSeconds();
-                if (seconds<10){
+                var seconds = today.getUTCSeconds();
+                if (seconds < 10){
                   seconds = "0" + seconds;
                 }
                 var meridiem = " AM";

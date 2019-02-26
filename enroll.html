@@ -257,6 +257,9 @@ By: David Ayodele
 			//var ajax = new XMLHttpRequest();
 			//event.preventDefault();
 	  		name = $("#name").val();
+	  		var fullName = name.split(' '),
+                firstName = fullName[0],
+                lastName = fullName[fullName.length - 1];
 	  		$.ajax({
 	  			url: 'recaptcha_scsn.php',
 	  			type: "POST",
@@ -279,7 +282,7 @@ By: David Ayodele
 			  	j .className += "successMessage";
 			    _("ss-submit").value = _("msg").value;
 		        submitted = true;
-		        _("successMessage").innerHTML = "Thank you, " + name + "! You may proceed with payment. Please note: You will need to complete some paperwork before class starts to finalize enrollment.";
+		        _("successMessage").innerHTML = "Thank you, " + firstName + "! You may proceed with payment. Please note: You will need to complete some paperwork before class starts to finalize enrollment.";
 		         
 		        _("ss-submit").disabled = true;
 		        _("payment_form").className = ".payment_visible";

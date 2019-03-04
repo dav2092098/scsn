@@ -146,6 +146,9 @@ By: David Ayodele
 			    var utc_offset = -0; // Arizona = UTC-0700 
 			    var today = new Date();
                 var dd = today.getDate(); // today.getUTCDate();  // gets UTC date instead of local
+                if (dd < 10){
+                  dd = "0" + dd;
+                }
                 var mm = today.getUTCMonth()+1; //January is 0!
                 if (mm < 10){
                   mm = "0" + mm;

@@ -284,6 +284,8 @@ form input {
     width: 100%;
     background: url('img/nurses_general_med_1100x733.jpg');
     background-position: -100px -100px;
+    /*background: url('img/medical_team_1100x733.jpg');*/
+    /*background-position: -100px -175px;*/
     background-size: 1100px 733px;
     background-repeat: no-repeat;
 }

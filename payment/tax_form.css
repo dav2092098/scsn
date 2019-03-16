@@ -1,0 +1,340 @@
+#tax_form input.tax_fname {
+  background: #8a768f /*#222222*/ url(../img/icons/user-shape.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_lname {
+  background: #8a768f /*#222222*/ url(../img/icons/user-shape.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_email {
+  background: #8a768f /*#222222*/ url(../img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_sdate {
+  background: #8a768f /*#222222*/ url(../img/icons/stethoscope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_edate {
+  background: #8a768f /*#222222*/ url(../img/icons/stethoscope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_addr {
+  background: #8a768f /*#222222*/ url(../img/icons/home.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_city {
+  background: #8a768f /*#222222*/ url(../img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.tax_zip {
+  background: #8a768f /*#222222*/ url(../img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+
+/* ========= Contact Form ===============*/
+button:disabled{
+	opacity: 0;
+	cursor: default;
+}
+
+.catcher_class {
+	display: none; 
+	visibility: hidden;
+}
+
+#tax_form #captcha span{
+    width: 50px;
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #cfcfcf;
+    margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
+
+.g-recaptcha {
+  margin: 10px;
+  transform:scale(0.70);
+  transform:scale(70vw);
+  transform-origin:0 0;
+}
+
+.status_msg {
+	color:red; 
+}
+
+.submit_btn{
+	display:block;
+	border:none;
+	background: #ea4335; /*#7C359C; /*#ffc20c; /*#f8ae45;*/
+	color:#FFFFFF;
+	padding:12px 25px;
+	cursor:pointer;
+	text-decoration:none;
+	font-weight:bold;
+	transition: all 0.3s ease-in-out;
+}
+
+.submit_btn:hover{
+	background: #811411; /*#bc8f09;/*#d8850e;*/
+	transition: all 0.3s ease-in-out;
+}
+
+.successMessage {
+	height: 15px;
+	width: auto;
+	font-size: 0.7rem;
+	color: #187320;
+}
+
+#tax_form {
+    overflow: hidden;
+    overflow-y: auto;
+    padding-top: 0px;
+}
+#tax_form {
+  width: 100%; /*410px;*/
+  /*float:left;*/
+}
+#tax_form h2 {
+  font: 48px 'Open Sans', Georgia, serif;
+}
+#tax_form span {
+  display:block;
+  /*float:left;*/
+  width: 100%; /*100px;*/
+  padding-top:5px;
+  font: 14px'Open Sans', Georgia, serif;
+}
+#tax_form input {
+  /*float:left;*/
+  width: 100%; /*255px;*/
+  border:0px;
+  color: #ffffff; /*#F1F1F1;*/
+  padding:10px 10px 10px 30px;
+  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+  margin-bottom:10px;
+}
+#tax_form textarea {
+  /*float:left;*/
+  border:0px;
+  width: 100%; /*255px;*/
+  height:140px;
+  padding:10px 10px 10px 32px;
+  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+  color: #ffffff; /*#F1F1F1;*/
+  resize: none;
+  margin: 10px 0px 0px 2px;
+}
+
+#tax_form input.name {
+  background: #8a768f /*#222222*/ url(../img/icons/user-shape.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.address {
+  background: #8a768f /*#222222*/ url(../img/icons/home.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.city {
+  background: #8a768f /*#222222*/ url(../img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.zip {
+  background: #8a768f /*#222222*/ url(../img/icons/map-marker.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.phone2 {
+  background: #8a768f /*#222222*/ url(../img/icons/telephone.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.phone {
+  background: #8a768f /*#222222*/ url(../img/icons/telephone.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.phone_old {
+  background: #8a768f /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 10px;
+  background-size: 1.75em 1.75em
+}
+
+#tax_form input.email2 {
+  background: #8a768f /*#222222*/ url(../img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.email {
+  background: #8a768f /*#222222*/ url(../img/icons/envelope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.email_old {
+  background: #8a768f /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://../img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
+}
+
+#tax_form input.birthdate {
+  background: #8a768f /*#222222*/ url(../img/icons/gift-box.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.course_date {
+  background: #8a768f /*#222222*/ url(../img/icons/stethoscope.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.payment {
+  background: #8a768f /*#222222*/ url(../img/icons/dollar-sign.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+    
+}
+
+#tax_form input.captcha {
+  background: #8a768f /*#222222*/ url(refresh_icon_wht.png) no-repeat 10px 9px;  /*http://img3.uploadhouse.com/fileuploads/17737/17737011310213e71805ecf2292144cbbecf42ad.png*/
+}
+
+#tax_form textarea.message2 {
+  background: #8a768f /*#222222*/ url(../img/icons/comment-bubble.png) no-repeat 5px 10px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  background-size: 20px 20px;
+}
+
+#tax_form textarea.message {
+  background: #8a768f /*#222222*/ url(../message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+  background-size: 20px 20px;
+}
+
+#tax_form button {
+  /*
+  cursor: pointer;
+  width:85px;
+  height:30px;
+  /*float:right;
+  padding:0px 0px 5px 0px;
+  margin:10px 16px 0px 0px;
+  background:#222222;
+  color:#F1F1F1;
+  */
+  margin-top: 20px;
+  font: 12px 'Open Sans', Arial, sans-serif;
+  width: 100px;
+  /*border-radius: 20px;*/
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #cfcfcf;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #cfcfcf;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #cfcfcf;
+}
+
+@media (max-width: 400px) { /*execute until 400*/
+	.g-recaptcha {
+	    margin: 20px;
+	    transform:scale(0.77);
+	    transform:scale(50vw);
+	    transform-origin:0 0;
+	}
+}
+
+@media (max-width: 300px) { /*execute until 300*/
+	.g-recaptcha {
+	    margin: 20px;
+	    transform:scale(0.50);
+	    transform:scale(50vw);
+	    transform-origin:0 0;
+	}
+}
+
+@media (max-width: 400px) { /*execute until 400*/
+	.g-recaptcha {
+	    margin: 20px;
+	    transform:scale(0.77);
+	    transform:scale(50vw);
+	    transform-origin:0 0;
+	}
+}
+
+@media (max-width: 991px) { /*execute until 991*/
+	#tax_form {
+	  width: 100%; /*410px;*/
+	  /*float:left;*/
+	}
+	
+	#tax_form span {
+  	  display:block;
+	  /*float:left;*/
+	  width: 100%; /*100px;*/
+	  padding-top:5px;
+	  font: 14px 'Open Sans', Georgia, serif;
+	}
+	#tax_form input {
+	  /*float:left;*/
+	  width: 100%; /*255px;*/
+	  border:0px;
+	  color: #ffffff; /*#F1F1F1;*/
+	  padding:10px 10px 10px 30px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  margin-bottom:10px;
+	}
+	#tax_form textarea {
+	  /*float:left;*/
+	  border:0px;
+	  width: 100%; /*255px;*/
+	  height:140px;
+	  padding:10px 10px 10px 32px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  color: #ffffff; /*#F1F1F1;*/
+	  resize: none;
+	  margin: 0px 0px 0px 0px;
+	}
+	
+	#tax_form button {
+	  margin-top: 20px;
+	  font: 12px 'Open Sans', Georgia, serif;
+	  width: 100px;
+	  /*border-radius: 20px;*/
+	}
+	#tax_form #captcha span{
+	    width: 50%;
+	}
+}

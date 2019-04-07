@@ -4,29 +4,13 @@ INFSCI 2170
 HW 8 Pb 3
 4/5/19
 */
+#include <time.h>
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define bigint long long
-
-/*int a, b;*/
-
-int fst_pow(int a, int N) {
-	if (N == 0) { 
-		return 1; // will be reached if N is even at end of feedback
-	} else if (N == 1) { 
-		return a; // will be reached if N is odd at end of feedback 
-	} else {
-		int split = fst_pow(a, N/2); // feedback within feedback
-		if (N % 2 == 0) { 
-			return split*split; // will be reached if N is even at end of feedback
-		} else {
-			return split*a*split; // will be reached if N is odd at end of feedback
-		}
-	}
-}
 
 bigint mod_pow(bigint a, bigint N, bigint M) {
     bigint result = 1; // default when N = 0 
@@ -40,26 +24,9 @@ bigint mod_pow(bigint a, bigint N, bigint M) {
     return result;
 }
 
-
-bigint mod_log(bigint b, bigint c, bigint M) {
-	bigint k = 0;
-	while (mod_pow(b, k, M) != c) { // look for the soln to b^k mod M = c  (i.e. log_b(c) = k mod M)
-		k++;	
-	}
-	return k;	
-}
-
-
-int pow_mod(int a, int N, int M) {
-	if (N%2 == 0) { 
-		return ( (pow_mod(a, N/2, M) % M) * (pow_mod(a, N/2, M) % M) ) % M; // feedback split * split mod M
-	} else { 
-		return ( (pow_mod(a, N/2, M) % M) * a * (pow_mod(a, N/2, M) % M) ) % M; // will be reached if N is odd at end of feedback
-	}
-}
-
-
 int main() {
+    clock_t tic = clock();
+    
 	#define LINE_MAX 256
 	char buf[LINE_MAX];
 	char *end;
@@ -91,20 +58,12 @@ int main() {
         } else break;
     }
 	
-    //r = mod_log(x,y,z);
-    //printf("log_%d(%d) mod %d = %d\n", x, y, z, r);
-    
-    
 	r = mod_pow(x,y,z);
     printf("%d ^ %d mod %d = %d\n", x, y, z, r);
-
-    //r = fst_pow(x,y);
-	//printf("%d ^ %d = %d\n", x, y, r);
-
-	//int r = gccd(x, y, s, t);
-	
-	//printf("a = %d\n b = %d\n", s, t);
-
+    
+    clock_t toc = clock();
+     
+    printf("Elapsed time: %f seconds\n", (double)(toc - tic) / CLOCKS_PER_SEC); // CLOCKS_PER_SEC defined in time.h
 	return 0;
 }
 

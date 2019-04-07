@@ -28,13 +28,26 @@ int fst_pow(int a, int N) {
 	}
 }
 
+/* template <typename T>
+T modpow(T base, T exp, T modulus) {
+  base %= modulus;
+  T result = 1;
+  while (exp > 0) {
+    if (exp & 1) result = (result * base) % modulus;
+    base = (base * base) % modulus;
+    exp >>= 1;
+  }
+  return result;
+}*/
+
+
 bigint mod_pow(bigint a, bigint N, bigint M) {
     bigint result = 1; // default when N = 0 
     while (N > 0) {
         if (N % 2 == 1) {
-            result = (result * a) % M; // if N is odd, mult result by a only (the mult case in square and mult)
+            result = (result * a) % M; // if N is odd, mult result by a (a represents base and base is mult by itself later)
         }
-        N = N >> 1; // N = N/2
+        N = N >> 1; // Same as div by 2
         a = (a * a) % M; // mult base by itself then take mod
     }
     return result;
@@ -91,12 +104,12 @@ int main() {
         } else break;
     }
 	
-    //r = mod_log(x,y,z);
-    //printf("log_%d(%d) mod %d = %d\n", x, y, z, r);
+    r = mod_log(x,y,z);
+    printf("log_%d(%d) mod %d = %d\n", x, y, z, r);
     
     
-	r = mod_pow(x,y,z);
-    printf("%d ^ %d mod %d = %d\n", x, y, z, r);
+	//r = mod_pow(x,y,z);
+    //printf("%d ^ %d mod %d = %d\n", x, y, z, r);
 
     //r = fst_pow(x,y);
 	//printf("%d ^ %d = %d\n", x, y, r);

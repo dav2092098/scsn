@@ -1,11 +1,13 @@
 <!doctype html>
 <!-- 
 rename form.html
-Updated: 5/29/18 
+Updated: 7/12/18 
 Updated by: David Ayodele
 -->
-<html><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html>
+<head oncontextmenu="return false">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -16,25 +18,15 @@ Updated by: David Ayodele
 <!-- Custom styles -->
 <link rel="stylesheet" href="https://raw.githubusercontent.com/dav2092098/scsn/master/style_upload.css" media="all">
 
-<!-- Begin Analytics Script -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128590970-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-128590970-1');
-</script>
-<!-- End Analytics Script -->
-
 <style type="text/css">
 body {
 	background-color: #FFFFFF;
 }
 </style>
 
-</head><body><div class="bg-wrap">
+</head>
+<body oncontextmenu="return false">
+<div class="bg-wrap">
 
 </div>
 
@@ -44,7 +36,7 @@ body {
 <div class="wrapperTop"> <!-- contains logo, navbar and search form -->
         <header class="pageHeader clearfix"> <!-- wrapper needed for floating logo and search form -->
         <div class="fl_half logo_top"> <!-- will float and take up half of page -->
-        <img src="https://raw.githubusercontent.com/dav2092098/scsn/master/img/scsn_temp_logo_b&p_bscsn_temp_logo_b&pp.png" alt="My logo" class="logo">
+        <img src="https://raw.githubusercontent.com/dav2092098/scsn/master/img/scsn_temp_logo_b&p2.png" alt="My logo" class="logo">
         <span class="logo_text">Star Canyon School of Nursing
         </span>
         </div>
@@ -58,16 +50,19 @@ body {
         </button>
         <ul class="menuItems hidden_on_mobile" id="menuItems">
         <li>
-        <a href="https://dayo9.gitlab.io/scsn/index.html" target="_blank">Home</a>
+        <a href="http://starcanyonschoolofnursing.com/index.html" target="_blank">Home</a>
         </li>
         <li>
-        <a href="https://dayo9.gitlab.io/scsn/about.html" target="_blank">About Us</a>
+        <a href="http://starcanyonschoolofnursing.com/about.html" target="_blank">About Us</a>
         </li>
         <li>
-        <a href="https://dayo9.gitlab.io/scsn/classes.html" target="_blank">Classes</a>
+        <a href="http://starcanyonschoolofnursing.com/classes.html" target="_blank">Classes</a>
         </li>
         <li>
-        <a href="https://dayo9.gitlab.io/scsn/faq.html" target="_blank">Questons/Info</a>
+        <a href="http://starcanyonschoolofnursing.com/enroll.html" target="_blank">Enroll</a>
+        </li>
+        <li>
+        <a href="http://starcanyonschoolofnursing.com/faq.html" target="_blank">Questons/Info</a>
         </li>
         </ul>
         </nav>
@@ -81,9 +76,9 @@ body {
   </span>
   <br>
   <br>
-  <p class="span_caption">(Size limit = 5GB, if unsuccessful, email to regina.ayodele@gmail.com)
+  <p class="span_caption">Please upload a copy of your ID/transcripts/other files here (size limit = 5GB, if unsuccessful, email to starcanyonschool@gmail.com)
   <br>
-  After uploading, please copy the file path and save it as confirmation (it may be needed)
+  After uploading, please copy/save the file path code (it may be needed). The code will begin with the words "file path="
   </p>
   
   <!--
@@ -141,12 +136,12 @@ input {
         <br>
         Phoenix, AZ 85020
         <br>
-        Ph: 602.935.6628
+        Ph: 602.943.1337
         </div>
         <div class="fl_oneThird">
         <a href="https://www.instagram.com/starcanyonschool/">
-        <!-- <a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(from%20website)%20">-->
-        <img class="mail_img" src="https://raw.githubusercontent.com/dav2092098/scsn/master/img/instagram_logo_thick.png">
+        <!-- <a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(from%20website)%20"> -->
+        <img class="mail_img" src="https://raw.githubusercontent.com/dav2092098/scsn/master/img/mail_img.png">
         </a> 
         </div>
         </footer>
@@ -188,7 +183,11 @@ ul, ol {
     left: 0;
     width: 100%;
     height: 110%;
-    z-index:-1;
+    z-index: -1;
+    /* background-color: #fff; */
+    background: #efefef;
+    background-image: url('https://raw.githubusercontent.com/dav2092098/scsn/master/img/textures/leather.png');
+    background-attachment: fixed;
 }
 
 .background-img img {
@@ -449,7 +448,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     /* margin: -52px 0px 0px 300px; */
     border-radius: 10px;
     /* float: right; */
-    margin-top: -82px;
+    margin-top: -90px;
     margin-left: 75%;
  }
 
@@ -740,7 +739,7 @@ table.core_table td:last-child {
     */
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 490px) {
     .logo_text {
         max-width: 400px;
     }
@@ -763,13 +762,6 @@ table.core_table td:last-child {
         font-size: 1.5rem;
     }
     
-    .logo_text {
-        /* width: 200px; */
-        /* padding-right: 50px; */
-        font-size: 2rem;
-        overflow: visible;
-        white-space: nowrap;
-    }
 }
 
 @media screen and (min-width: 600px){
@@ -782,8 +774,13 @@ table.core_table td:last-child {
 	}
 }
 
-@media screen and (min-width: 772px){
+@media screen and (min-width: 750px){
     /*when browser window is wider than mim-width*/
+    
+    .logo_text {
+      max-width: 800px;
+      font-size: 2rem;
+    }
     
     .fixed-header {
         position: fixed;
@@ -839,13 +836,13 @@ table.core_table td:last-child {
         /*! box-shadow: 0 3px 3px #777; */
     }
  	
- 	table.core_table td {
-		font-size: 16px;
-	}
+   	table.core_table td {
+  		font-size: 16px;
+  	}
 
-	table.core_table th {
-		font-size: 16px;
-	}  
+  	table.core_table th {
+  		font-size: 16px;
+  	}  
 	 
     .toggleMenu {
         display: none;

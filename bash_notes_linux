@@ -16,6 +16,7 @@ sed -i 's/$s1/$s2/g' *.html
 sed -i 's/943-1337/935-6628/g' *.html 
 *************************
 
+
 APT-GET issues
 sudo dpkg --configure -a
 sudo apt-get install -f

@@ -19,7 +19,7 @@ bigint mod_pow(bigint a, bigint N, bigint M) {
             result = (result * a) % M; // if N is odd, mult result by a only (the mult case in square and mult)
         }
         N = N >> 1; // N = N/2
-        a = (a * a) % M; // mult base by itself then take mod
+        a = (a * a) % M; // mult base by itself (square) then take mod
     }
     return result;
 }
@@ -54,7 +54,7 @@ int main() {
 	while (fgets(c, sizeof(c), stdin)) {
         z = strtol(c, &p, 10);
         if (p == c || *p != '\n') {
-            printf("Please a modulus integer, M: ");
+            printf("Please enter a modulus integer, M: ");
         } else break;
     }
 	

@@ -14,6 +14,10 @@ sed -i 's/$s1/$s2/g' *.html
 **** working version (only works for continuous text)****
 
 sed -i 's/943-1337/935-6628/g' *.html 
+
+s1='<a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(From%20Website)%20">'
+s2='<a href="https://www.instagram.com/starcanyonschool/"><!-- <a href="mailto:regina.ayodele@gmail.com?Subject=SCSN%20Inquiry%20(From%20Website)%20"> -->'
+sed -i 's/$s1/$s2/g' *.html
 *************************
 
 

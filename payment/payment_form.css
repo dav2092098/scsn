@@ -43,7 +43,7 @@ ul, ol {
     *zoom: 1;
 }
 
-main, section, article, header, footer, aside {
+main, section, article, nav, header, footer, aside {
     display: block; /*ensures html5 elements are rendered as block elements (unknown elements will be rendered as in-line in most browsers, (IE does not recog main)*/
 }
 
@@ -295,8 +295,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 
 /*-----NAV DISPLAY------*/
 .hidden_on_mobile {
-    /*display: none;*/
-    transition: all 0.2s ease;    
+    /*display: none;*/    
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -webkit-transform: scale(0.0, 0.0);
@@ -305,8 +304,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 }
 
 .visible_on_mobile {
-    /*display: block;*/  
-    transition: all 0.2s ease;  
+    /*display: block;*/    
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -webkit-transform: scale(1.0, 1.0);
@@ -357,15 +355,6 @@ form input {
 
 .searchForm input {
     border: none;
-}
-
-/*-----DISPLAY------*/
-.hidden_on_mobile {
-    display: none;
-}
-
-.visible_on_mobile {
-    display: block;
 }
 
 /*-----UNIQUE------*/

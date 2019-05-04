@@ -136,6 +136,109 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 
 
 /*-----NAVIGATION------*/
+.hamburger-menu-button {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  background: rgb(104, 59, 114, 0.7); /*#2980b9;*/
+  border: 2px solid white;
+  box-sizing: content-box;
+  border-radius: 50%;
+  text-indent: 100%;
+  color: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 5px -3px 0px 0px;
+  right: 10px;
+}
+.hamburger-menu-button-open {
+  top: 50%;
+  margin-top: -1px;
+  left: 50%;
+  margin-left: -12px;
+}
+.hamburger-menu-button-open, 
+.hamburger-menu-button-open::before, 
+.hamburger-menu-button-open::after {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.hamburger-menu-button-open::before, 
+.hamburger-menu-button-open::after {
+  left: 0;
+  content: "";
+}
+.hamburger-menu-button-open::before {
+  top: 6px;
+}
+.hamburger-menu-button-open::after {
+  bottom: 6px;
+}
+.hamburger-menu-button-close {
+  background: transparent;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.hamburger-menu-button-close::before {
+  -webkit-transform: translateY(-6px) rotate(45deg);
+          transform: translateY(-6px) rotate(45deg);
+}
+.hamburger-menu-button-close::after {
+  -webkit-transform: translateY(6px) rotate(-45deg);
+          transform: translateY(6px) rotate(-45deg);
+}
+.ham-menu {
+  position: absolute;
+  top: 42px;
+  left: 48px;
+  margin: auto;
+  max-width: 570px;
+  overflow: hidden;
+}
+.ham-menu ul {
+  -webkit-transform: translateX(-110%);
+          transform: translateX(-110%);
+  background-color: rgba(104, 59, 114, 0.7); /*#3896d3;*/
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.ham-menu.on ul {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.ham-menu ul {
+  font-size: 0;
+}
+.ham-menu ul li {
+  display: inline-block;
+}
+.ham-menu ul li:first-child .ham-menu ul li a {
+  padding-left: 30px;
+}
+.ham-menu ul li a {
+  padding: 15px;
+  display: block;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-size: 13px;
+}
+.ham-menu ul li.active a, .ham-menu ul li a:hover {
+  background-color: rgba(104, 59, 114, 1); /*#2980b9;*/
+  color: #fff !important;
+} 
+
 .pageNav {
     padding: 0rem 1rem 0 1rem;
 }
@@ -168,13 +271,16 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     position: absolute; /*so it adds no height to content*/
     height: 50px;
     width: 50px;
-    background-color: rgba(70, 29, 79, 0);
+    background-color: rgba(104, 59, 114, 0); /*rgba(70, 29, 79, 0);*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
     cursor: pointer;
     margin: -78px -3px 0px 0px;
     border-radius: 10px;
     right: 10px;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
  }
 
 .toggle_menu_img:hover {
@@ -186,6 +292,26 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: drop-shadow(1px 1px 2px rgba(0,0,0,1)); /*x-offset, y-offset, blur*/
 }
+
+/*-----NAV DISPLAY------*/
+.hidden_on_mobile {
+    /*display: none;*/    
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -webkit-transform: scale(0.0, 0.0);
+      transform: scale(0.0, 0.0);      
+    height: 0px;
+}
+
+.visible_on_mobile {
+    /*display: block;*/    
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -webkit-transform: scale(1.0, 1.0);
+      transform: scale(1.0, 1.0);
+    height: 150px;
+}
+
 /*-----TOPOGRAPHY------*/
 h1 {
     font-family: Georgia, serif;
@@ -716,6 +842,10 @@ table.core_table td:last-child {
 	 
     .toggleMenu {
         display: block;
+    }
+    
+    .visible_on_mobile {
+        height: 30px;
     }
     
     .wrapperTop {

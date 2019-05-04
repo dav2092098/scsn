@@ -87,10 +87,23 @@ By: David Ayodele
         </div>
         -->
         </header>
-        
+        <!--
+        <nav id="ham-navigation" class="ham-menu">
+        <ul class="menu">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#">Contact Us</a></li>        
+        </ul>        
+        </nav>
+        -->
         <nav class="pageNav clearfix"> <!-- used to control width/spacing of page elements on larger screens-->
+        <!--
         <button class="toggleMenu" id="toggleMenu">
         <img src="img/mobile_menu_wht.png" alt="&#926;" class="toggle_menu_img">
+        </button>
+        -->
+        <button id="hamburger-menu" data-toggle="ham-navigation" class="hamburger-menu-button toggleMenu">
+        <span class="hamburger-menu-button-open">Menu
+        </span>
         </button>
         <ul class="menuItems visible_on_mobile" id="menuItems">
         <li>
@@ -591,10 +604,39 @@ By: David Ayodele
         var map = new google.maps.Map(document.getElementById("map"), {zoom: 15, center: loc});
         var marker = new google.maps.Marker({position: loc, map: map});
     }
+
+    var button = document.getElementById('hamburger-menu');
+    var span = button.getElementsByTagName('span')[0];
+
+    button.onclick =  function() {
+      span.classList.toggle('hamburger-menu-button-close');
+    };
+
+    $('#hamburger-menu').on('click', toggleOnClass);
+    //$('#menuItems').on('click', toggleOnClass);
+
+    function toggleOnClass(event) {
+        var toggleElementId = '#' + $(this).data('toggle');
+        var element = $(toggleElementId);
+        element.toggleClass('on');
+        element.toggleClass('visible_on_mobile');
+        if(menu.className == "menuItems visible_on_mobile") {
+                menu.className = "menuItems hidden_on_mobile";
+        }
+        else {
+            menu.className = "menuItems visible_on_mobile"; 
+        }
+    }
+
+    // close hamburger menu after click a
+    $( '.menu li a' ).on("click", function(){
+      $('#hamburger-menu').click();
+    });
     
     var menuToggle = function menuToggle() {
-        var btn = document.getElementById("toggleMenu"); /*id for button*/
+        //var btn = document.getElementById("toggleMenu"); /*id for button*/
         var menu = document.getElementById("menuItems"); /*id for <ul>*/
+        var button = document.getElementById('hamburger-menu');
         var menuHandler = function menuHandler() {
             if(menu.className == "menuItems visible_on_mobile") {
                 menu.className = "menuItems hidden_on_mobile";
@@ -603,7 +645,8 @@ By: David Ayodele
                 menu.className = "menuItems visible_on_mobile"; 
             }
         }
-        btn.addEventListener("click", menuHandler, false);
+        button.addEventListener("click", menuHandler, false);
+        //button.addEventListener("click", menuHandler, false);
     }
     try {
         window.addEventListener("load", menuToggle, false);

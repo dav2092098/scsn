@@ -132,6 +132,66 @@ body {
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
   </form>
 
+<!-- Google Maps marker and Toggle Menu script (edited 5/28/18, 5/4/19)-->
+<script>
+    function initMap() {
+        var loc = {lat: 33.565630, lng: -112.074325};
+        var map = new google.maps.Map(document.getElementById("map"), {zoom: 15, center: loc});
+        var marker = new google.maps.Marker({position: loc, map: map});
+    }
+
+    var button = document.getElementById('hamburger-menu');
+    var span = button.getElementsByTagName('span')[0];
+
+    button.onclick =  function() {
+      span.classList.toggle('hamburger-menu-button-close');
+    };
+
+    $('#hamburger-menu').on('click', toggleOnClass);
+    //$('#menuItems').on('click', toggleOnClass);
+
+    function toggleOnClass(event) {
+        var toggleElementId = '#' + $(this).data('toggle');
+        var element = $(toggleElementId);
+        element.toggleClass('on');
+        element.toggleClass('visible_on_mobile');
+        if(menu.className == "menuItems visible_on_mobile") {
+                menu.className = "menuItems hidden_on_mobile";
+        }
+        else {
+            menu.className = "menuItems visible_on_mobile"; 
+        }
+    }
+
+    // close hamburger menu after click a
+    $( '.menu li a' ).on("click", function(){
+      $('#hamburger-menu').click();
+    });
+    
+    var menuToggle = function menuToggle() {
+        //var btn = document.getElementById("toggleMenu"); /*id for button*/
+        var menu = document.getElementById("menuItems"); /*id for <ul>*/
+        var button = document.getElementById('hamburger-menu');
+        var menuHandler = function menuHandler() {
+            if(menu.className == "menuItems visible_on_mobile") {
+                menu.className = "menuItems hidden_on_mobile";
+            }
+            else {
+                menu.className = "menuItems visible_on_mobile"; 
+            }
+        }
+        button.addEventListener("click", menuHandler, false);
+        //button.addEventListener("click", menuHandler, false);
+    }
+    try {
+        window.addEventListener("load", menuToggle, false);
+    } 
+    catch(e) {
+        window.onload = menuToggle;
+    }
+    </script>
+    <!-- End script-->
+
 <script>
 function fileUploaded(status) {
   document.getElementById('myForm').style.display = 'none';

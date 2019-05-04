@@ -542,9 +542,9 @@ form input {
 
 .mail_img {
     color: #fff;
-    margin-top: 10px;
-    height: 55px;
-    width: 55px;
+    margin-top: 9px;
+    height: 52px;
+    width: 52px;
     ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: drop-shadow(0.5px 0.5px 0.5px rgba(0,0,0,1));

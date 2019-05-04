@@ -43,7 +43,7 @@ ul, ol {
     *zoom: 1;
 }
 
-main, section, article, nav, header, footer, aside {
+main, section, article, header, footer, aside {
     display: block; /*ensures html5 elements are rendered as block elements (unknown elements will be rendered as in-line in most browsers, (IE does not recog main)*/
 }
 
@@ -295,7 +295,8 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 
 /*-----NAV DISPLAY------*/
 .hidden_on_mobile {
-    /*display: none;*/    
+    /*display: none;*/
+    transition: all 0.2s ease;    
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -webkit-transform: scale(0.0, 0.0);
@@ -304,7 +305,8 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 }
 
 .visible_on_mobile {
-    /*display: block;*/    
+    /*display: block;*/  
+    transition: all 0.2s ease;  
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -webkit-transform: scale(1.0, 1.0);
@@ -556,9 +558,9 @@ form input {
 
 .mail_img {
     color: #fff;
-    margin-top: 10px;
-    height: 50px;
-    width: 50px;
+    margin-top: 9px;
+    height: 52px;
+    width: 52px;
     ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#000')";
     filter: drop-shadow(0.5px 0.5px 0.5px rgba(0,0,0,1));
@@ -847,7 +849,7 @@ table.core_table td:last-child {
     .visible_on_mobile {
         height: 30px;
     }
-    
+
     .wrapperTop {
         box-shadow: 1px 2px 10px #777;
     }

@@ -136,6 +136,11 @@ body { /*rather than targetting main element directly, we let it inherit from bo
 
 
 /*-----NAVIGATION------*/
+/*======================
+circular hamburger menu adapted 5/4/19
+from Salah Uddin 
+https://codepen.io/salahuddin/pen/qRVwKW
+========================*/
 .hamburger-menu-button {
   width: 40px;
   height: 40px;
@@ -161,16 +166,24 @@ body { /*rather than targetting main element directly, we let it inherit from bo
   left: 50%;
   margin-left: -12px;
 }
+
+.hamburger-menu-button-open:hover, 
+.hamburger-menu-button-open:hover::before,
+.hamburger-menu-button-open:hover::after {
+  box-shadow: 0.0px 0.0px 0.0px 0.5px rgba(0, 0, 0, 0.0);
+}
+
 .hamburger-menu-button-open, 
 .hamburger-menu-button-open::before, 
 .hamburger-menu-button-open::after {
   position: absolute;
-  width: 24px;
+  width: 26px;
   height: 2px;
   background: #fff;
   border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  box-shadow: 0.5px 1.5px 0.5px 0.5px rgba(0, 0, 0, 0.3);
 }
 .hamburger-menu-button-open::before, 
 .hamburger-menu-button-open::after {
@@ -187,6 +200,7 @@ body { /*rather than targetting main element directly, we let it inherit from bo
   background: transparent;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+  box-shadow: 0.5px 1.5px 0.5px 0.5px rgba(0, 0, 0, 0.0);
 }
 .hamburger-menu-button-close::before {
   -webkit-transform: translateY(-6px) rotate(45deg);
@@ -271,12 +285,13 @@ body { /*rather than targetting main element directly, we let it inherit from bo
     position: absolute; /*so it adds no height to content*/
     height: 50px;
     width: 50px;
-    background-color: rgba(104, 59, 114, 0); /*rgba(70, 29, 79, 0);*/
+    background-color: rgba(104, 59, 114, 0.0); /*rgba(70, 29, 79, 0);*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
     cursor: pointer;
     margin: -78px -3px 0px 0px;
-    border-radius: 10px;
+    border-radius: 50px;
+    /*box-shadow: 0.5px 1.5px 0.5px 0.5px rgba(0, 0, 0, 0.3);*/
     right: 10px;
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
